@@ -29,6 +29,9 @@ TextureImporter:
   - first:
       213: -784345519576498939
     second: slitmouth sprite sheet_8
+  - first:
+      213: 6474017669982358159
+    second: slitmouth sprite sheet_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -127,12 +130,12 @@ TextureImporter:
       name: slitmouth sprite sheet_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 482
-        height: 791
+        x: 35
+        y: 29
+        width: 955
+        height: 762
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,12 +152,12 @@ TextureImporter:
       name: slitmouth sprite sheet_1
       rect:
         serializedVersion: 2
-        x: 705
+        x: 1073
         y: 0
-        width: 384
-        height: 787
+        width: 391
+        height: 780
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,12 +174,12 @@ TextureImporter:
       name: slitmouth sprite sheet_2
       rect:
         serializedVersion: 2
-        x: 1239
+        x: 1682
         y: 0
-        width: 381
-        height: 793
+        width: 384
+        height: 787
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -193,12 +196,12 @@ TextureImporter:
       name: slitmouth sprite sheet_3
       rect:
         serializedVersion: 2
-        x: 1792
+        x: 2216
         y: 0
-        width: 370
-        height: 805
+        width: 381
+        height: 793
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -215,12 +218,12 @@ TextureImporter:
       name: slitmouth sprite sheet_4
       rect:
         serializedVersion: 2
-        x: 2337
+        x: 2769
         y: 0
-        width: 354
-        height: 811
+        width: 370
+        height: 805
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -237,12 +240,12 @@ TextureImporter:
       name: slitmouth sprite sheet_5
       rect:
         serializedVersion: 2
-        x: 2836
+        x: 3314
         y: 0
-        width: 491
-        height: 822
+        width: 354
+        height: 811
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -259,12 +262,12 @@ TextureImporter:
       name: slitmouth sprite sheet_6
       rect:
         serializedVersion: 2
-        x: 3614
-        y: 755
-        width: 63
-        height: 54
+        x: 3813
+        y: 0
+        width: 491
+        height: 822
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -278,45 +281,23 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet_7
+      name: slitmouth sprite sheet_9
       rect:
         serializedVersion: 2
-        x: 2711
-        y: 730
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5114a625169ea41b0800000000000000
-      internalID: -5671464176515923691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: slitmouth sprite sheet_8
-      rect:
-        serializedVersion: 2
-        x: 3368
+        x: 4345
         y: 0
         width: 513
-        height: 750
+        height: 815
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50d3974d7e17d15f0800000000000000
-      internalID: -784345519576498939
+      spriteID: f8a86e025c458d950800000000000000
+      internalID: 6474017669982358159
       vertices: []
       indices: 
       edges: []
@@ -325,7 +306,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 241ee237a630e1641a5e79bc50fc5c28
     internalID: 0
     vertices: []
     indices: 
@@ -344,6 +325,7 @@ TextureImporter:
       slitmouth sprite sheet_6: 6531195644841704110
       slitmouth sprite sheet_7: -5671464176515923691
       slitmouth sprite sheet_8: -784345519576498939
+      slitmouth sprite sheet_9: 6474017669982358159
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
