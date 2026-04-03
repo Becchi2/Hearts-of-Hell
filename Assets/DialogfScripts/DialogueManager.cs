@@ -59,7 +59,7 @@ public class DialogueManager : MonoBehaviour
     public void SelectResponse(DialogueResponse response, string name)
     {
         //check if there's a next node
-        if (response.nextNode.IsLastNode())
+        if (!response.nextNode.IsLastNode())
         {
             StartDialogue(name, response.nextNode);// checks for the next dialog
         }

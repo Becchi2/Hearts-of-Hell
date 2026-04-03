@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0e5b215458cb4f4b9cc586aec208fec, type: 3}
-  m_Name: SlitMouth
-  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
-  RootNode: {fileID: 11400000, guid: dd2f0fd1c00c2884ab29e044f1734809, type: 2}
+  m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
+  m_Name: DialogNode
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  dialogueText: 
+  responses: []
