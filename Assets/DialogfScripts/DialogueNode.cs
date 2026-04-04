@@ -9,7 +9,7 @@ public class DialogueNode :ScriptableObject
     public string dialogueText;//the text they are saying
     public List<DialogueResponse> responses;//the responses the player can say
 
-
+    //checks for if there are no responses left
     internal bool IsLastNode()
     {
         return responses.Count <= 0;

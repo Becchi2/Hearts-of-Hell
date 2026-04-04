@@ -10,13 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
-  m_Name: RootNode
+  m_Name: positive1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: hey
+  dialogueText: oh hey
   responses:
-  - responseText: hi
-    attraction: 1
-    nextNode: {fileID: 11400000, guid: 0dbc60c368f1f384eb3c7b29e9dfca28, type: 2}
-  - responseText: fuck u
-    attraction: -3
-    nextNode: {fileID: 11400000, guid: 848989c1ccbfdb14e8ee200c1d783636, type: 2}
+  - responseText: yeah whats up see you around
+    attraction: 0
+    nextNode: {fileID: 11400000, guid: c50c1619eaec2e84fab957cdcb41d836, type: 2}

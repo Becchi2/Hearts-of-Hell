@@ -10,7 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
-  m_Name: DialogNode
+  m_Name: negative 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: 
-  responses: []
+  dialogueText: then just kys
+  responses:
+  - responseText: fine i will
+    attraction: 0
+    nextNode: {fileID: 11400000, guid: c50c1619eaec2e84fab957cdcb41d836, type: 2}
+  - responseText: maybe u should first
+    attraction: -1
+    nextNode: {fileID: 11400000, guid: c50c1619eaec2e84fab957cdcb41d836, type: 2}

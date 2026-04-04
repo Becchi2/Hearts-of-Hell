@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        //ensures thers only one instance of dialogue manager at a time
+        //ensures theres only one instance of dialogue manager at a time
         if (Instance == null)
         {
             Instance = this;
@@ -38,15 +38,16 @@ public class DialogueManager : MonoBehaviour
         DemonName.text = name;
         DialogText.text = node.dialogueText;
 
-        //removes existing resonse buttons
+        //removes existing response buttons
         foreach (Transform child in ResponseButtonContainer)
         {
-            Destroy(child.gameObject);
+            Destroy(obj: child.gameObject);
         }
 
         //assigns responses to buttons
         foreach (DialogueResponse response in node.responses)
         {
+            //creates button
             GameObject buttonObj = Instantiate(ResponseButtonPrefab, ResponseButtonContainer);
             buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = response.responseText;
 
@@ -61,7 +62,7 @@ public class DialogueManager : MonoBehaviour
         //check if there's a next node
         if (!response.nextNode.IsLastNode())
         {
-            StartDialogue(name, response.nextNode);// checks for the next dialog
+            StartDialogue(name, response.nextNode);// starts the next dialog
         }
         else
         {
@@ -74,7 +75,13 @@ public class DialogueManager : MonoBehaviour
     public void HideDialogue()
     {
         DialogParent.SetActive(false);
+        //gets rid of options
+        foreach (Transform child in ResponseButtonContainer)
+        {
+            Destroy(obj: child.gameObject);
+        }
     }
+
     //show dialog UI
     public void ShowDialogue()
     {
