@@ -1,9 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;   
+using UnityEngine.UI;
 public class BattleHudd : MonoBehaviour
 {
 
     public Slider hpslider;
+    public Slider mpslider;
 
     public void SetHUD(Unit unit)
     {
@@ -14,5 +15,10 @@ public class BattleHudd : MonoBehaviour
     public void SetHP(int hp)
     {
         hpslider.value = hp;
+    }
+
+    public void SetMP(int mp)
+    {
+        mpslider.value = mp;
     }
 }

@@ -49,6 +49,9 @@ MonoBehaviour:
   maxHP: 200
   currentHP: 200
   damage: 10
+  magicDamage: 25
+  maxMP: 50
+  currentMP: 50
 --- !u!1 &8082037195597333493
 GameObject:
   m_ObjectHideFlags: 0

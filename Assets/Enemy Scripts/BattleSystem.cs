@@ -89,7 +89,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttackTwo()
     {
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage * 2);
+        bool isDead = enemyUnit.TakeMagicDamage(enemyUnit.damage);
         enemyHUD.SetHP(enemyUnit.currentHP);
         yield return new WaitForSeconds(2f);
         if (isDead)
