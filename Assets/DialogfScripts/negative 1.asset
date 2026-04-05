@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   dialogueText: then just kys
   responses:
-  - responseText: fine i will
-    attraction: 0
+  - AttractionPoints: 1
+    responseText: fine i will
     nextNode: {fileID: 11400000, guid: c50c1619eaec2e84fab957cdcb41d836, type: 2}
-  - responseText: maybe u should first
-    attraction: -1
+  - AttractionPoints: -3
+    responseText: maybe u should first
     nextNode: {fileID: 11400000, guid: c50c1619eaec2e84fab957cdcb41d836, type: 2}

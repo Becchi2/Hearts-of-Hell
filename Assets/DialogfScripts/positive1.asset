@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   dialogueText: oh hey
   responses:
-  - responseText: yeah whats up see you around
-    attraction: 0
+  - AttractionPoints: 2
+    responseText: yeah whats up see you around
     nextNode: {fileID: 11400000, guid: c50c1619eaec2e84fab957cdcb41d836, type: 2}

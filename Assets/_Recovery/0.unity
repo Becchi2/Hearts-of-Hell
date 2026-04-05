@@ -660,7 +660,6 @@ GameObject:
   - component: {fileID: 1340536683}
   - component: {fileID: 1340536685}
   - component: {fileID: 1340536687}
-  - component: {fileID: 1340536688}
   m_Layer: 0
   m_Name: SlitMouth
   m_TagString: Untagged
@@ -732,15 +731,15 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4219561022752487285, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
+  m_Sprite: {fileID: -5950597285322190761, guid: 1bed8a1727ca42340896829ade9872c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.7005029, y: 8.05}
+  m_Size: {x: 3.7, y: 8.053418}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1340536687
 MonoBehaviour:
@@ -756,27 +755,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Actor
   Name: Kuchisake-Onna
   Dialogue: {fileID: 11400000, guid: b3c3b2ba932bbe34db53613a11d2b620, type: 2}
---- !u!114 &1340536688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340536682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43065784f623c3c4aac6d710ac0e5ca1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  Attraction: 5
-  CharacterSprite:
-  - {fileID: 340948721093797288, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
-  - {fileID: 2663996253565613413, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
-  - {fileID: -4924539062601862175, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
-  - {fileID: 4219561022752487285, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
-  - {fileID: -4896678972982516538, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
-  - {fileID: 2137111370832200452, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
-  - {fileID: -2944849289211271017, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
 --- !u!1 &1368964190
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +788,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 571, y: 157}
+  m_AnchoredPosition: {x: 565.24, y: 246}
   m_SizeDelta: {x: 374.92, y: 412.64}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1368964192
@@ -996,7 +974,11 @@ MonoBehaviour:
   DialogText: {fileID: 1933194873}
   ResponseButtonPrefab: {fileID: 3139868799126147602, guid: 3bb9244d52754554caf15b4fd174d7be, type: 3}
   ResponseButtonContainer: {fileID: 1368964191}
-  RefAttraction: {fileID: 0}
+  CharacterData_AttractionPoints: {fileID: 0}
+  DialogueResponse_attraction:
+    responseText: 
+    attraction: 0
+    nextNode: {fileID: 0}
 --- !u!1001 &6233698795306215270
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,10 @@ public class DialogueManager : MonoBehaviour
     public GameObject ResponseButtonPrefab; // Prefab that generates responses
     public Transform ResponseButtonContainer; //container which holds response buttons
 
+    // gets the AttractionPoints from CharacterData file and DialogResponse file
+    public CharacterData RefAttraction;
+    
+
     private void Awake()
     {
         //ensures theres only one instance of dialogue manager at a time
@@ -63,6 +67,12 @@ public class DialogueManager : MonoBehaviour
         if (!response.nextNode.IsLastNode())
         {
             StartDialogue(name, response.nextNode);// starts the next dialog
+            
+            //changs the character sprite based on the chosen attraction
+            RefAttraction = FindAnyObjectByType<CharacterData>();
+            RefAttraction.Attraction += response.getAttractionPoints();
+
+
         }
         else
         {
