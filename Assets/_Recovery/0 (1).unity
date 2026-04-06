@@ -756,10 +756,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Actor
   Name: Kuchisake-Onna
   Dialogue: {fileID: 11400000, guid: b3c3b2ba932bbe34db53613a11d2b620, type: 2}
-  DialogRoutes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: b3c3b2ba932bbe34db53613a11d2b620, type: 2}
 --- !u!114 &1340536688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,51 +777,6 @@ MonoBehaviour:
   - {fileID: -4896678972982516538, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
   - {fileID: 2137111370832200452, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
   - {fileID: -2944849289211271017, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
---- !u!1 &1353203294
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1353203296}
-  - component: {fileID: 1353203295}
-  m_Layer: 0
-  m_Name: SceneDirector
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1353203295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353203294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57a719d6a5821914a8e480ee86f9ca78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneDirectorScript
-  SlitMouth: {fileID: 0}
---- !u!4 &1353203296
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353203294}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37679, y: -0.0542, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1368964190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,7 +997,6 @@ MonoBehaviour:
   ResponseButtonPrefab: {fileID: 3139868799126147602, guid: 3bb9244d52754554caf15b4fd174d7be, type: 3}
   ResponseButtonContainer: {fileID: 1368964191}
   RefAttraction: {fileID: 0}
-  RefSpeaker: {fileID: 0}
 --- !u!1001 &6233698795306215270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1258,4 +1208,3 @@ SceneRoots:
   - {fileID: 38068644}
   - {fileID: 307265379}
   - {fileID: 2049740619}
-  - {fileID: 1353203296}

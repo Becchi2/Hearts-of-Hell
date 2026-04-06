@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
   m_Name: end
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: ok
-  responses:
-  - responseText: end
-    attraction: 0
-    nextNode: {fileID: 11400000, guid: 2a5dad17bbfa19743950d5bb88eb87e0, type: 2}
+  dialogueText: 
+  speaker: 
+  responses: []

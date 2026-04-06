@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
 
     // gets the AttractionPoints from CharacterData file and DialogResponse file
     public CharacterData RefAttraction;
-    
+    public DialogueNode RefSpeaker;
 
     private void Awake()
     {
@@ -66,6 +66,7 @@ public class DialogueManager : MonoBehaviour
         //check if there's a next node
         if (!response.nextNode.IsLastNode())
         {
+
             StartDialogue(name, response.nextNode);// starts the next dialog
             
             //changs the character sprite based on the chosen attraction
