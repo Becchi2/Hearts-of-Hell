@@ -10,6 +10,9 @@ public class BattleHudd : MonoBehaviour
     {
         hpslider.maxValue = unit.maxHP;
         hpslider.value = unit.currentHP;
+
+        mpslider.maxValue = unit.maxMP;
+        mpslider.value = unit.currentMP;
     }
 
     public void SetHP(int hp)

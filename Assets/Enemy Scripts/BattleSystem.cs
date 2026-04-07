@@ -30,13 +30,15 @@ public class BattleSystem : MonoBehaviour
     {
         //Instantiate player and enemy units
         //Set up the battle scene
-        //Initialize UI elements
+        //Initialize UI elements    
         state = BattleState.PLAYERTURN;
         GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = playerGO.GetComponent<Unit>();
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<Unit>();
+
+        Debug.Log("kuchisake onna gets aggressive");
 
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
@@ -45,6 +47,7 @@ public class BattleSystem : MonoBehaviour
 
         state = BattleState.PLAYERTURN;
 
+
     }
 
     IEnumerator PlayerAttack()
@@ -52,6 +55,7 @@ public class BattleSystem : MonoBehaviour
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
         enemyHUD.SetHP(enemyUnit.currentHP);
+        Debug.Log("kuchisake onna takes " + playerUnit.damage + " damage!");
 
         yield return new WaitForSeconds(2f);
 
@@ -69,6 +73,10 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
+        Debug.Log("kuchisake onna attacks!");
+
+        yield return new WaitForSeconds(1f);
+
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
 
         playerHUD.SetHP(playerUnit.currentHP);
@@ -83,15 +91,28 @@ public class BattleSystem : MonoBehaviour
         else
         {
             state = BattleState.PLAYERTURN;
-            PlayerAttack();
+            StartCoroutine(PlayerAttack());
         }
     }
 
     IEnumerator PlayerAttackTwo()
     {
-        bool isDead = enemyUnit.TakeMagicDamage(enemyUnit.damage);
+        const int mpCost = 30;
+        playerHUD.SetMP(playerUnit.currentMP);
+        if (playerUnit.currentMP < mpCost)
+        {
+            Debug.Log("Not enough MP!");
+            yield break;
+        }
+
+        playerUnit.UseMP(mpCost);
+
+        bool isDead = enemyUnit.TakeMagicDamage(playerUnit.magicDamage);
+
         enemyHUD.SetHP(enemyUnit.currentHP);
+
         yield return new WaitForSeconds(2f);
+
         if (isDead)
         {
             state = BattleState.WON;

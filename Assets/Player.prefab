@@ -50,8 +50,9 @@ MonoBehaviour:
   currentHP: 200
   damage: 10
   magicDamage: 25
-  maxMP: 50
-  currentMP: 50
+  maxMP: 100
+  currentMP: 100
+  mpCost: 50
 --- !u!1 &8082037195597333493
 GameObject:
   m_ObjectHideFlags: 0
