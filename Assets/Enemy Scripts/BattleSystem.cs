@@ -52,6 +52,8 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+        state = BattleState.ENEMYTURN;
+
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
         enemyHUD.SetHP(enemyUnit.currentHP);
@@ -66,7 +68,6 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
-            state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
     }
@@ -104,11 +105,15 @@ public class BattleSystem : MonoBehaviour
             yield break;
         }
 
+        state = BattleState.ENEMYTURN;
+
         playerUnit.UseMP(mpCost);
 
         bool isDead = enemyUnit.TakeMagicDamage(playerUnit.magicDamage);
 
         enemyHUD.SetHP(enemyUnit.currentHP);
+
+        Debug.Log("kuchisake onna takes " + playerUnit.magicDamage + " magic damage!");
 
         yield return new WaitForSeconds(2f);
 
@@ -119,7 +124,6 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
-            state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
     }
