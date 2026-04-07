@@ -91,7 +91,6 @@ public class BattleSystem : MonoBehaviour
         else
         {
             state = BattleState.PLAYERTURN;
-            StartCoroutine(PlayerAttack());
         }
     }
 
