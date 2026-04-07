@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   dialogueText: Why hello
-  speaker: Kuchisake-Ona
+  speaker: K onna
   responses:
   - AttractionPoints: 0
     responseText: hi

@@ -14,7 +14,6 @@ public class DialogueManager : MonoBehaviour
 
     // gets the AttractionPoints from CharacterData file and DialogResponse file
     public CharacterData RefAttraction;
-    public DialogueNode RefSpeaker;
 
     private void Awake()
     {
@@ -38,8 +37,8 @@ public class DialogueManager : MonoBehaviour
         //Display Dialog UI
         ShowDialogue();
 
-        //shows name and dialog text
-        DemonName.text = name;
+        //shows name and dialog text (use node.speaker when name is empty)
+        DemonName.text = string.IsNullOrEmpty(name) ? node.speaker : name;
         DialogText.text = node.dialogueText;
 
         //removes existing response buttons
@@ -56,20 +55,26 @@ public class DialogueManager : MonoBehaviour
             buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = response.responseText;
 
             //makes button trigger a response when clicked
-            buttonObj.GetComponent<Button>().onClick.AddListener(() => SelectResponse(response, name));
+            buttonObj.GetComponent<Button>().onClick.AddListener(() => SelectResponse(response));
 
         }
     }
+
+    // New overload: start dialog using the speaker defined on the node (editable per-line)
+    public void StartDialogue(DialogueNode node)
+    {
+        StartDialogue(node.speaker, node);
+    }
+
     //continues dialog based on chosen response
-    public void SelectResponse(DialogueResponse response, string name)
+    public void SelectResponse(DialogueResponse response)
     {
         //check if there's a next node
         if (!response.nextNode.IsLastNode())
         {
-
-            StartDialogue(name, response.nextNode);// starts the next dialog
+            StartDialogue(response.nextNode);// starts the next dialog
             
-            //changs the character sprite based on the chosen attraction
+            //changes the character sprite based on the chosen attraction
             RefAttraction = FindAnyObjectByType<CharacterData>();
             RefAttraction.Attraction += response.getAttractionPoints();
 
@@ -86,6 +91,8 @@ public class DialogueManager : MonoBehaviour
     public void HideDialogue()
     {
         DialogParent.SetActive(false);
+        // clear speaker name when dialogue is hidden
+        DemonName.text = string.Empty;//hides name of demon
         //gets rid of options
         foreach (Transform child in ResponseButtonContainer)
         {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CharacterData : MonoBehaviour
 {
-    public int Attraction = 0;
+    public int Attraction = 5;
 
 
 
