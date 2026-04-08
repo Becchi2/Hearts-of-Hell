@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NarrationLines
   m_EditorClassIdentifier: Assembly-CSharp::NarrationLines
   lines:
-  - 
-  - 
-  - 
-  line: 
+  - 'blah '
+  - blah blah
+  - blah
+  line: kjhkjhj

@@ -4,7 +4,7 @@ using UnityEngine;
 public class Narrator : MonoBehaviour
 {
     public List<NarrationLines> lines;
-    public NarrationLines Narration;
+    NarrationLines Narration;
 
     public void Update()
     {
@@ -18,8 +18,9 @@ public class Narrator : MonoBehaviour
     public void Narrate(int num)
     {
 
-        Narration = lines[num];
 
+        Narration = lines[num];
+        NarrationManager.Instance.StartNarration(Narration);
 
     }
 

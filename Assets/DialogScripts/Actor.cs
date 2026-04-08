@@ -7,7 +7,7 @@ public class Actor : MonoBehaviour
 {
     public DialogueNode RefSpeaker;
     public string Name;
-    public Dialogue Dialogue;
+    Dialogue Dialogue;
     public List<Dialogue> DialogRoutes;//the ammount of dialog paths the player can choose
 
     public void Update()

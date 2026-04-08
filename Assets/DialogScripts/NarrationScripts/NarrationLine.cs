@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class NarrationLines : ScriptableObject
 {
-    public List<string> lines;// contains narration line
+    public List<string> lines;// contains narration lines
     public string line = "";
     
     public string SetLine(int num)

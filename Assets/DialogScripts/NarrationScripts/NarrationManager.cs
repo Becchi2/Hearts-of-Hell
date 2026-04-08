@@ -7,6 +7,9 @@ using static UnityEngine.Audio.ProcessorInstance;
 
 public class NarrationManager : MonoBehaviour
 {
+
+    public static NarrationManager Instance { get; private set; }
+
     public GameObject NarrationDialogParent; //this is what contians all the dialog UI
     public TextMeshProUGUI textComponent;//where the text goes
     public GameObject NarrationButtonPrefab; // Prefab for continue button
@@ -14,32 +17,62 @@ public class NarrationManager : MonoBehaviour
     public NarrationLines lines;// contains narration lines
     private int index;//keeps track of which line you are on
 
-    public void Start()
+    private void Awake()
     {
-        
+ 
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
+        HideNarration();
     }
-    public void Update()
+    public void StartNarration() //begins the narration by showing the first line and creating a button to continue
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            StartNarration();
-        }
-    }
-    public void StartNarration()
-    {
-        TypeLine();
+
+        // start from first line
         index = 0;
+
+        // show the narration UI and clear previous buttons
+        NarrationDialogParent.SetActive(true);
+        foreach (Transform child in NarrationButtonContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+
+        TypeLine();
+
         GameObject buttonObj = Instantiate(NarrationButtonPrefab, NarrationButtonContainer);
         buttonObj.GetComponent<Button>().onClick.AddListener(() => NextLine());
-
     }
 
-    public void TypeLine()
+    // Overload: begin narration with a specific NarrationLines asset
+    public void StartNarration(NarrationLines Narration)
     {
+        // set the manager's lines to the provided asset and start
+        lines = Narration;
+        StartNarration();
+    }
+
+    public void TypeLine() //shows the line of dialog that corresponds to the index number
+    {
+        if (lines == null || lines.LineAmmount() == 0)
+        {
+            textComponent.text = string.Empty;
+            return;
+        }
+
+        if (index < 0 || index >= lines.LineAmmount())
+        {
+            textComponent.text = string.Empty;
+            return;
+        }
+
         textComponent.text = lines.SetLine(index);
     }
 
-    public void NextLine()
+    public void NextLine()// goes to the next line of dialog
     {
         if (index < lines.LineAmmount()-1)
         {
@@ -48,11 +81,17 @@ public class NarrationManager : MonoBehaviour
         }
         else
         {
-            foreach (Transform child in NarrationButtonContainer)
-            {
-                Destroy(obj: child.gameObject); // gets rid of "next" button
-            }
-            NarrationDialogParent.SetActive(false); // gets rid of narration box
+         HideNarration();
         }
+    }
+    public void HideNarration()
+    {
+        NarrationDialogParent.SetActive(false);
+        foreach (Transform child in NarrationButtonContainer)
+        {
+            Destroy(obj: child.gameObject); // gets rid of "next" button
+        }
+        if (textComponent != null) textComponent.text = string.Empty;
+        index = 0;
     }
 }

@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
         //Display Dialog UI
         ShowDialogue();
 
-        //shows name and dialog text (use node.speaker when name is empty)
+        //shows name and dialog text use node.speaker when there is no name
         DemonName.text = string.IsNullOrEmpty(name) ? node.speaker : name;
         DialogText.text = node.dialogueText;
 
@@ -60,7 +60,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // New overload: start dialog using the speaker defined on the node (editable per-line)
+    // start dialog using the speaker defined on the node which is editable per-line
     public void StartDialogue(DialogueNode node)
     {
         StartDialogue(node.speaker, node);
