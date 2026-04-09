@@ -15,6 +15,6 @@ MonoBehaviour:
   dialogueText: Why hello
   speaker: K onna
   responses:
-  - AttractionPoints: 0
+  - AttractionPoints: 4
     responseText: hi
     nextNode: {fileID: 11400000, guid: ae6ca13829613364490870c15d47feb6, type: 2}

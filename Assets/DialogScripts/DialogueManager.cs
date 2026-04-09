@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,7 +40,7 @@ public class DialogueManager : MonoBehaviour
 
         //shows name and dialog text use node.speaker when there is no name
         DemonName.text = string.IsNullOrEmpty(name) ? node.speaker : name;
-        DialogText.text = node.dialogueText;
+        DialogText.text = node.dialogueText; 
 
         //removes existing response buttons
         foreach (Transform child in ResponseButtonContainer)
@@ -58,9 +59,10 @@ public class DialogueManager : MonoBehaviour
             buttonObj.GetComponent<Button>().onClick.AddListener(() => SelectResponse(response));
 
         }
+ 
     }
 
-    // start dialog using the speaker defined on the node which is editable per-line
+    // start dialog using the speaker defined in the unity inspector
     public void StartDialogue(DialogueNode node)
     {
         StartDialogue(node.speaker, node);
@@ -77,6 +79,7 @@ public class DialogueManager : MonoBehaviour
             //changes the character sprite based on the chosen attraction
             RefAttraction = FindAnyObjectByType<CharacterData>();
             RefAttraction.Attraction += response.getAttractionPoints();
+            
 
 
         }
@@ -90,8 +93,7 @@ public class DialogueManager : MonoBehaviour
     //hide dialog UI
     public void HideDialogue()
     {
-        DialogParent.SetActive(false);
-        // clear speaker name when dialogue is hidden
+        DialogParent.SetActive(false);//hides dialog UI
         DemonName.text = string.Empty;//hides name of demon
         //gets rid of options
         foreach (Transform child in ResponseButtonContainer)
@@ -111,5 +113,7 @@ public class DialogueManager : MonoBehaviour
     {
         return DialogParent.activeSelf;
     }
+
+  
 }
 

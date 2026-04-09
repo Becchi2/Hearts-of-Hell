@@ -979,8 +979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d75b8f9a8c4fd41a585bb5646f17ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Actor
-  RefSpeaker: {fileID: 0}
-  Name: 
+  Name: Slit mouth
   DialogRoutes:
   - {fileID: 0}
   - {fileID: 0}
@@ -1336,12 +1335,33 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6959456655742014665, guid: 772edff9c711c2b4bb07bce337426a52, type: 3}
   m_PrefabInstance: {fileID: 6233698795306215270}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1962512799}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &1962512799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1067451362199163744, guid: 772edff9c711c2b4bb07bce337426a52, type: 3}
+  m_PrefabInstance: {fileID: 6233698795306215270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &1962512801
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962512799}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!224 &2028882972 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7298948565391837692, guid: b5a001daed04cb544a8d40f9ff8e1ae5, type: 3}
@@ -1521,7 +1541,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1067451362199163744, guid: 772edff9c711c2b4bb07bce337426a52, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1962512801}
   m_SourcePrefab: {fileID: 100100000, guid: 772edff9c711c2b4bb07bce337426a52, type: 3}
 --- !u!1001 &6397501984206464284
 PrefabInstance:

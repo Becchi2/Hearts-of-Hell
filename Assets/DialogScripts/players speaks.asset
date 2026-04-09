@@ -15,6 +15,6 @@ MonoBehaviour:
   dialogueText: hello
   speaker: Player
   responses:
-  - AttractionPoints: 0
+  - AttractionPoints: 5
     responseText: next
     nextNode: {fileID: 11400000, guid: fe165400cb61a8242975402771639850, type: 2}

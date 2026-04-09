@@ -5,7 +5,6 @@ using UnityEngine;
 //This is the code for the character the player is speaking to
 public class Actor : MonoBehaviour
 {
-    public DialogueNode RefSpeaker;
     public string Name;
     Dialogue Dialogue;
     public List<Dialogue> DialogRoutes;//the ammount of dialog paths the player can choose

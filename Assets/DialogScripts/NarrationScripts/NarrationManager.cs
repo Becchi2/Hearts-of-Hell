@@ -1,9 +1,7 @@
-using NUnit.Framework;
-using System.Collections.Generic;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.Audio.ProcessorInstance;
 
 public class NarrationManager : MonoBehaviour
 {
@@ -41,7 +39,7 @@ public class NarrationManager : MonoBehaviour
         }
 
 
-        TypeLine();
+        ShowLine();
 
         GameObject buttonObj = Instantiate(NarrationButtonPrefab, NarrationButtonContainer);
         buttonObj.GetComponent<Button>().onClick.AddListener(() => NextLine());
@@ -55,7 +53,7 @@ public class NarrationManager : MonoBehaviour
         StartNarration();
     }
 
-    public void TypeLine() //shows the line of dialog that corresponds to the index number
+    public void ShowLine() //shows the line of dialog that corresponds to the index number
     {
         if (lines == null || lines.LineAmmount() == 0)
         {
@@ -66,10 +64,11 @@ public class NarrationManager : MonoBehaviour
         if (index < 0 || index >= lines.LineAmmount())
         {
             textComponent.text = string.Empty;
+
             return;
         }
 
-        textComponent.text = lines.SetLine(index);
+        StartCoroutine(TypeOut()); // Start the coroutine to type out the text
     }
 
     public void NextLine()// goes to the next line of dialog
@@ -77,7 +76,7 @@ public class NarrationManager : MonoBehaviour
         if (index < lines.LineAmmount()-1)
         {
             index++;
-            TypeLine();
+            ShowLine();
         }
         else
         {
@@ -93,5 +92,16 @@ public class NarrationManager : MonoBehaviour
         }
         if (textComponent != null) textComponent.text = string.Empty;
         index = 0;
+    }
+
+    //types out the text letter by letter
+    IEnumerator TypeOut()
+    {
+        textComponent.text = "";
+        foreach (char letter in lines.SetLine(index).ToCharArray())
+        {
+            textComponent.text += letter;
+            yield return new WaitForSeconds(0.08f);
+        }
     }
 }
