@@ -13,7 +13,7 @@ public class Actor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SpeakTo(2);
+            SpeakTo(0);
         }
     }
 
@@ -22,7 +22,7 @@ public class Actor : MonoBehaviour
     {
 
         Dialogue = DialogRoutes[num];
-        DialogueManager.Instance.StartDialogue(Name, Dialogue.RootNode);
+        DialogueManager.Instance1.StartDialogue(Name, Dialogue.RootNode);
     }
 
 }

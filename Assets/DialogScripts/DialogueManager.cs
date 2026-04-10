@@ -5,23 +5,24 @@ using UnityEngine.UI;
 //this controls all the dialog. It goes on an object in the game's scene in unity
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager Instance { get; private set; }
+    public static DialogueManager Instance1 { get; private set; }
 
     //References the UI stuff in the game
     public GameObject DialogParent; //this is what contians all the dialog UI
     public TextMeshProUGUI DemonName, DialogText; //contains text for name and dialog text
     public GameObject ResponseButtonPrefab; // Prefab that generates responses
     public Transform ResponseButtonContainer; //container which holds response buttons
-
-    // gets the AttractionPoints from CharacterData file and DialogResponse file
-    public CharacterData RefAttraction;
+    public CharacterData RefAttraction;// gets the AttractionPoints from CharacterData file and DialogResponse file
+    Coroutine typeOutCoroutine;
 
     private void Awake()
     {
+        
         //ensures theres only one instance of dialogue manager at a time
-        if (Instance == null)
+        if (Instance1 == null)
         {
-            Instance = this;
+            Instance1 = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -40,7 +41,10 @@ public class DialogueManager : MonoBehaviour
 
         //shows name and dialog text use node.speaker when there is no name
         DemonName.text = string.IsNullOrEmpty(name) ? node.speaker : name;
-        DialogText.text = node.dialogueText; 
+        //stops any existing type text out coroutine before starting a new one
+            typeOutCoroutine = StartCoroutine(typeTextOut(node)); //types out dialog letter by letter 
+        
+
 
         //removes existing response buttons
         foreach (Transform child in ResponseButtonContainer)
@@ -49,16 +53,18 @@ public class DialogueManager : MonoBehaviour
         }
 
         //assigns responses to buttons
-        foreach (DialogueResponse response in node.responses)
-        {
-            //creates button
-            GameObject buttonObj = Instantiate(ResponseButtonPrefab, ResponseButtonContainer);
-            buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = response.responseText;
+        
+            foreach (DialogueResponse response in node.responses)
+            {
+                //creates button
+                GameObject buttonObj = Instantiate(ResponseButtonPrefab, ResponseButtonContainer);
+                buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = response.responseText;
 
-            //makes button trigger a response when clicked
-            buttonObj.GetComponent<Button>().onClick.AddListener(() => SelectResponse(response));
+                //makes button trigger a response when clicked
+                buttonObj.GetComponent<Button>().onClick.AddListener(() => SelectResponse(response));
 
-        }
+            }
+        
  
     }
 
@@ -114,6 +120,23 @@ public class DialogueManager : MonoBehaviour
         return DialogParent.activeSelf;
     }
 
-  
+  //this types out dialog letter by letter
+  IEnumerator typeTextOut(DialogueNode node)
+    {
+        if(node == null)
+        {
+            Debug.Log("Node is null, cannot type out dialogue.");
+            yield break;
+        }
+        string fullText = node.dialogueText;//sets node to a string to be typed out
+        DialogText.text = "";//sets dialog text to empty so it can be typed out
+        foreach (char letter in fullText)//splits dialog into letters and types them out one by one
+        {
+            DialogText.text += letter;//adds letter to dialog text
+            yield return new WaitForSeconds(0.08f); // Adjust typing speed here
+        }
+
+    }
+
 }
 
