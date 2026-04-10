@@ -15,9 +15,10 @@ public class DialogueManager : MonoBehaviour
     public CharacterData RefAttraction;// gets the AttractionPoints from CharacterData file and DialogResponse file
     Coroutine typeOutCoroutine;
 
+
     private void Awake()
     {
-        
+
         //ensures theres only one instance of dialogue manager at a time
         if (Instance1 == null)
         {
@@ -38,34 +39,32 @@ public class DialogueManager : MonoBehaviour
     {
         //Display Dialog UI
         ShowDialogue();
-
         //shows name and dialog text use node.speaker when there is no name
         DemonName.text = string.IsNullOrEmpty(name) ? node.speaker : name;
         //stops any existing type text out coroutine before starting a new one
-            typeOutCoroutine = StartCoroutine(typeTextOut(node)); //types out dialog letter by letter 
-        
+        typeOutCoroutine = StartCoroutine(typeTextOut(node)); //types out dialog letter by letter 
 
 
         //removes existing response buttons
+
         foreach (Transform child in ResponseButtonContainer)
         {
             Destroy(obj: child.gameObject);
         }
 
         //assigns responses to buttons
-        
-            foreach (DialogueResponse response in node.responses)
-            {
-                //creates button
-                GameObject buttonObj = Instantiate(ResponseButtonPrefab, ResponseButtonContainer);
-                buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = response.responseText;
 
-                //makes button trigger a response when clicked
-                buttonObj.GetComponent<Button>().onClick.AddListener(() => SelectResponse(response));
+        foreach (DialogueResponse response in node.responses)
+        {
+            //creates button
+            GameObject buttonObj = Instantiate(ResponseButtonPrefab, ResponseButtonContainer);
+            buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = response.responseText;
 
-            }
-        
- 
+            //makes button trigger a response when clicked
+            buttonObj.GetComponent<Button>().onClick.AddListener(() => SelectResponse(response));
+
+        }
+
     }
 
     // start dialog using the speaker defined in the unity inspector
@@ -81,11 +80,11 @@ public class DialogueManager : MonoBehaviour
         if (!response.nextNode.IsLastNode())
         {
             StartDialogue(response.nextNode);// starts the next dialog
-            
+
             //changes the character sprite based on the chosen attraction
             RefAttraction = FindAnyObjectByType<CharacterData>();
             RefAttraction.Attraction += response.getAttractionPoints();
-            
+
 
 
         }
@@ -107,6 +106,17 @@ public class DialogueManager : MonoBehaviour
             Destroy(obj: child.gameObject);
         }
     }
+    //hides buttons but keeps dialog UI active when player needs to read dialog without options
+    public void HideButtons()
+    {
+        ResponseButtonContainer.gameObject.SetActive(false);
+    }
+
+    //shows buttons again when player needs to select a response after reading dialog
+    public void ShowButtons()
+    {
+        ResponseButtonContainer.gameObject.SetActive(true);
+    }
 
     //show dialog UI
     public void ShowDialogue()
@@ -120,10 +130,12 @@ public class DialogueManager : MonoBehaviour
         return DialogParent.activeSelf;
     }
 
-  //this types out dialog letter by letter
-  IEnumerator typeTextOut(DialogueNode node)
+    //this types out dialog letter by letter
+    IEnumerator typeTextOut(DialogueNode node)
     {
-        if(node == null)
+
+        HideButtons();
+        if (node == null)
         {
             Debug.Log("Node is null, cannot type out dialogue.");
             yield break;
@@ -135,7 +147,7 @@ public class DialogueManager : MonoBehaviour
             DialogText.text += letter;//adds letter to dialog text
             yield return new WaitForSeconds(0.08f); // Adjust typing speed here
         }
-
+        ShowButtons();
     }
 
 }
