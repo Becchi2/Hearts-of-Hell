@@ -1,37 +1,28 @@
 fileFormatVersion: 2
-guid: 73c590fb32e300b4c87f070de913fa82
+guid: 1d6fcbdcd68810d4b9fcd17afb60c7a1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1907488521115545697
-    second: slitmouth sprite sheet 1_0
+      213: -4948836099104194312
+    second: dialogue section ui 1_0
   - first:
-      213: 340948721093797288
-    second: slitmouth sprite sheet 1_1
+      213: -5392203962564747633
+    second: dialogue section ui 1_1
   - first:
-      213: 2663996253565613413
-    second: slitmouth sprite sheet 1_2
+      213: -5352365042643474978
+    second: dialogue section ui 1_2
   - first:
-      213: -4924539062601862175
-    second: slitmouth sprite sheet 1_3
+      213: -2518349203328990448
+    second: dialogue section ui 1_3
   - first:
-      213: 4219561022752487285
-    second: slitmouth sprite sheet 1_4
+      213: -2859732449424139528
+    second: dialogue section ui 1_4
   - first:
-      213: -4896678972982516538
-    second: slitmouth sprite sheet 1_5
+      213: 6956621687783552072
+    second: dialogue section ui 1_5
   - first:
-      213: 2137111370832200452
-    second: slitmouth sprite sheet 1_6
-  - first:
-      213: -6438180838705879998
-    second: slitmouth sprite sheet 1_7
-  - first:
-      213: 4658484433639946961
-    second: slitmouth sprite sheet 1_8
-  - first:
-      213: -2944849289211271017
-    second: slitmouth sprite sheet 1_9
+      213: 20295766971846188
+    second: dialogue section ui 1_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,7 +55,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,9 +91,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,177 +118,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_0
+      name: dialogue section ui 1_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 29
-        width: 955
-        height: 762
+        x: 267
+        y: 830
+        width: 401
+        height: 174
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9fc5cddb4d3785e0800000000000000
-      internalID: -1907488521115545697
+      spriteID: 8f0c345b9c3325bb0800000000000000
+      internalID: -4948836099104194312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_1
+      name: dialogue section ui 1_1
       rect:
         serializedVersion: 2
-        x: 1073
-        y: 0
-        width: 391
-        height: 780
+        x: 959
+        y: 859
+        width: 161
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a56b6f2e0b4bb400800000000000000
-      internalID: 340948721093797288
+      spriteID: f8edfdea01b0b25b0800000000000000
+      internalID: -5392203962564747633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_2
+      name: dialogue section ui 1_2
       rect:
         serializedVersion: 2
-        x: 1682
-        y: 0
-        width: 384
-        height: 787
+        x: 1186
+        y: 815
+        width: 209
+        height: 133
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 565ffb86a7a68f420800000000000000
-      internalID: 2663996253565613413
+      spriteID: ed5640d0a5498b5b0800000000000000
+      internalID: -5352365042643474978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_3
+      name: dialogue section ui 1_3
       rect:
         serializedVersion: 2
-        x: 2216
-        y: 0
-        width: 381
-        height: 793
+        x: 46
+        y: 681
+        width: 380
+        height: 91
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e3b41b50d588abb0800000000000000
-      internalID: -4924539062601862175
+      spriteID: 013003b0eb60d0dd0800000000000000
+      internalID: -2518349203328990448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_4
+      name: dialogue section ui 1_4
       rect:
         serializedVersion: 2
-        x: 2769
-        y: 0
-        width: 370
-        height: 805
+        x: 717
+        y: 675
+        width: 425
+        height: 182
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 577fe3dd464ee8a30800000000000000
-      internalID: 4219561022752487285
+      spriteID: 8fa9a6f1d703058d0800000000000000
+      internalID: -2859732449424139528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_5
+      name: dialogue section ui 1_5
       rect:
         serializedVersion: 2
-        x: 3314
-        y: 0
-        width: 354
-        height: 811
+        x: 33
+        y: 314
+        width: 1376
+        height: 306
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c4a044fa608b0cb0800000000000000
-      internalID: -4896678972982516538
+      spriteID: 844fd193192ea8060800000000000000
+      internalID: 6956621687783552072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_6
+      name: dialogue section ui 1_6
       rect:
         serializedVersion: 2
-        x: 3813
-        y: 0
-        width: 491
-        height: 822
+        x: 13
+        y: 43
+        width: 1410
+        height: 257
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 403c6e7087b88ad10800000000000000
-      internalID: 2137111370832200452
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: slitmouth sprite sheet 1_9
-      rect:
-        serializedVersion: 2
-        x: 4345
-        y: 0
-        width: 515
-        height: 832
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 79820878c2bc127d0800000000000000
-      internalID: -2944849289211271017
+      spriteID: c2e0dcc74ea184000800000000000000
+      internalID: 20295766971846188
       vertices: []
       indices: 
       edges: []
@@ -306,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4957f35d385cf3b479efe127e27f93ab
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -316,16 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      slitmouth sprite sheet 1_0: -1907488521115545697
-      slitmouth sprite sheet 1_1: 340948721093797288
-      slitmouth sprite sheet 1_2: 2663996253565613413
-      slitmouth sprite sheet 1_3: -4924539062601862175
-      slitmouth sprite sheet 1_4: 4219561022752487285
-      slitmouth sprite sheet 1_5: -4896678972982516538
-      slitmouth sprite sheet 1_6: 2137111370832200452
-      slitmouth sprite sheet 1_7: -6438180838705879998
-      slitmouth sprite sheet 1_8: 4658484433639946961
-      slitmouth sprite sheet 1_9: -2944849289211271017
+      dialogue section ui 1_0: -4948836099104194312
+      dialogue section ui 1_1: -5392203962564747633
+      dialogue section ui 1_2: -5352365042643474978
+      dialogue section ui 1_3: -2518349203328990448
+      dialogue section ui 1_4: -2859732449424139528
+      dialogue section ui 1_5: 6956621687783552072
+      dialogue section ui 1_6: 20295766971846188
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

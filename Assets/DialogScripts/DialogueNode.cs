@@ -7,6 +7,7 @@ using UnityEngine;
 public class DialogueNode :ScriptableObject
 {
     public string dialogueText;//the text they are saying
+    public string speaker;//shows who is speaking the line of dialog
     public List<DialogueResponse> responses;//the responses the player can say
 
     //checks for if there are no responses left

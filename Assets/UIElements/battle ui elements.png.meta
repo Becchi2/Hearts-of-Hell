@@ -1,37 +1,28 @@
 fileFormatVersion: 2
-guid: 73c590fb32e300b4c87f070de913fa82
+guid: 15745bf0172ba1a4f812614e130857b0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1907488521115545697
-    second: slitmouth sprite sheet 1_0
+      213: 4929291692863857011
+    second: battle ui elements_0
   - first:
-      213: 340948721093797288
-    second: slitmouth sprite sheet 1_1
+      213: -4016430851733066380
+    second: battle ui elements_1
   - first:
-      213: 2663996253565613413
-    second: slitmouth sprite sheet 1_2
+      213: 191631088714743381
+    second: battle ui elements_2
   - first:
-      213: -4924539062601862175
-    second: slitmouth sprite sheet 1_3
+      213: -316205590369428730
+    second: battle ui elements_3
   - first:
-      213: 4219561022752487285
-    second: slitmouth sprite sheet 1_4
+      213: -842574559057307586
+    second: battle ui elements_4
   - first:
-      213: -4896678972982516538
-    second: slitmouth sprite sheet 1_5
+      213: 7778339627864853439
+    second: battle ui elements_5
   - first:
-      213: 2137111370832200452
-    second: slitmouth sprite sheet 1_6
-  - first:
-      213: -6438180838705879998
-    second: slitmouth sprite sheet 1_7
-  - first:
-      213: 4658484433639946961
-    second: slitmouth sprite sheet 1_8
-  - first:
-      213: -2944849289211271017
-    second: slitmouth sprite sheet 1_9
+      213: -7057619303254660338
+    second: battle ui elements_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,7 +55,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,9 +91,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,177 +118,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_0
+      name: battle ui elements_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 29
-        width: 955
-        height: 762
+        x: 138
+        y: 623
+        width: 282
+        height: 66
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9fc5cddb4d3785e0800000000000000
-      internalID: -1907488521115545697
+      spriteID: 3712f6b9dac586440800000000000000
+      internalID: 4929291692863857011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_1
+      name: battle ui elements_1
       rect:
         serializedVersion: 2
-        x: 1073
-        y: 0
-        width: 391
-        height: 780
+        x: 524
+        y: 258
+        width: 350
+        height: 431
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a56b6f2e0b4bb400800000000000000
-      internalID: 340948721093797288
+      spriteID: 47de7899b65c248c0800000000000000
+      internalID: -4016430851733066380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_2
+      name: battle ui elements_2
       rect:
         serializedVersion: 2
-        x: 1682
-        y: 0
-        width: 384
-        height: 787
+        x: 918
+        y: 271
+        width: 378
+        height: 415
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 565ffb86a7a68f420800000000000000
-      internalID: 2663996253565613413
+      spriteID: 55e73cab57fc8a200800000000000000
+      internalID: 191631088714743381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_3
+      name: battle ui elements_3
       rect:
         serializedVersion: 2
-        x: 2216
-        y: 0
-        width: 381
-        height: 793
+        x: 101
+        y: 514
+        width: 324
+        height: 67
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e3b41b50d588abb0800000000000000
-      internalID: -4924539062601862175
+      spriteID: 60b990ed0bc9c9bf0800000000000000
+      internalID: -316205590369428730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_4
+      name: battle ui elements_4
       rect:
         serializedVersion: 2
-        x: 2769
-        y: 0
-        width: 370
-        height: 805
+        x: 75
+        y: 401
+        width: 363
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 577fe3dd464ee8a30800000000000000
-      internalID: 4219561022752487285
+      spriteID: e389b9617e29e44f0800000000000000
+      internalID: -842574559057307586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_5
+      name: battle ui elements_5
       rect:
         serializedVersion: 2
-        x: 3314
-        y: 0
-        width: 354
-        height: 811
+        x: 610
+        y: 123
+        width: 246
+        height: 74
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c4a044fa608b0cb0800000000000000
-      internalID: -4896678972982516538
+      spriteID: fbb8a3d1ea632fb60800000000000000
+      internalID: 7778339627864853439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet 1_6
+      name: battle ui elements_6
       rect:
         serializedVersion: 2
-        x: 3813
-        y: 0
-        width: 491
-        height: 822
+        x: 620
+        y: 14
+        width: 220
+        height: 82
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 403c6e7087b88ad10800000000000000
-      internalID: 2137111370832200452
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: slitmouth sprite sheet 1_9
-      rect:
-        serializedVersion: 2
-        x: 4345
-        y: 0
-        width: 515
-        height: 832
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 79820878c2bc127d0800000000000000
-      internalID: -2944849289211271017
+      spriteID: e0be095f2ac4e0e90800000000000000
+      internalID: -7057619303254660338
       vertices: []
       indices: 
       edges: []
@@ -306,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4957f35d385cf3b479efe127e27f93ab
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -316,16 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      slitmouth sprite sheet 1_0: -1907488521115545697
-      slitmouth sprite sheet 1_1: 340948721093797288
-      slitmouth sprite sheet 1_2: 2663996253565613413
-      slitmouth sprite sheet 1_3: -4924539062601862175
-      slitmouth sprite sheet 1_4: 4219561022752487285
-      slitmouth sprite sheet 1_5: -4896678972982516538
-      slitmouth sprite sheet 1_6: 2137111370832200452
-      slitmouth sprite sheet 1_7: -6438180838705879998
-      slitmouth sprite sheet 1_8: 4658484433639946961
-      slitmouth sprite sheet 1_9: -2944849289211271017
+      battle ui elements_0: 4929291692863857011
+      battle ui elements_1: -4016430851733066380
+      battle ui elements_2: 191631088714743381
+      battle ui elements_3: -316205590369428730
+      battle ui elements_4: -842574559057307586
+      battle ui elements_5: 7778339627864853439
+      battle ui elements_6: -7057619303254660338
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

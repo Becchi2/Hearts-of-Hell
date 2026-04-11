@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
   m_Name: RootNode
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: hey
+  dialogueText: Why hello
+  speaker: K onna
   responses:
-  - AttractionPoints: 3
+  - AttractionPoints: 4
     responseText: hi
-    nextNode: {fileID: 11400000, guid: 0dbc60c368f1f384eb3c7b29e9dfca28, type: 2}
-  - AttractionPoints: -3
-    responseText: fuck u
-    nextNode: {fileID: 11400000, guid: 848989c1ccbfdb14e8ee200c1d783636, type: 2}
+    nextNode: {fileID: 11400000, guid: ae6ca13829613364490870c15d47feb6, type: 2}
