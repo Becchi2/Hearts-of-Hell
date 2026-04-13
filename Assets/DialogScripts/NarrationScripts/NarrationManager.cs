@@ -101,7 +101,7 @@ public class NarrationManager : MonoBehaviour
         foreach (char letter in lines.SetLine(index).ToCharArray())
         {
             textComponent.text += letter;
-            yield return new WaitForSeconds(0.08f);
+            yield return new WaitForSeconds(0.03f);
         }
     }
 }

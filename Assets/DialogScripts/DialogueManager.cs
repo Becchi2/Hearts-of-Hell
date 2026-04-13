@@ -145,7 +145,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in fullText)//splits dialog into letters and types them out one by one
         {
             DialogText.text += letter;//adds letter to dialog text
-            yield return new WaitForSeconds(0.08f); // Adjust typing speed here
+            yield return new WaitForSeconds(0.03f); // Adjust typing speed here
         }
         ShowButtons();
     }
