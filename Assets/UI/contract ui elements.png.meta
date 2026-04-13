@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: 1bed8a1727ca42340896829ade9872c3
+guid: 9a6ec9c3b7215a243bdac21e5ae9919c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -712454370704216322
-    second: slitmouth sprite sheet_0
+      213: 7937303355834305602
+    second: contract ui elements_0
   - first:
-      213: -3388531458861608473
-    second: slitmouth sprite sheet_1
+      213: -5230441404113635299
+    second: contract ui elements_1
   - first:
-      213: -4572186471459022432
-    second: slitmouth sprite sheet_2
+      213: 6143150748742604576
+    second: contract ui elements_2
   - first:
-      213: -5950597285322190761
-    second: slitmouth sprite sheet_3
+      213: 8575110869619415984
+    second: contract ui elements_3
   - first:
-      213: -8118805707696021422
-    second: slitmouth sprite sheet_4
+      213: 11534176612304747
+    second: contract ui elements_4
   - first:
-      213: -5843399050117621385
-    second: slitmouth sprite sheet_5
+      213: 4606584531054318932
+    second: contract ui elements_5
   - first:
-      213: 6531195644841704110
-    second: slitmouth sprite sheet_6
+      213: -3192843134428247556
+    second: contract ui elements_6
   - first:
-      213: -5671464176515923691
-    second: slitmouth sprite sheet_7
+      213: 2530538132593943543
+    second: contract ui elements_7
   - first:
-      213: -784345519576498939
-    second: slitmouth sprite sheet_8
+      213: -7940449262977276813
+    second: contract ui elements_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,155 +124,199 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slitmouth sprite sheet_0
+      name: contract ui elements_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 482
-        height: 791
+        x: 14
+        y: 1414
+        width: 729
+        height: 169
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efe208b468adc16f0800000000000000
-      internalID: -712454370704216322
+      spriteID: 24c05073957f62e60800000000000000
+      internalID: 7937303355834305602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet_1
+      name: contract ui elements_1
       rect:
         serializedVersion: 2
-        x: 705
-        y: 0
-        width: 384
-        height: 787
+        x: 916
+        y: 1423
+        width: 706
+        height: 148
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e15154679489f0d0800000000000000
-      internalID: -3388531458861608473
+      spriteID: d18bf49414db967b0800000000000000
+      internalID: -5230441404113635299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet_2
+      name: contract ui elements_2
       rect:
         serializedVersion: 2
-        x: 1239
-        y: 0
-        width: 381
-        height: 793
+        x: 15
+        y: 1228
+        width: 732
+        height: 178
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a996d1f0a45c80c0800000000000000
-      internalID: -4572186471459022432
+      spriteID: 0275a74ee0bd04550800000000000000
+      internalID: 6143150748742604576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet_3
+      name: contract ui elements_3
       rect:
         serializedVersion: 2
-        x: 1792
-        y: 0
-        width: 370
-        height: 805
+        x: 917
+        y: 1246
+        width: 706
+        height: 148
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 75097feeb4b3b6da0800000000000000
-      internalID: -5950597285322190761
+      spriteID: 0bb914d27e9e00770800000000000000
+      internalID: 8575110869619415984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet_4
+      name: contract ui elements_4
       rect:
         serializedVersion: 2
-        x: 2337
-        y: 0
-        width: 354
-        height: 811
+        x: 60
+        y: 34
+        width: 700
+        height: 939
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2506d506935345f80800000000000000
-      internalID: -8118805707696021422
+      spriteID: b67c0c3c54af82000800000000000000
+      internalID: 11534176612304747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet_5
+      name: contract ui elements_5
       rect:
         serializedVersion: 2
-        x: 2836
-        y: 0
-        width: 491
-        height: 822
+        x: 890
+        y: 626
+        width: 662
+        height: 301
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77952e8068318eea0800000000000000
-      internalID: -5843399050117621385
+      spriteID: 4555d496930edef30800000000000000
+      internalID: 4606584531054318932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slitmouth sprite sheet_8
+      name: contract ui elements_6
       rect:
         serializedVersion: 2
-        x: 3355
-        y: 0
-        width: 526
-        height: 819
+        x: 907
+        y: 439
+        width: 104
+        height: 107
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50d3974d7e17d15f0800000000000000
-      internalID: -784345519576498939
+      spriteID: cf90cdce51eb0b3d0800000000000000
+      internalID: -3192843134428247556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: contract ui elements_7
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 437
+        width: 403
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f3a7d336074e1320800000000000000
+      internalID: 2530538132593943543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: contract ui elements_8
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 64
+        width: 662
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3742a33377bddc190800000000000000
+      internalID: -7940449262977276813
       vertices: []
       indices: 
       edges: []
@@ -281,7 +325,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d5db3000cef67144fabfe90de9c86782
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -291,15 +335,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      slitmouth sprite sheet_0: -712454370704216322
-      slitmouth sprite sheet_1: -3388531458861608473
-      slitmouth sprite sheet_2: -4572186471459022432
-      slitmouth sprite sheet_3: -5950597285322190761
-      slitmouth sprite sheet_4: -8118805707696021422
-      slitmouth sprite sheet_5: -5843399050117621385
-      slitmouth sprite sheet_6: 6531195644841704110
-      slitmouth sprite sheet_7: -5671464176515923691
-      slitmouth sprite sheet_8: -784345519576498939
+      contract ui elements_0: 7937303355834305602
+      contract ui elements_1: -5230441404113635299
+      contract ui elements_2: 6143150748742604576
+      contract ui elements_3: 8575110869619415984
+      contract ui elements_4: 11534176612304747
+      contract ui elements_5: 4606584531054318932
+      contract ui elements_6: -3192843134428247556
+      contract ui elements_7: 2530538132593943543
+      contract ui elements_8: -7940449262977276813
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: fb77f62c0eb67804cad3777d7fb00344
+guid: c71d46f5055903542a98e86b684154e1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4544235448077845365
-    second: backgrounds_0
+      213: -8616811329538046573
+    second: dialogue section ui_0
   - first:
-      213: 2583609812203033409
-    second: backgrounds_1
+      213: -1853712134374070192
+    second: dialogue section ui_1
+  - first:
+      213: 1858112276213304080
+    second: dialogue section ui_2
+  - first:
+      213: 5541006237331770003
+    second: dialogue section ui_3
+  - first:
+      213: -2231815623632025616
+    second: dialogue section ui_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,45 +112,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: backgrounds_0
+      name: dialogue section ui_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 455
-        width: 1442
-        height: 1081
+        x: 267
+        y: 532
+        width: 401
+        height: 174
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5730b6a401e501f30800000000000000
-      internalID: 4544235448077845365
+      spriteID: 395c256efbfea6880800000000000000
+      internalID: -8616811329538046573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: backgrounds_1
+      name: dialogue section ui_1
       rect:
         serializedVersion: 2
-        x: 1628
-        y: 177
-        width: 1442
-        height: 1082
+        x: 1179
+        y: 511
+        width: 234
+        height: 157
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 13}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0586dca92aa4646e0800000000000000
+      internalID: -1853712134374070192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dialogue section ui_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 383
+        width: 380
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14353968f63dad320800000000000000
-      internalID: 2583609812203033409
+      spriteID: 01b8c70454759c910800000000000000
+      internalID: 1858112276213304080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dialogue section ui_3
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 377
+        width: 425
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a426ab0db95ec40800000000000000
+      internalID: 5541006237331770003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dialogue section ui_4
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 16
+        width: 1376
+        height: 306
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f70f35d38ff601e0800000000000000
+      internalID: -2231815623632025616
       vertices: []
       indices: 
       edges: []
@@ -150,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f0cd01564c9d6be49b568c50616ed195
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      backgrounds_0: 4544235448077845365
-      backgrounds_1: 2583609812203033409
+      dialogue section ui_0: -8616811329538046573
+      dialogue section ui_1: -1853712134374070192
+      dialogue section ui_2: 1858112276213304080
+      dialogue section ui_3: 5541006237331770003
+      dialogue section ui_4: -2231815623632025616
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
