@@ -919,8 +919,8 @@ Transform:
   m_GameObject: {fileID: 1340536682}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -378.71, y: -137.46, z: 0}
-  m_LocalScale: {x: 121.644806, y: 121.644806, z: 110.58618}
+  m_LocalPosition: {x: -400, y: -94, z: 0}
+  m_LocalScale: {x: 110.58618, y: 110.58618, z: 110.58618}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 38068644}
@@ -1071,11 +1071,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7076428d147490b4cbe0ca100508faa5, type: 2}
   - {fileID: 11400000, guid: e16af31e59ad41c48bde5532cf5e1cb8, type: 2}
   - {fileID: 11400000, guid: eb9e3d6c187e57341ab6ccf013981f61, type: 2}
-  - {fileID: 11400000, guid: 08496d747e4c0964da9c3550bbc38f58, type: 2}
   - {fileID: 11400000, guid: b98712a7ec8034a409450ffff9117e7d, type: 2}
-  - {fileID: 11400000, guid: 2241377758d1b5b4eb00fbb4e5b65467, type: 2}
-  - {fileID: 11400000, guid: b8bd0f7759a521c4bbe3f4f7223c687f, type: 2}
-  - {fileID: 11400000, guid: 1645521d92cd4f24f9eb2ee8cbcc23b6, type: 2}
+  - {fileID: 11400000, guid: b98712a7ec8034a409450ffff9117e7d, type: 2}
+  - {fileID: 11400000, guid: 08496d747e4c0964da9c3550bbc38f58, type: 2}
+  - {fileID: 11400000, guid: 08496d747e4c0964da9c3550bbc38f58, type: 2}
 --- !u!114 &1353203298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,11 +1094,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a6c05a5a5f3c72e43b36f9476bc5f5b8, type: 2}
   - {fileID: 11400000, guid: 70b92d39b8dc7124789d4f71e0797f34, type: 2}
   - {fileID: 11400000, guid: 3a1082ac918ae85449ba34858ae030cb, type: 2}
-  - {fileID: 11400000, guid: 1e66e9d8915a0a446a6056614423f6bd, type: 2}
-  - {fileID: 11400000, guid: c5ffd573b0bf80a4fbed02dcef479654, type: 2}
-  - {fileID: 11400000, guid: b916554f1cc9f344294c676efe1573d9, type: 2}
-  - {fileID: 11400000, guid: 0d4ed2668edc4fe4999e4764d1832634, type: 2}
-  - {fileID: 11400000, guid: 0d4ed2668edc4fe4999e4764d1832634, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 3de6e686e9b8cfe45a220836a1174c40, type: 2}
 --- !u!1 &1368964190
 GameObject:
   m_ObjectHideFlags: 0

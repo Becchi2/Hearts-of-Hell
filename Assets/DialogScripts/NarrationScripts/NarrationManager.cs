@@ -104,4 +104,9 @@ public class NarrationManager : MonoBehaviour
             yield return new WaitForSeconds(0.03f);
         }
     }
+
+    public bool IsNarrationActive() // checks if the narration is currently active
+    {
+        return NarrationDialogParent.activeSelf;
+    }
 }

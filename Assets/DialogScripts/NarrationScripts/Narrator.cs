@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Narrator : MonoBehaviour
 {
+    public string name;
     public List<NarrationLines> lines;
     NarrationLines Narration;
 
@@ -10,7 +11,7 @@ public class Narrator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Narrate(0);
+            Narrate(3);
         }
     }
 

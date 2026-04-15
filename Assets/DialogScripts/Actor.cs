@@ -13,7 +13,7 @@ public class Actor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SpeakTo(0);
+            SpeakTo(3);
         }
     }
 
