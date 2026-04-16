@@ -3,7 +3,7 @@ using TMPro;
 using System.Collections;
 using Unity.VisualScripting;
 
-public class SceneDirectorScript : MonoBehaviour
+public class SceneDirectorScriptMorning : MonoBehaviour
 {
     public Actor Demon;
     public Narrator Narrator;
@@ -17,7 +17,7 @@ public class SceneDirectorScript : MonoBehaviour
     public IEnumerator StartDialogue() // orders the sequence of events in the dialog scene for slitmouth
     {
         RefAttraction = FindAnyObjectByType<CharacterData>();
-        /*Narrator.Narrate(0);
+        Narrator.Narrate(0);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive()); // wait for Narrate to finish
         Demon.SpeakTo(0); // starts the dialogue at position num in the list of dialogue routes for the demon
         yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive()); // wait for SpeakTo to finish
@@ -31,7 +31,7 @@ public class SceneDirectorScript : MonoBehaviour
         yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
         Narrator.Narrate(3);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
-        Demon.SpeakTo(3); */
+        Demon.SpeakTo(3); 
         yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
         Narrator.Narrate(4);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
