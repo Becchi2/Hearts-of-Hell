@@ -17,4 +17,4 @@ MonoBehaviour:
   responses:
   - AttractionPoints: 0
     responseText: Next
-    nextNode: {fileID: 11400000, guid: f8b756684bf5fba40a1a3b0012cdbc08, type: 2}
+    nextNode: {fileID: 11400000, guid: d80444f89536b97448fbb51724220215, type: 2}

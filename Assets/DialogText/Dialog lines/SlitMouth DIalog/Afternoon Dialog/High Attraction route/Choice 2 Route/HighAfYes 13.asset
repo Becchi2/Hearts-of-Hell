@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
-  m_Name: DoingJob 2
+  m_Name: HighAfYes 13
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: "I\u2019m just here to do my job. If that means I have to track you
-    down, so be it."
+  dialogueText: So you followed me here.
   speaker: You
   responses:
   - AttractionPoints: 0
     responseText: next
-    nextNode: {fileID: 11400000, guid: 775459c21e0bbb848aa29b2cb82a69dc, type: 2}
+    nextNode: {fileID: 11400000, guid: 7e875c03eaca97840962f5fd64607ec5, type: 2}

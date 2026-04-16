@@ -10,15 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
-  m_Name: HighAfDialog 2
+  m_Name: HighAfYes 4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: I certainly wasn't expecting to find you here, but I do believe you
-    were out looking for me.
+  dialogueText: Oh? Do you truly believe I would do such without cause?
   speaker: Kuchisake-Onna
   responses:
-  - AttractionPoints: -1
-    responseText: No I wasn't
-    nextNode: {fileID: 11400000, guid: 7b7b51f66fa60934f945580d5105da4f, type: 2}
-  - AttractionPoints: 1
-    responseText: You got me
-    nextNode: {fileID: 11400000, guid: 38c0cd9f0fda7374189197268cfd78a8, type: 2}
+  - AttractionPoints: 0
+    responseText: Next
+    nextNode: {fileID: 11400000, guid: f7dd39f24bd4607419f432ea2ad6a758, type: 2}

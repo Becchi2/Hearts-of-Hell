@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0e5b215458cb4f4b9cc586aec208fec, type: 3}
-  m_Name: HighAfNoDIalog 2
+  m_Name: HighAf DialogYes 2
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
-  RootNode: {fileID: 11400000, guid: 1532af865cdb98e4f9dffe4a7532f76b, type: 2}
+  RootNode: {fileID: 11400000, guid: 61d96d1397716ed4f9f429fbd70cb57a, type: 2}
