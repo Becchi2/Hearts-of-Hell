@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
   m_Name: NoAttr 5
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: Now that introductions are over... I'd like to see that you're dead.
+  dialogueText: Now that introductions are over... I want to see you dead.
   speaker: Kuchisake-Onna
   responses:
   - AttractionPoints: 0

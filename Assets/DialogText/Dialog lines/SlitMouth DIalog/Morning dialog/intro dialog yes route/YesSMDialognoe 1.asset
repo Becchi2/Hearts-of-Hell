@@ -10,17 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
-  m_Name: SlitMouth intro node 14
+  m_Name: YesSMDialognoe 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: Do You think I'm pretty?
+  dialogueText: You know... I don't appreciate people pleasers.
   speaker: ???
   responses:
-  - AttractionPoints: -3
-    responseText: Nope
-    nextNode: {fileID: 11400000, guid: ddf542dc40bc90e49ba4832811d36131, type: 2}
-  - AttractionPoints: 1
-    responseText: Meh
-    nextNode: {fileID: 11400000, guid: 0a7d80415c3317a47bad828c6bfbf8d4, type: 2}
   - AttractionPoints: -1
-    responseText: Yes
-    nextNode: {fileID: 11400000, guid: f3a2fb9c4821a5b459d1fb5fbffec6da, type: 2}
+    responseText: Next
+    nextNode: {fileID: 11400000, guid: 7cd9fb515bc39e545828f2fb867a7605, type: 2}

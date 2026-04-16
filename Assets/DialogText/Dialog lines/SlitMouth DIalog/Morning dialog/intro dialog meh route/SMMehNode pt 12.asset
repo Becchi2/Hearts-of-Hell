@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
-  m_Name: NoAttr 3
+  m_Name: SMMehNode pt 12
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: Ha! Where are my manners?? I had forgotten to introduce myself...
+  dialogueText: People call me...
   speaker: ???
   responses:
   - AttractionPoints: 0
-    responseText: next
-    nextNode: {fileID: 11400000, guid: a2b989b982c9ef04dbda6756c2036e33, type: 2}
+    responseText: Next
+    nextNode: {fileID: 11400000, guid: 7128a49d4b082da46bd05447cb0daacf, type: 2}
