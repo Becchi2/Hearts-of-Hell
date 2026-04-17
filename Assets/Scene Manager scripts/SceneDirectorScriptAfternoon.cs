@@ -11,7 +11,14 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(StartDialogueBad()); // Start the scene after the narration        
+        if (CharacterData.lovePoints > 0)
+        {
+            StartCoroutine(StartDialogueGood()); // Start the scene after the narration
+        }
+        else
+        {
+            StartCoroutine(StartDialogueBad()); // Start the scene after the narration
+        }
     }
 
     public IEnumerator StartDialogueGood() // dialogue for the good route of the game, where the player has a high attraction score with the demon

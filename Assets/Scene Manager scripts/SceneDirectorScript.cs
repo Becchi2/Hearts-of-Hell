@@ -9,6 +9,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
     public Narrator Narrator;
     CharacterData RefAttraction;// gets the AttractionPoints from CharacterData file and DialogResponse file
 
+
     void Start()
     {
         StartCoroutine(StartDialogue()); // Start the scene after the narration        
@@ -50,7 +51,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
 
 
         }
-        else if (RefAttraction.Attraction >= 5)
+        else if (RefAttraction.Attraction >= 5) //the interaction that happens if you say ehh
         {
             Demon.SpeakTo(7);
             yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
@@ -68,6 +69,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
             yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
             Narrator.Narrate(10);
             yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+            CharacterData.lovePoints += 1;
 
         }
         else if (RefAttraction.Attraction  == 4)// the interaction that happens if you say yes
@@ -77,7 +79,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
             Demon.SpeakTo(11);
             yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
             //enter the fight sequence
-            //either bad ending on or bad ending 2 happens depending on the player's choices in the fight sequence
+            
 
 
 

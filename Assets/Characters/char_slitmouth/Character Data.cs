@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CharacterData : MonoBehaviour
 {
-    public int Attraction = 5;
-
+    public int Attraction = 5;//sets the attraction in a scene to determine which sprite is shown and which dialogue route actiavtes
+    public static int lovePoints = 0;//sets the level of attraction throughout the game, so that it can be accessed in other scripts
 
 
     [SerializeField] Sprite[] CharacterSprite;
