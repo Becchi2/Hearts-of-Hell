@@ -15,6 +15,6 @@ MonoBehaviour:
   dialogueText: Ha! Where are my manners?? I had forgotten to introduce myself...
   speaker: ???
   responses:
-  - AttractionPoints: -3
+  - AttractionPoints: 0
     responseText: next
     nextNode: {fileID: 11400000, guid: a2b989b982c9ef04dbda6756c2036e33, type: 2}
