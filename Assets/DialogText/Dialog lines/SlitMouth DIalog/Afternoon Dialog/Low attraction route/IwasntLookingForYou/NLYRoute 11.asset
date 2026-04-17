@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
-  m_Name: LowAttraction Dialog 2
+  m_Name: NLYRoute 11
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: "What could possibly be your reason for looking for me? I\u2019m
-    certain I gave you a stern enough warning."
+  dialogueText: "Why would I help you when I don\u2019t know your intentions?"
   speaker: Kuchisake-Onna
   responses:
   - AttractionPoints: 2
-    responseText: I wasn't looking for you
-    nextNode: {fileID: 11400000, guid: 8c49989fb325ba2449696d8cf3d83dde, type: 2}
-  - AttractionPoints: -3
-    responseText: Just doing my job
-    nextNode: {fileID: 11400000, guid: 0a5498d5b9faaef4795c1d7ad19b8259, type: 2}
+    responseText: I just want to help
+    nextNode: {fileID: 11400000, guid: 3afdcbb81b4d204498b8d97a873d9b49, type: 2}
+  - AttractionPoints: -1
+    responseText: FIne, then don't help.
+    nextNode: {fileID: 11400000, guid: 8fd08ed51736c064ba725c8da1b79a47, type: 2}

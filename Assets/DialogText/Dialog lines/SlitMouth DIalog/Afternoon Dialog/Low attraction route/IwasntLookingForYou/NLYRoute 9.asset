@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
-  m_Name: DoingJob 2
+  m_Name: NLYRoute 9
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: "I\u2019m just here to do my job. If that means I have to track you
-    down, so be it."
-  speaker: You
+  dialogueText: I doubt that you would even bother trying to understand how warranted
+    their deaths are.
+  speaker: Kuchisake-Onna
   responses:
   - AttractionPoints: 0
-    responseText: next
-    nextNode: {fileID: 11400000, guid: 65d78f55b94d0ac4ca24f1ce49bd320e, type: 2}
+    responseText: Next
+    nextNode: {fileID: 11400000, guid: 8e24483ee46d90e45ba649058ed36b1f, type: 2}
