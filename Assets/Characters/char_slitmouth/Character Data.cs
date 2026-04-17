@@ -54,7 +54,7 @@ public class CharacterData : MonoBehaviour
 
             gameObject.GetComponent<SpriteRenderer>().sprite = newSprite;
         }
-        else if (Attraction == 10)
+        else if (Attraction >= 10)
         {
 
             newSprite = CharacterSprite[6];
