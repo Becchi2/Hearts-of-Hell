@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
+  m_Name: LMHelp 6
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  dialogueText: "You\u2019d be surprised about how much I can find out with just
+    a simple phone call."
+  speaker: You
+  responses:
+  - AttractionPoints: 2
+    responseText: Next
+    nextNode: {fileID: 11400000, guid: 4de6a2bc83b76e5408712bd84bae3729, type: 2}
