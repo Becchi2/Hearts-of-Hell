@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
+  m_Name: No 2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  dialogueText: "You\u2026YOU\u2026I\u2019LL MAKE SURE TO KILL YOU WHERE YOU STAND!!"
+  speaker: Kuchisake-Onna
+  responses:
+  - AttractionPoints: 0
+    responseText: Next
+    nextNode: {fileID: 11400000, guid: a2a2cfb610c253a42bd45f6d798449f6, type: 2}

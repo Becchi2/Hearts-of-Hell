@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979461ddb4eae5c45b70bee6474fd6a3, type: 3}
+  m_Name: Evening 13
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  dialogueText: "...An affair. He had found\u2026another. And would sneak off to
+    be with that other woman behind my back."
+  speaker: Kuchisake-Onna
+  responses:
+  - AttractionPoints: 0
+    responseText: next
+    nextNode: {fileID: 11400000, guid: 2482cbfc1192c314ca46fd546f12a8f6, type: 2}
