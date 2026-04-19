@@ -137,6 +137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   unitName: Slitmouth
-  maxHP: 250
-  currentHP: 250
+  maxHP: 125
+  currentHP: 125
   damage: 10
+  magicDamage: 0
+  maxMP: 0
+  currentMP: 0
+  mpCost: 0
