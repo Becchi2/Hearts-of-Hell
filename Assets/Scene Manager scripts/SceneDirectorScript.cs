@@ -2,12 +2,14 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class SceneDirectorScriptMorning : MonoBehaviour
 {
     public Actor Demon;
     public Narrator Narrator;
     CharacterData RefAttraction;// gets the AttractionPoints from CharacterData file and DialogResponse file
+    BattleSystem RefBattleSystem; // reference to the battle system script to get the win or lose state of a battle
 
 
     void Start()
@@ -18,6 +20,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
     public IEnumerator StartDialogue() // orders the sequence of events in the dialog scene for slitmouth
     {
         RefAttraction = FindAnyObjectByType<CharacterData>();
+        RefBattleSystem = FindAnyObjectByType<BattleSystem>();
         Narrator.Narrate(0);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive()); // wait for Narrate to finish
         Demon.SpeakTo(0); // starts the dialogue at position num in the list of dialogue routes for the demon
@@ -46,7 +49,9 @@ public class SceneDirectorScriptMorning : MonoBehaviour
             Demon.SpeakTo(6);
             yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
             //enter the fight sequence
-            //either bad ending on or bad ending 2 happens depending on the player's choices in the fight sequence
+            Time.timeScale = 0;//pauses the game scene
+            SceneManager.LoadScene("Battle Scene");//Loads the battle scene
+
 
 
 
@@ -79,7 +84,9 @@ public class SceneDirectorScriptMorning : MonoBehaviour
             Demon.SpeakTo(11);
             yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
             //enter the fight sequence
-            
+            Time.timeScale = 0;//pauses the game scene
+            SceneManager.LoadScene("Battle Scene");//Loads the battle scene
+
 
 
 
