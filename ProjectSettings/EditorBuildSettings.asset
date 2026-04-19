@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Office SlitMouth 3.unity
     guid: 875e6ed069354134290fe901349553a4
+  - enabled: 1
+    path: Assets/Scenes/Contract Screen.unity
+    guid: b6abc709ede7c074da9cd9db082c472f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 926437efa46cbbe49b3623446ad990db, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

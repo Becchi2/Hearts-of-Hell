@@ -5,6 +5,6 @@ public class OpenContract : MonoBehaviour
 {
    public void AccepContract()
    {
-      SceneManager.LoadScene(2);
+      SceneManager.LoadScene("Office SlitMouth 1");
     }
 }

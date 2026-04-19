@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
    public void PlayGame()
     {
              // Load the main game scene
-      SceneManager.LoadScene("Office SlitMouth 1"); //Load the next scene in the build index 
+      SceneManager.LoadScene("Contract Screen"); //Load the next scene in the build index 
     }
 
     public void QuitGame()

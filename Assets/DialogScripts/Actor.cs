@@ -9,13 +9,6 @@ public class Actor : MonoBehaviour
     Dialogue Dialogue;
     public List<Dialogue> DialogRoutes;//the ammount of dialog paths the player can choose
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpeakTo(3);
-        }
-    }
 
     //Triggers the dialogue with the character
     public void SpeakTo(int num)
