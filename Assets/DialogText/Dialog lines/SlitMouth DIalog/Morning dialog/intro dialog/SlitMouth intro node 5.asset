@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SlitMouth intro node 5
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   dialogueText: Yeah... I guess you're right...
-  speaker: ???
+  speaker: You
   responses:
   - AttractionPoints: 0
     responseText: next

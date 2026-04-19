@@ -1,7 +1,8 @@
-using UnityEngine;
-using TMPro;
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneDirectorScriptAfternoon : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
         {
             Demon.SpeakTo(3);
             yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
+            SceneManager.LoadScene("Battle Scene");//Loads the battle scene
 
         }
         else if (RefAttraction.Attraction > 5)
@@ -68,6 +70,7 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
             {
                 Demon.SpeakTo(7);
                 yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
+                SceneManager.LoadScene("Battle Scene");//Loads the battle scene
 
             }
             else if (RefAttraction.Attraction > 5 && RefAttraction.Attraction < 7)
@@ -76,13 +79,14 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
                 yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
                 Narrator.Narrate(4);
                 yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+                SceneManager.LoadScene("Office SlitMouth 3");
 
             }
             else if (RefAttraction.Attraction > 7)
             {
                 Demon.SpeakTo(9);
                 yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
-
+                SceneManager.LoadScene("Office SlitMouth 3");
             }
 
         }
@@ -99,6 +103,7 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
         {
             Demon.SpeakTo(13);
             yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
+            SceneManager.LoadScene("Battle Scene");//Loads the battle scene
         }
         else //if player chooses "not looking for you" choice
         {
@@ -112,6 +117,7 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
             {
                 Demon.SpeakTo(16);
                 yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
+                SceneManager.LoadScene("Battle Scene");//Loads the battle scene
 
             }
             else
@@ -119,6 +125,7 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
                 Demon.SpeakTo(17);
                 yield return new WaitUntil(() => !DialogueManager.Instance1.IsDialogueActive());
                 Narrator.Narrate(6);
+                SceneManager.LoadScene("Office SlitMouth 3");
             }
         }
 

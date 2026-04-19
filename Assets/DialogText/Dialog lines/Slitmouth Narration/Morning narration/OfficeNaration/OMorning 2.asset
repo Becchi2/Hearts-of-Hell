@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947c76105d7454747a8fc8874cd8bff8, type: 3}
+  m_Name: OMorning 2
+  m_EditorClassIdentifier: Assembly-CSharp::NarrationLines
+  lines:
+  - At the office I make a quick phone call.
+  - "\u201CHey! How\u2019s my favorite newbie doing?\u201D"
+  - "\u201CI\u2019m doing alright. I just wanted to ask something.\u201D"
+  - "\u201CShoot.\u201D he replies."
+  - "\u201CHow much do you know about Kuchisake-Onna?\u201D"
+  - Silence...Then...
+  - "\u201CShe\u2019s a bit of a tricky one I won\u2019t lie. The most I can tell
+    you is that she's an urban legend who died a long time ago in feudal Japan. "
+  - "That\u2019s all I can say for certain though. You're still trying to get her?"
+  - "\"She said she\u2019s \u2018taken back to a long time ago.\u2019 So I kinda
+    agreed to help her out.\u201D"
+  - "\u201CUh huh, look at you taking my advice. I really am a good teacher.\u201D"
+  - "\u201CYeah yeah whatever. But is that all you know?\u201D"
+  - "\u201CWeeellll I did hear that she had a partner way back when she was still
+    alive who did something to her. "
+  - "But that\u2019s all I got. Even then I ain\u2019t too sure about how valid that
+    claim is.\u201D"
+  - "\u201CIt\u2019s fine, it should be good enough. Thanks\u201D"
+  - "\u201CAlrighty then. Stay safe newbie.\u201D"
+  line: 

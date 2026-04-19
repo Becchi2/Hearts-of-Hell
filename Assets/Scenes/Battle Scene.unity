@@ -1782,7 +1782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1352332558}
   - component: {fileID: 1352332559}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1926,7 +1926,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1907488521115545697, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

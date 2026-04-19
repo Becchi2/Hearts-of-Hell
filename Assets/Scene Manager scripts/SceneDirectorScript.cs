@@ -75,6 +75,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
             Narrator.Narrate(10);
             yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
             CharacterData.lovePoints += 1;
+            SceneManager.LoadScene("Office SlitMouth 2");
 
         }
         else if (RefAttraction.Attraction  == 4)// the interaction that happens if you say yes

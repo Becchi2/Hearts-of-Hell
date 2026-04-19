@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   dialogueText: Oh what a surprise! It's quite unusual for someone to be here this
     early.
-  speaker: You
+  speaker: ???
   responses:
   - AttractionPoints: 0
     responseText: Next

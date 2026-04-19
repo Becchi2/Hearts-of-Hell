@@ -23,7 +23,6 @@ public class DialogueManager : MonoBehaviour
         if (Instance1 == null)
         {
             Instance1 = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
