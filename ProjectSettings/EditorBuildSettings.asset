@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Battle Scene.unity
     guid: e5d7fcc8f850922408cae3af573c163c
   - enabled: 1
-    path: Assets/Scenes/SlitMouth Morning scene.unity
+    path: Assets/Scenes/SlitMouth morning scene.unity
     guid: 70721aef717ac2742b287cf90c567525
   - enabled: 1
     path: Assets/Scenes/Office SlitMouth 1.unity
