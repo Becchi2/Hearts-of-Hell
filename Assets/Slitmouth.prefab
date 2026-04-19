@@ -81,12 +81,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -712454370704216322, guid: 1bed8a1727ca42340896829ade9872c3, type: 3}
+  m_Sprite: {fileID: -1907488521115545697, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.82, y: 7.9133587}
+  m_Size: {x: 9.551298, y: 7.620001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -137,6 +137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   unitName: Slitmouth
-  maxHP: 250
-  currentHP: 250
+  maxHP: 120
+  currentHP: 120
   damage: 10
+  magicDamage: 0
+  maxMP: 0
+  currentMP: 0
+  mpCost: 0

@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
@@ -7,6 +8,7 @@ public class BattleSystem : MonoBehaviour
 {
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+    public TextMeshProUGUI textMeshPro;
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
@@ -39,6 +41,7 @@ public class BattleSystem : MonoBehaviour
         enemyUnit = enemyGO.GetComponent<Unit>();
 
         Debug.Log("kuchisake onna gets aggressive");
+        textMeshPro.SetText("kuchisake onna gets aggressive");
 
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
@@ -58,6 +61,7 @@ public class BattleSystem : MonoBehaviour
 
         enemyHUD.SetHP(enemyUnit.currentHP);
         Debug.Log("kuchisake onna takes " + playerUnit.damage + " damage!");
+        textMeshPro.SetText("kuchisake onna takes " + playerUnit.damage + " damage!");
 
         yield return new WaitForSeconds(2f);
 
@@ -75,6 +79,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         Debug.Log("kuchisake onna attacks!");
+        textMeshPro.SetText("kuchisake onna attacks!");
 
         yield return new WaitForSeconds(1f);
 
@@ -102,6 +107,7 @@ public class BattleSystem : MonoBehaviour
         if (playerUnit.currentMP < mpCost)
         {
             Debug.Log("Not enough MP!");
+            textMeshPro.SetText("Not enough MP!");
             yield break;
         }
 
@@ -114,6 +120,7 @@ public class BattleSystem : MonoBehaviour
         enemyHUD.SetHP(enemyUnit.currentHP);
 
         Debug.Log("kuchisake onna takes " + playerUnit.magicDamage + " magic damage!");
+        textMeshPro.SetText("kuchisake onna takes " + playerUnit.magicDamage + " magic damage!");
 
         yield return new WaitForSeconds(2f);
 
@@ -132,10 +139,12 @@ public class BattleSystem : MonoBehaviour
         if(state == BattleState.WON)
         {
             Debug.Log("You won the battle!");
+            textMeshPro.SetText("You won the battle!");
         }
         else if(state == BattleState.LOST)
         {
             Debug.Log("You were defeated.");
+            textMeshPro.SetText("You were defeated.");
         }
     }
     public void OnAttackButton()
