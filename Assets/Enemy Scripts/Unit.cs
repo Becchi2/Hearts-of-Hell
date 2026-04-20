@@ -15,6 +15,12 @@ public class Unit : MonoBehaviour
     public int currentMP;
     public int mpCost;
 
+    void Awake()
+    {
+        currentHP = maxHP;
+        currentMP = maxMP;
+    }
+
     public bool TakeDamage(int damage)
     {
         currentHP -= damage;
