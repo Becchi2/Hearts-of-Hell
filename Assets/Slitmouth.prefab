@@ -140,7 +140,7 @@ MonoBehaviour:
   maxHP: 120
   currentHP: 120
   damage: 10
-  magicDamage: 0
-  maxMP: 0
-  currentMP: 0
-  mpCost: 0
+  magicDamage: 25
+  maxMP: 100
+  currentMP: 10
+  mpCost: 10

@@ -1,11 +1,16 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
+
 
 public class BattleSystem : MonoBehaviour
 {
+    public static BattleSystem Instance4 { get; private set; }
+
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
     public TextMeshProUGUI textMeshPro;
@@ -21,8 +26,22 @@ public class BattleSystem : MonoBehaviour
 
     public BattleState state;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
+    {
+
+        //ensures theres only one instance of dialogue manager at a time
+        if (Instance4 == null)
+        {
+            Instance4 = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
     {
         state = BattleState.START;
         StartCoroutine(SetupBattle());
@@ -44,8 +63,8 @@ public class BattleSystem : MonoBehaviour
         textMeshPro.SetText("kuchisake onna gets aggressive");
 
         playerHUD.SetHUD(playerUnit);
-        enemyHUD.SetHUD(enemyUnit);
-
+        //enemyHUD.SetHUD(enemyUnit);
+        
         yield return new WaitForSeconds(2f);
 
         state = BattleState.PLAYERTURN;
@@ -69,6 +88,7 @@ public class BattleSystem : MonoBehaviour
         {
             state = BattleState.WON;
             EndBattle();
+            SceneManager.LoadScene("Office SlitMouth 4");//Loads the enidng scene if the player wins the battle
         }
         else
         {
@@ -93,6 +113,7 @@ public class BattleSystem : MonoBehaviour
         {
             state = BattleState.LOST;
             EndBattle();
+            SceneManager.LoadScene("Office SlitMouth 4");//Loads the enidng scene if the player wins the battle
         }
         else
         {
@@ -128,6 +149,7 @@ public class BattleSystem : MonoBehaviour
         {
             state = BattleState.WON;
             EndBattle();
+            SceneManager.LoadScene("Office SlitMouth 4");//Loads the enidng scene if the player wins the battle
         }
         else
         {
