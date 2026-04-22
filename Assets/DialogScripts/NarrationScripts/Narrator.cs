@@ -7,13 +7,7 @@ public class Narrator : MonoBehaviour
     public List<NarrationLines> lines;
     NarrationLines Narration;
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Narrate(3);
-        }
-    }
+
 
     //Triggers the dialogue with the character
     public void Narrate(int num)
