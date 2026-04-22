@@ -66,6 +66,7 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
             return;
         }
         SpeakerText.text = dialog.SetSpeaker(index);
+        StopAllCoroutines(); // Stop any ongoing typing coroutine
         StartCoroutine(TypeOut());
     }
 
@@ -89,8 +90,9 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
         foreach (char letter in dialog.SetDialogText(index).ToCharArray())
         {
             DialogText.text += letter;
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.05f);
         }
+
     }
 
 

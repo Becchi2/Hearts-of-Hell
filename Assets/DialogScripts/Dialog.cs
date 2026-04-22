@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Dialog : ScriptableObject // where the dialog lines are stored and can be accessed by the DialogManager
 {
-
+    CharacterData refAttraction;
     public List<DialogLine> lines = new List<DialogLine>(); // list where the speaker and lines of dialog can be defined
     string speaker;
     string dialogText;
@@ -24,5 +24,12 @@ public class Dialog : ScriptableObject // where the dialog lines are stored and 
     {
         return lines.Count;
     }
+
+    public void setSprite(int num) // sets the sprite of the character for a line of dialog
+    {
+        refAttraction.Attraction = lines[num].SpriteRange;
+
+    }
+
 }
 

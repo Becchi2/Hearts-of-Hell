@@ -22,7 +22,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
         CreateButton("yes", 0);
     }
 
-    public void CreateButton(string buttonText, int nextDialogNum)
+    public void CreateButton(string buttonText, int nextDialogNum)//creates response buttons with the text and the next dialog number to trigger when clicked
     {
         //creates button
         GameObject buttonObj = Instantiate(ResponseButtonPrefab, ResponseButtonContainer);
@@ -34,7 +34,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
 
     }
 
-    public void HideButton(GameObject buttonObj)
+    public void HideButton(GameObject buttonObj)//hides the button after it is clicked
     {
         // Hides the button after it is clicked
         buttonObj.SetActive(false);

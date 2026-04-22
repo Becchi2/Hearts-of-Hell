@@ -5,5 +5,5 @@ public class DialogLine //contains the speaker and the line of dialog for a sing
 {
     public string speaker;
     public string line;
- 
+    public int SpriteRange; // sets which sprite the character will use for this line of dialog
 }
