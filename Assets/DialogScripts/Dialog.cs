@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 [CreateAssetMenu(fileName = "New DialogLines", menuName = "Dialog/DialogLines")]
 [System.Serializable]
@@ -27,6 +28,7 @@ public class Dialog : ScriptableObject // where the dialog lines are stored and 
 
     public void setSprite(int num) // sets the sprite of the character for a line of dialog
     {
+        refAttraction = FindObjectOfType<CharacterData>();
         refAttraction.Attraction = lines[num].SpriteRange;
 
     }

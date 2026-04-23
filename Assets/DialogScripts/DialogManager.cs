@@ -66,6 +66,7 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
             return;
         }
         SpeakerText.text = dialog.SetSpeaker(index);
+                dialog.setSprite(index);
         StopAllCoroutines(); // Stop any ongoing typing coroutine
         StartCoroutine(TypeOut());
     }

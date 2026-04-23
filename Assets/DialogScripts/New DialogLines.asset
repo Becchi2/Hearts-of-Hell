@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogLines
   lines:
   - speaker: ajnkj
-    line: ljahdljkahsljh
+    line: hello man
+    SpriteRange: 7
   - speaker: sjahjfh
-    line: jsahksjahk
+    line: hey whats up motherfucker
+    SpriteRange: 5
   - speaker: hksajfk
-    line: ksajfhkjsfkjaf
+    line: why did u call me that :(
+    SpriteRange: 2
