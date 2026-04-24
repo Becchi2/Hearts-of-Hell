@@ -218,6 +218,7 @@ RectTransform:
   - {fileID: 1340536683}
   - {fileID: 262179218}
   - {fileID: 1368964191}
+  - {fileID: 2076720150}
   - {fileID: 851544709}
   - {fileID: 215354210}
   m_Father: {fileID: 0}
@@ -1120,8 +1121,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1353203296}
   - component: {fileID: 1353203295}
-  - component: {fileID: 1353203298}
   - component: {fileID: 1353203297}
+  - component: {fileID: 1353203298}
   m_Layer: 0
   m_Name: SceneDirector
   m_TagString: Untagged
@@ -1141,8 +1142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a719d6a5821914a8e480ee86f9ca78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneDirectorScript
-  Demon: {fileID: 1353203298}
-  Narrator: {fileID: 1353203297}
+  narrator: {fileID: 1353203297}
+  actor: {fileID: 1353203298}
+  ResponseButtonContainer: {fileID: 1368964191}
+  ResponseButtonPrefab: {fileID: 3139868799126147602, guid: 3bb9244d52754554caf15b4fd174d7be, type: 3}
 --- !u!4 &1353203296
 Transform:
   m_ObjectHideFlags: 0
@@ -1193,24 +1196,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1353203294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76d75b8f9a8c4fd41a585bb5646f17ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c0a96879c2e30a499eba8c7ce850bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Actor
-  Name: 
-  DialogRoutes:
-  - {fileID: 11400000, guid: 38fe66cf4484b73428500413b8462822, type: 2}
-  - {fileID: 11400000, guid: df93ca26d3a284e47887e43e5d19d2e6, type: 2}
-  - {fileID: 11400000, guid: a6c05a5a5f3c72e43b36f9476bc5f5b8, type: 2}
-  - {fileID: 11400000, guid: 70b92d39b8dc7124789d4f71e0797f34, type: 2}
-  - {fileID: 11400000, guid: 3a1082ac918ae85449ba34858ae030cb, type: 2}
-  - {fileID: 11400000, guid: 1e66e9d8915a0a446a6056614423f6bd, type: 2}
-  - {fileID: 11400000, guid: c5ffd573b0bf80a4fbed02dcef479654, type: 2}
-  - {fileID: 11400000, guid: b916554f1cc9f344294c676efe1573d9, type: 2}
-  - {fileID: 11400000, guid: 0d4ed2668edc4fe4999e4764d1832634, type: 2}
-  - {fileID: 11400000, guid: 8d43e27e8048b71408f49fb39702f317, type: 2}
-  - {fileID: 11400000, guid: ee6f7ed01ecc1594ab65086ed3a5d547, type: 2}
-  - {fileID: 11400000, guid: 0553d3ed7e82feb4d8e47c9da16f243f, type: 2}
-  - {fileID: 11400000, guid: 2f819792a88ec69479d672256e3364d1, type: 2}
+  lines: []
 --- !u!1 &1368964190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,15 +1569,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 2049740618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 554ccf8bbb37e6044a99b147f73e1c46, type: 3}
+  m_Script: {fileID: 11500000, guid: 305fa5edab08b4f428b2676219ef3afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogManager
-  DialogParent: {fileID: 428255573}
-  DemonName: {fileID: 2028882973}
+  DialogParent: {fileID: 262179217}
   DialogText: {fileID: 1933194873}
-  ResponseButtonPrefab: {fileID: 3139868799126147602, guid: 3bb9244d52754554caf15b4fd174d7be, type: 3}
-  ResponseButtonContainer: {fileID: 1368964191}
-  RefAttraction: {fileID: 0}
+  SpeakerText: {fileID: 2028882973}
+  ContinueButtonPrefab: {fileID: 3139868799126147602, guid: e4a73849291286d4e9d6750e5b10457a, type: 3}
+  ContinueButtonContainer: {fileID: 2076720150}
+  dialog: {fileID: 0}
+--- !u!1 &2076720149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2076720150}
+  m_Layer: 0
+  m_Name: NextDialogButtonContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2076720150
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076720149}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 38068644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 669, y: -429}
+  m_SizeDelta: {x: 113.24, y: 106.42}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!1001 &6233698795306215270
 PrefabInstance:
   m_ObjectHideFlags: 0
