@@ -15,6 +15,9 @@ public class Unit : MonoBehaviour
     public int currentMP;
     public int mpCost;
 
+    public int maxLimit;
+    public int limit;
+
     void Awake()
     {
         currentHP = maxHP;
@@ -46,4 +49,11 @@ public class Unit : MonoBehaviour
     {
         currentMP -= mpCost;
     }
+
+    public bool IsMPAvailable(int mpCost)
+    {
+        return currentMP >= mpCost;
+    }
+
+
 }

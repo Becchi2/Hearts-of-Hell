@@ -19,7 +19,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
 
     public void Start()
     {
-        CreateButton("yes", 0);
+        
     }
 
     public void CreateButton(string buttonText, int nextDialogNum)//creates response buttons with the text and the next dialog number to trigger when clicked

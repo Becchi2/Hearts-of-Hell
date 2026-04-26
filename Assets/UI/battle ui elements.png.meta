@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4ddf7bec63c97145bd79d6fb9b9fcfd
+guid: 3674dfdd6748bdc459456ec7063a804a
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -23,6 +23,9 @@ TextureImporter:
   - first:
       213: -7057619303254660338
     second: battle ui elements_6
+  - first:
+      213: 767414170700541602
+    second: battle ui elements_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,8 +124,8 @@ TextureImporter:
       name: battle ui elements_0
       rect:
         serializedVersion: 2
-        x: 138
-        y: 623
+        x: 85
+        y: 1026
         width: 282
         height: 66
       alignment: 0
@@ -143,8 +146,8 @@ TextureImporter:
       name: battle ui elements_1
       rect:
         serializedVersion: 2
-        x: 524
-        y: 258
+        x: 471
+        y: 661
         width: 350
         height: 431
       alignment: 0
@@ -165,8 +168,8 @@ TextureImporter:
       name: battle ui elements_2
       rect:
         serializedVersion: 2
-        x: 918
-        y: 271
+        x: 865
+        y: 674
         width: 378
         height: 415
       alignment: 0
@@ -187,10 +190,10 @@ TextureImporter:
       name: battle ui elements_3
       rect:
         serializedVersion: 2
-        x: 101
-        y: 514
-        width: 324
-        height: 67
+        x: 1399
+        y: 106
+        width: 627
+        height: 1074
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +212,10 @@ TextureImporter:
       name: battle ui elements_4
       rect:
         serializedVersion: 2
-        x: 75
-        y: 401
-        width: 363
-        height: 64
+        x: 48
+        y: 917
+        width: 324
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +234,10 @@ TextureImporter:
       name: battle ui elements_5
       rect:
         serializedVersion: 2
-        x: 610
-        y: 123
-        width: 246
-        height: 74
+        x: 22
+        y: 804
+        width: 363
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,10 +256,10 @@ TextureImporter:
       name: battle ui elements_6
       rect:
         serializedVersion: 2
-        x: 620
-        y: 14
-        width: 220
-        height: 82
+        x: 557
+        y: 526
+        width: 246
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,6 +270,28 @@ TextureImporter:
       bones: []
       spriteID: e0be095f2ac4e0e90800000000000000
       internalID: -7057619303254660338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: battle ui elements_7
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 417
+        width: 220
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aee4305f1766aa00800000000000000
+      internalID: 767414170700541602
       vertices: []
       indices: 
       edges: []
@@ -292,6 +317,7 @@ TextureImporter:
       battle ui elements_4: -842574559057307586
       battle ui elements_5: 7778339627864853439
       battle ui elements_6: -7057619303254660338
+      battle ui elements_7: 767414170700541602
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
