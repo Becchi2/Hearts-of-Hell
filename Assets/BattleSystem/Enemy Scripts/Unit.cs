@@ -38,6 +38,7 @@ public class Unit : MonoBehaviour
     public bool TakeMagicDamage(int magicDamage)
     {
         currentHP -= magicDamage;
+        
 
         if (currentHP <= 0)
             return true;

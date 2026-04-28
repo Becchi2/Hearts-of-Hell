@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST } //the different states of the battle system
-
+public enum TurnState { PLAYERTURN, ENEMYTURN }//checks if it is the players turn or the enemies turn
+public enum VictoryState { WON, LOST}//checks if the player won, lost, or drew the battle
+public enum StatusState { ACTIVE, INACTIVE }//checks if the status is active or inactive
 
 public class BattleSystem : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class BattleSystem : MonoBehaviour
 
     public Transform playerBattleStation; //where the player prefab will be spawned in the battle scene
     public Transform enemyBattleStation; //where the enemy prefab will be spawned in the battle scene
+    public Transform buttonContainer; //where the buttons will be spawned in the battle scene
+    public GameObject AttackbuttonPrefab; // prefab for the buttons to be spawned in the battle scene
+    public GameObject AbilityButtonPrefab; // prefab for the buttons to be spawned in the battle scene
 
     Unit playerUnit;// reference to the Unit script attached to the player prefab
     Unit enemyUnit;// reference to the Unit script attached to the enemy prefab
@@ -24,131 +28,121 @@ public class BattleSystem : MonoBehaviour
     public BattleHudd playerHUD;// reference to the BattleHudd script to update the UI elements for the player
     public BattleHudd enemyHUD;// reference to the BattleHudd script to update the UI elements for the enemy
 
-    public BattleState state; // lets us change the state of the battle system to determine what happens next in the battle
+    public TurnState turnState; // lets us check if it is the player's turn or the enemy's turn
+    public StatusState statusState; // lets us check if the status is active or inactive
+    public VictoryState victoryState; // lets us check if the player won, lost, or drew the battle
 
-    private void Awake()
+    // Start is called before the first frame update
+    public void Start()
     {
-        if (Instance4 == null)
-        {
-            Instance4 = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        StartCoroutine(Battle());
     }
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+    //start the battle
+    public IEnumerator Battle()
     {
-        state = BattleState.START;
-        StartCoroutine(SetupBattle());
-    }
+        //spawn character prefabs
+        GameObject playerGo = Instantiate(playerPrefab, playerBattleStation);
+        playerUnit = playerGo.GetComponent<Unit>();
+        GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
+        enemyUnit = enemyGo.GetComponent<Unit>();
+        //HideButtons();
 
-    IEnumerator SetupBattle()
-    {
-        //Instantiate player and enemy units
-        //Set up the battle scene
-        //Initialize UI elements    
-        state = BattleState.PLAYERTURN;
-        GameObject playerGO = Instantiate(playerPrefab, playerBattleStation); // places the player prefab in the battle scene at the playerBattleStation position
-        playerUnit = playerGO.GetComponent<Unit>(); // gets the Unit component from the player prefab and assigns it to the playerUnit variable
+        textMeshPro.SetText("player turn");
 
-        GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation); // places the enemy prefab in the battle scene at the enemyBattleStation position
-        enemyUnit = enemyGO.GetComponent<Unit>(); // gets the Unit component from the enemy prefab and assigns it to the enemyUnit variable
+        //assign hud to characters
+        playerHUD.SetHUD(playerUnit);
+        enemyHUD.SetHUD(enemyUnit);
+        yield return new WaitForSeconds(3f);
 
-
-        textMeshPro.SetText("kuchisake onna gets aggressive");
-
-        playerHUD.SetHUD(playerUnit);// sets up the player HUD with the player unit's information
-        enemyHUD.SetHUD(enemyUnit);// sets up the enemy HUD with the enemy unit's information
-
-        yield return new WaitForSeconds(2f);
+        //start the player's turn
+        turnState = TurnState.PLAYERTURN;
         PlayerTurn();
+        //ShowButtons();
 
     }
 
+
+
+    //wait for the player to choose an action
     void PlayerTurn()
     {
-        ShowButtons();
-        state = BattleState.PLAYERTURN;// sets the state to the player's turn
-        textMeshPro.SetText("Choose an action");
-        
+        textMeshPro.SetText("choose action");
     }
 
     IEnumerator PlayerAttack()
     {
-        //Damage the enemy
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);//emeny takes damage from the player and checks if the enemy is dead
-        enemyHUD.SetHP(enemyUnit.currentHP); //updates the enemy HUD with the enemy unit's current HP
 
-        yield return new WaitForSeconds(2f);
+        //Damage enemy
+        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
+        enemyHUD.SetHP(enemyUnit.currentHP);
+        textMeshPro.SetText(enemyUnit.unitName + " takes " + playerUnit.damage + " damage!");
 
-        //check if the enemy is dead
+        yield return new WaitForSeconds(1f);
+
+        //check if enemy is dead
         if (isDead)
         {
-            state = BattleState.WON; //player wins the battle
+            //end battle
+            victoryState = VictoryState.WON;
             EndBattle();
         }
         else
         {
-            state = BattleState.ENEMYTURN;//player 's turn is over, now it's the enemy's turn
+            //enemy turn
+            turnState = TurnState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
-    }
-
-    void EndBattle()//ends the battle and displays the result
-    {
-        if (state == BattleState.WON)
-        {
-            textMeshPro.SetText("You won the battle!");
-            // Load the next scene after a delay
-        }
-        else if (state == BattleState.LOST)
-        {
-            textMeshPro.SetText("You were defeated.");
-            // Load the game over scene after a delay
-        }
-    }
-
+}
+  
     IEnumerator EnemyTurn()
     {
-        HideButtons();
-        textMeshPro.SetText(enemyUnit.unitName + " attacks");
+        textMeshPro.SetText(enemyUnit.unitName + " attacks!");
+        //enemy performs attack
+        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        playerHUD.SetHP(playerUnit.currentHP);
 
         yield return new WaitForSeconds(1f);
-
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage); //player takes damage from the enemy and checks if the player is dead
-
-        playerHUD.SetHP(playerUnit.currentHP);//updates the player HUD with the player unit's current HP
-
-        yield return new WaitForSeconds(1f);
-
         if (isDead)
         {
-            state = BattleState.LOST; //player loses the battle
+            //if player is alive then subtract health else set state to won
+            victoryState = VictoryState.LOST;
             EndBattle();
         }
         else
         {
-            state = BattleState.PLAYERTURN; //enemy's turn is over, now it's the player's turn
+            //player turn
+            turnState = TurnState.PLAYERTURN;
             PlayerTurn();
         }
 
 
-        }
+    }
 
-    public void onAttackButton() // performs the player attack when the attack button is pressed
+    //Performs attack when clicked
+    public void OnAttackButton()
     {
-        if (state != BattleState.PLAYERTURN)
-        {
+        if(turnState != TurnState.PLAYERTURN)
             return;
-        }
-        else
+        
+        StartCoroutine(PlayerAttack());
+    }
+
+    //ends the battle
+    public void EndBattle()
+    {
+        if (victoryState == VictoryState.WON)
         {
-            StartCoroutine(PlayerAttack());
+            textMeshPro.SetText("You won the battle!");
+
+        }
+        else if (victoryState == VictoryState.LOST)
+        {
+            textMeshPro.SetText("You lost the battle!");
+
         }
     }
+
 
     public void ShowButtons()
     {
@@ -171,4 +165,5 @@ public class BattleSystem : MonoBehaviour
         if (abilityButton != null)
             abilityButton.SetActive(false);
     }
+
 }
