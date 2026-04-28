@@ -46,7 +46,6 @@ public class BattleSystem : MonoBehaviour
         playerUnit = playerGo.GetComponent<Unit>();
         GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Unit>();
-        //HideButtons();
 
         textMeshPro.SetText("player turn");
 
@@ -58,7 +57,7 @@ public class BattleSystem : MonoBehaviour
         //start the player's turn
         turnState = TurnState.PLAYERTURN;
         PlayerTurn();
-        //ShowButtons();
+        ShowButtons();
 
     }
 
@@ -68,6 +67,7 @@ public class BattleSystem : MonoBehaviour
     void PlayerTurn()
     {
         textMeshPro.SetText("choose action");
+        ShowButtons();
     }
 
     IEnumerator PlayerAttack()
@@ -97,6 +97,7 @@ public class BattleSystem : MonoBehaviour
   
     IEnumerator EnemyTurn()
     {
+        HideButtons();
         textMeshPro.SetText(enemyUnit.unitName + " attacks!");
         //enemy performs attack
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
@@ -147,23 +148,19 @@ public class BattleSystem : MonoBehaviour
     public void ShowButtons()
     {
         // Show the buttons
-        GameObject attackButton = GameObject.Find("AttackButton");
-        GameObject abilityButton = GameObject.Find("AbilityButton");
-        if (attackButton != null)
-            attackButton.SetActive(true);
-        if (abilityButton != null)
-            abilityButton.SetActive(true);
+        foreach (Transform child in buttonContainer)
+        {
+            child.gameObject.SetActive(true);
+        }
     }
 
     public void HideButtons()
     {
         // Hide the buttons
-        GameObject attackButton = GameObject.Find("AttackButton");
-        GameObject abilityButton = GameObject.Find("AbilityButton");
-        if (attackButton != null)
-            attackButton.SetActive(false);
-        if (abilityButton != null)
-            abilityButton.SetActive(false);
+        foreach (Transform child in buttonContainer)
+        {
+            child.gameObject.SetActive(false);
+        }
     }
 
 }
