@@ -61,7 +61,10 @@ public class BattleSystem : MonoBehaviour
 
     }
 
-
+        IEnumerator PlayerTalk()
+    {
+        return null;
+    }
 
     //wait for the player to choose an action
     void PlayerTurn()
@@ -125,8 +128,14 @@ public class BattleSystem : MonoBehaviour
     {
         if(turnState != TurnState.PLAYERTURN)
             return;
-        
         StartCoroutine(PlayerAttack());
+    }
+
+    public void OnTalkButton()
+    {         if(turnState != TurnState.PLAYERTURN)
+            return;
+        
+        StartCoroutine(PlayerTalk());
     }
 
     //ends the battle
@@ -156,6 +165,7 @@ public class BattleSystem : MonoBehaviour
 
     public void HideButtons()
     {
+        buttonContainer.transform()
         // Hide the buttons
         foreach (Transform child in buttonContainer)
         {

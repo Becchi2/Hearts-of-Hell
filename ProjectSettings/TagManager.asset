@@ -41,5 +41,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Backgrounds
+    uniqueID: 1006526581
+    locked: 0
+  - name: Battle Stations
+    uniqueID: 4219693395
+    locked: 0
+  - name: Characters
+    uniqueID: 2142552493
+    locked: 0
+  - name: UI
+    uniqueID: 1325890911
+    locked: 0
+  - name: buttons
+    uniqueID: 557041719
+    locked: 0
   m_RenderingLayers:
   - Default
