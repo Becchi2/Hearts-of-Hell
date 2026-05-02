@@ -78,8 +78,8 @@ public class BattleSystem : MonoBehaviour
 
         //Damage enemy
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
-        enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");
-        enemyPrefab.GetComponent<Animator>().Play("enemy attacked");
+        enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");//plays attack animation on the enemy hud
+        enemyPrefab.GetComponent<Animator>().Play("enemy attacked");//plays attack animation on the enemy prefab
         enemyHUD.SetHP(enemyUnit.currentHP);
         textMeshPro.SetText(enemyUnit.unitName + " takes " + playerUnit.damage + " damage!");
 
