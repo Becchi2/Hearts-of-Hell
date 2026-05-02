@@ -78,6 +78,8 @@ public class BattleSystem : MonoBehaviour
 
         //Damage enemy
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
+        enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");
+        enemyPrefab.GetComponent<Animator>().Play("enemy attacked");
         enemyHUD.SetHP(enemyUnit.currentHP);
         textMeshPro.SetText(enemyUnit.unitName + " takes " + playerUnit.damage + " damage!");
 
@@ -102,6 +104,8 @@ public class BattleSystem : MonoBehaviour
     {
         HideButtons();
         textMeshPro.SetText(enemyUnit.unitName + " attacks!");
+        playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
+        playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
         //enemy performs attack
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
         playerHUD.SetHP(playerUnit.currentHP);
@@ -165,6 +169,7 @@ public class BattleSystem : MonoBehaviour
 
     public void HideButtons()
     {
+        buttonContainer.GetComponent<Animator>().Play("Button Disappear");
         // Hide the buttons
         foreach (Transform child in buttonContainer)
         {
