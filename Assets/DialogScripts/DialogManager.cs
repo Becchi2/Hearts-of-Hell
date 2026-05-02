@@ -14,6 +14,7 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
     public Transform ContinueButtonContainer; //container which holds buttons
     public Dialog dialog;// contains dialog lines
     int index;//keeps track of which line you are on
+    public Animator animator;
 
     private void Awake()
     {
@@ -24,11 +25,14 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
             Destroy(gameObject);
 
         HideDialog();
+        animator = GetComponent<Animator>();
     }
 
 
     public void StartDialog() //begins the dialog by showing the first line and creating a button to continue
     {
+        animator.Play("DialogBoxAppear");
+        //yield return new WaitForSeconds(0.2f);
         // start from first line
         index = 0;
         // show the dialog UI and clear previous buttons
@@ -99,6 +103,7 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
 
     public void HideDialog()//hides the dialog UI
     {
+        animator.Play("DialogBoxDisappear");
         DialogParent.SetActive(false);
         foreach (Transform child in ContinueButtonContainer)
         {

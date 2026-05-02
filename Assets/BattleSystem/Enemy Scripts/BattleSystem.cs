@@ -165,7 +165,6 @@ public class BattleSystem : MonoBehaviour
 
     public void HideButtons()
     {
-        buttonContainer.transform()
         // Hide the buttons
         foreach (Transform child in buttonContainer)
         {
