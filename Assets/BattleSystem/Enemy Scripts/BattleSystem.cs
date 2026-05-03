@@ -1,5 +1,7 @@
 using System.Collections;
 using TMPro;
+using Unity.Hierarchy;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -71,15 +73,30 @@ public class BattleSystem : MonoBehaviour
     {
         textMeshPro.SetText("choose action");
         ShowButtons();
+        
+
     }
 
     IEnumerator PlayerAttack()
     {
-
+       
         //Damage enemy
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
-        enemyHUD.SetHP(enemyUnit.currentHP);
-        textMeshPro.SetText(enemyUnit.unitName + " takes " + playerUnit.damage + " damage!");
+        if (enemyUnit.reflect > 0)
+        {
+            enemyUnit.reflect -= 1;
+            textMeshPro.SetText(enemyUnit.unitName + " reflects the attack!");
+            yield return new WaitForSeconds(1f);
+            playerUnit.currentHP -= playerUnit.damage;
+            playerHUD.SetHP(playerUnit.currentHP);
+            textMeshPro.SetText(playerUnit.unitName + " takes damage from reflection!");
+            yield return new WaitForSeconds(1f);
+        }
+        else
+        {
+            enemyUnit.currentHP -= playerUnit.damage;
+            enemyHUD.SetHP(enemyUnit.currentHP);
+        }
+        bool isDead = enemyUnit.currentHP <= 0;
 
         yield return new WaitForSeconds(1f);
 
@@ -92,19 +109,69 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
+            if (playerUnit.bleeding > 0)
+            {
+                playerUnit.currentHP -= 5;
+                playerHUD.SetHP(playerUnit.currentHP);
+                textMeshPro.SetText(playerUnit.unitName + " takes damage from bleeding!");
+            }
+            playerUnit.bleeding -= 1;
+            if (playerUnit.bleeding < 0)
+            {
+                playerUnit.bleeding = 0;
+            }
+             yield return new WaitForSeconds(1f);
             //enemy turn
             turnState = TurnState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
 }
   
+public enum EnemyAttacks
+    {
+        Stab,
+        Slash,
+        Reflect,
+    }
     IEnumerator EnemyTurn()
     {
         HideButtons();
         textMeshPro.SetText(enemyUnit.unitName + " attacks!");
         //enemy performs attack
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
-        playerHUD.SetHP(playerUnit.currentHP);
+        EnemyAttacks attack = (EnemyAttacks)Random.Range(0, System.Enum.GetValues(typeof(EnemyAttacks)).Length);
+       
+        if (attack == EnemyAttacks.Stab)
+        {
+            textMeshPro.SetText(enemyUnit.unitName + " uses Stab!");
+            yield return new WaitForSeconds(1f);
+
+            playerUnit.bleeding += 3;
+            if (playerUnit.bleeding > 3)
+            {               
+                playerUnit.bleeding = 3; 
+            }
+                textMeshPro.SetText(playerUnit.unitName + " is bleeding now bleeding");
+        
+        }
+        else if (attack == EnemyAttacks.Slash)
+        {
+            playerUnit.currentHP -= enemyUnit.damage;
+            playerHUD.SetHP(playerUnit.currentHP);
+            textMeshPro.SetText(enemyUnit.unitName + " uses Slash!");
+            yield return new WaitForSeconds(1f);
+        }
+        else if (attack == EnemyAttacks.Reflect)
+        {
+            enemyUnit.reflect += 1;
+            if (enemyUnit.reflect > 1)
+            {
+                enemyUnit.reflect = 1;
+            }
+            textMeshPro.SetText(enemyUnit.unitName + " uses Reflect!");
+            yield return new WaitForSeconds(1f);
+        }
+
+        bool isDead = playerUnit.currentHP <= 0;
 
         yield return new WaitForSeconds(1f);
         if (isDead)

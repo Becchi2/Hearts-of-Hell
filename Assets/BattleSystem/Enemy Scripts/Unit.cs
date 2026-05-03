@@ -18,28 +18,16 @@ public class Unit : MonoBehaviour
     public int maxLimit;
     public int limit;
 
+    public int bleeding;
+    public int reflect;
     void Awake()
     {
         currentHP = maxHP;
         currentMP = maxMP;
     }
 
-    public bool TakeDamage(int damage)
+    public bool checkHealth()
     {
-        currentHP -= damage;
-
-        if (currentHP <= 0)
-            return true;
-        else
-            return false;
-
-    }
-
-    public bool TakeMagicDamage(int magicDamage)
-    {
-        currentHP -= magicDamage;
-        
-
         if (currentHP <= 0)
             return true;
         else
