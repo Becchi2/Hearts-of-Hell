@@ -93,7 +93,7 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
         foreach (char letter in dialog.SetDialogText(index).ToCharArray())
         {
             DialogText.text += letter;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.02f);
         }
 
     }
@@ -102,6 +102,7 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
     public IEnumerator HideDialog()//hides the dialog UI
     {
         DialogParent.GetComponent<Animator>().Play("DialogBoxDisapear",0,0f);//makes the dialog box disappear with an animation
+        ContinueButtonPrefab.GetComponent<Animator>().Play("Disabled");
         yield return new WaitForSeconds(0.4f); // Wait for the animation to finish
         DialogParent.SetActive(false);
         foreach (Transform child in ContinueButtonContainer)

@@ -9,7 +9,7 @@ public class CharacterData : MonoBehaviour
 
     [SerializeField] Sprite[] CharacterSprite;
     Sprite newSprite;
-    public SpriteRenderer spriteRenderer;
+ 
 
     public void Update() //checks attraction points and changes sprite based on them
     {
@@ -18,7 +18,7 @@ public class CharacterData : MonoBehaviour
         {
 
             newSprite = CharacterSprite[0];
-            spriteRenderer.GetComponent<Animator>().Play("Character shake");
+            gameObject.GetComponent<Animator>().Play("Character shake");
 
             gameObject.GetComponent<SpriteRenderer>().sprite = newSprite;
             
@@ -27,7 +27,7 @@ public class CharacterData : MonoBehaviour
         {
 
             newSprite = CharacterSprite[1];
-            spriteRenderer.GetComponent<Animator>().Play("Character shake");
+            gameObject.GetComponent<Animator>().Play("Character shake");
 
             gameObject.GetComponent<SpriteRenderer>().sprite = newSprite;
 
@@ -36,7 +36,7 @@ public class CharacterData : MonoBehaviour
         {
 
             newSprite = CharacterSprite[2];
-            spriteRenderer.GetComponent<Animator>().Play("Character shake");
+            gameObject.GetComponent<Animator>().Play("Character shake");
 
             gameObject.GetComponent<SpriteRenderer>().sprite = newSprite;
 
@@ -45,7 +45,7 @@ public class CharacterData : MonoBehaviour
         {
 
             newSprite = CharacterSprite[3];
-            spriteRenderer.GetComponent<Animator>().Play("Character shake");
+            gameObject.GetComponent<Animator>().Play("Character shake");
 
             gameObject.GetComponent<SpriteRenderer>().sprite = newSprite;
 
@@ -54,7 +54,7 @@ public class CharacterData : MonoBehaviour
         {
 
             newSprite = CharacterSprite[4];
-            spriteRenderer.GetComponent<Animator>().Play("Character shake");
+            gameObject.GetComponent<Animator>().Play("Character shake");
 
             gameObject.GetComponent<SpriteRenderer>().sprite = newSprite;
 
@@ -63,7 +63,7 @@ public class CharacterData : MonoBehaviour
         {
 
             newSprite = CharacterSprite[5];
-            spriteRenderer.GetComponent<Animator>().Play("Character shake");
+            gameObject.GetComponent<Animator>().Play("Character shake");
 
             gameObject.GetComponent<SpriteRenderer>().sprite = newSprite;
 
@@ -72,7 +72,7 @@ public class CharacterData : MonoBehaviour
         {
 
             newSprite = CharacterSprite[6];
-            spriteRenderer.GetComponent<Animator>().Play("Character shake");
+            gameObject.GetComponent<Animator>().Play("Character shake");
 
             gameObject.GetComponent<SpriteRenderer>().sprite = newSprite;
 

@@ -87,6 +87,7 @@ public class NarrationManager : MonoBehaviour
     public IEnumerator HideNarration()
     {
         NarrationDialogParent.GetComponent<Animator>().Play("NarrationBoxDisapear");//makes the dialog box disappear with an animation
+        NarrationButtonPrefab.GetComponent<Animator>().Play("Disabled");
         yield return new WaitForSeconds(0.4f); // Wait for the animation to finish
         NarrationDialogParent.SetActive(false);
         foreach (Transform child in NarrationButtonContainer)

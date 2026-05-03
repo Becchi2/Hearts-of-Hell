@@ -1173,7 +1173,6 @@ MonoBehaviour:
   - {fileID: -4896678972982516538, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
   - {fileID: 2137111370832200452, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
   - {fileID: -2944849289211271017, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
-  spriteRenderer: {fileID: 1340536685}
 --- !u!222 &1340536689
 CanvasRenderer:
   m_ObjectHideFlags: 0
