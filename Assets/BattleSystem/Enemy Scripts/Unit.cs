@@ -18,6 +18,12 @@ public class Unit : MonoBehaviour
     public int maxLimit;
     public int limit;
 
+    public int attackBuff;
+
+    public int attackBuffValue = 10;
+    public int attackBuffTurns = 0;
+    public int buffMPCost = 15;
+
     public int bleeding;
     public int reflect;
     void Awake()

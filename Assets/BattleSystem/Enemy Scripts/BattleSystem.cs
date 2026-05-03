@@ -130,12 +130,13 @@ public class BattleSystem : MonoBehaviour
         }
 }
   
-public enum EnemyAttacks
+    public enum EnemyAttacks
     {
         Stab,
         Slash,
         Reflect,
     }
+
     IEnumerator EnemyTurn()
     {
         HideButtons();
@@ -195,12 +196,118 @@ public enum EnemyAttacks
 
     }
 
+    IEnumerator PlayerAbility()
+    {
+        if (enemyUnit.reflect > 0)
+        {
+            enemyUnit.reflect -= 1;
+            textMeshPro.SetText(enemyUnit.unitName + " reflects the attack!");
+            yield return new WaitForSeconds(1f);
+            playerUnit.currentHP -= playerUnit.magicDamage;
+            playerHUD.SetHP(playerUnit.currentHP);
+            playerUnit.currentMP -= playerUnit.mpCost;
+            playerHUD.SetMP(playerUnit.currentMP);
+            textMeshPro.SetText(playerUnit.unitName + " takes damage from reflection!");
+            yield return new WaitForSeconds(1f);
+        }
+        else
+        {
+            enemyUnit.currentHP -= playerUnit.magicDamage;
+            enemyHUD.SetHP(enemyUnit.currentHP);
+            playerUnit.currentMP -= playerUnit.mpCost;
+            playerHUD.SetMP(playerUnit.currentMP);
+            textMeshPro.SetText(playerUnit.unitName + " uses a magical ability!");
+            yield return new WaitForSeconds(1f);
+        }
+        bool isDead = enemyUnit.currentHP <= 0;
+
+        yield return new WaitForSeconds(1f);
+
+        //check if enemy is dead
+        if (isDead)
+        {
+            //end battle
+            victoryState = VictoryState.WON;
+            EndBattle();
+        }
+        else
+        {
+            //apply bleeding damage if player is bleeding
+            if (playerUnit.bleeding > 0)
+            {
+                playerUnit.currentHP -= 5;
+                playerHUD.SetHP(playerUnit.currentHP);
+                textMeshPro.SetText(playerUnit.unitName + " takes damage from bleeding!");
+            }
+            playerUnit.bleeding -= 1;
+            if (playerUnit.bleeding < 0)
+            {
+                playerUnit.bleeding = 0;
+            }
+            yield return new WaitForSeconds(1f);
+            //enemy turn
+            turnState = TurnState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+        }
+
+    }
+
+    IEnumerator PlayerBuff()
+    {
+        if (playerUnit.currentMP < playerUnit.mpCost)
+        {
+            textMeshPro.SetText("Not enough MP!");
+            yield break;
+        }
+
+        playerUnit.currentMP -= playerUnit.buffMPCost;
+        playerHUD.SetMP(playerUnit.currentMP);
+
+        playerUnit.attackBuff += playerUnit.attackBuffValue;
+        playerUnit.attackBuffTurns = 1;
+        playerUnit.damage += playerUnit.attackBuffValue;
+
+        textMeshPro.SetText(playerUnit.unitName + " uses a Power Up!");
+        yield return new WaitForSeconds(1f);
+
+        turnState = TurnState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
+
+
     //Performs attack when clicked
     public void OnAttackButton()
     {
         if(turnState != TurnState.PLAYERTURN)
             return;
         StartCoroutine(PlayerAttack());
+    }
+
+    public void OnMagicButton()
+    {
+        if(turnState != TurnState.PLAYERTURN)
+            return;
+
+        if(playerUnit.currentMP < playerUnit.mpCost)
+        {
+            textMeshPro.SetText("Not enough MP!");
+            return;
+        } 
+        StartCoroutine(PlayerAbility());
+    }
+
+    public void OnBuffButton()
+    {
+        if(turnState != TurnState.PLAYERTURN)
+            return;
+
+        if(playerUnit.currentMP < playerUnit.buffMPCost)
+        {
+            textMeshPro.SetText("Not enough MP!");
+            return;
+        } 
+
+        StartCoroutine(PlayerBuff());
     }
 
     public void OnTalkButton()
