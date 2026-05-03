@@ -23,7 +23,7 @@ public class NarrationManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        HideNarration();
+        NarrationDialogParent.SetActive(false);
     }
     public void StartNarration() //begins the narration by showing the first line and creating a button to continue
     {
@@ -33,6 +33,7 @@ public class NarrationManager : MonoBehaviour
 
         // show the narration UI and clear previous buttons
         NarrationDialogParent.SetActive(true);
+        NarrationDialogParent.GetComponent<Animator>().Play("NarratoinBoxAppear");//makes the dialog box appear with an animation
         foreach (Transform child in NarrationButtonContainer)
         {
             Destroy(child.gameObject);
@@ -80,11 +81,13 @@ public class NarrationManager : MonoBehaviour
         }
         else
         {
-         HideNarration();
+         StartCoroutine(HideNarration());
         }
     }
-    public void HideNarration()
+    public IEnumerator HideNarration()
     {
+        NarrationDialogParent.GetComponent<Animator>().Play("NarrationBoxDisapear");//makes the dialog box disappear with an animation
+        yield return new WaitForSeconds(0.4f); // Wait for the animation to finish
         NarrationDialogParent.SetActive(false);
         foreach (Transform child in NarrationButtonContainer)
         {

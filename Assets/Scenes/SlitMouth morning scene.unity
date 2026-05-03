@@ -1066,6 +1066,7 @@ GameObject:
   - component: {fileID: 1340536685}
   - component: {fileID: 1340536688}
   - component: {fileID: 1340536689}
+  - component: {fileID: 1340536690}
   m_Layer: 0
   m_Name: SlitMouth
   m_TagString: Untagged
@@ -1172,6 +1173,7 @@ MonoBehaviour:
   - {fileID: -4896678972982516538, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
   - {fileID: 2137111370832200452, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
   - {fileID: -2944849289211271017, guid: 73c590fb32e300b4c87f070de913fa82, type: 3}
+  spriteRenderer: {fileID: 1340536685}
 --- !u!222 &1340536689
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1180,6 +1182,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340536682}
   m_CullTransparentMesh: 1
+--- !u!95 &1340536690
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340536682}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe3f588f70dc98744b2e730bcb88f19e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1353203294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,18 +1268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Narrator
   name: SlitMouthNarration
   lines:
-  - {fileID: 11400000, guid: 41db43e8ccb96f44db448a2361b671c8, type: 2}
-  - {fileID: 11400000, guid: 7076428d147490b4cbe0ca100508faa5, type: 2}
-  - {fileID: 11400000, guid: e16af31e59ad41c48bde5532cf5e1cb8, type: 2}
-  - {fileID: 11400000, guid: eb9e3d6c187e57341ab6ccf013981f61, type: 2}
-  - {fileID: 11400000, guid: 08496d747e4c0964da9c3550bbc38f58, type: 2}
-  - {fileID: 11400000, guid: b98712a7ec8034a409450ffff9117e7d, type: 2}
-  - {fileID: 11400000, guid: 2241377758d1b5b4eb00fbb4e5b65467, type: 2}
-  - {fileID: 11400000, guid: b8bd0f7759a521c4bbe3f4f7223c687f, type: 2}
-  - {fileID: 11400000, guid: 1645521d92cd4f24f9eb2ee8cbcc23b6, type: 2}
-  - {fileID: 11400000, guid: 2c04ffe4b15b41a489079608e3bd34ab, type: 2}
-  - {fileID: 11400000, guid: 442bf5f03a2ce1b4fbc29b602f8475e3, type: 2}
-  - {fileID: 11400000, guid: 71a7fa1594ec0bc4ea75cd2ccb7332a0, type: 2}
+  - {fileID: 11400000, guid: 5acc915d5813ab54b9efe85c176dcc7d, type: 2}
 --- !u!114 &1353203298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1650,7 +1663,6 @@ MonoBehaviour:
   ContinueButtonPrefab: {fileID: 3139868799126147602, guid: e4a73849291286d4e9d6750e5b10457a, type: 3}
   ContinueButtonContainer: {fileID: 2076720150}
   dialog: {fileID: 0}
-  animator: {fileID: 2049740621}
 --- !u!95 &2049740621
 Animator:
   serializedVersion: 7

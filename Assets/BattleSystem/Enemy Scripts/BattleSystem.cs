@@ -15,6 +15,8 @@ public class BattleSystem : MonoBehaviour
     public GameObject playerPrefab; // spawns the player prefab in the battle scene
     public GameObject enemyPrefab; // spawns the enemy prefab in the battle scene
     public TextMeshProUGUI textMeshPro;
+    public TextMeshProUGUI EnemyDamageText;// shows the damage the enemy takes when attacked
+    public TextMeshProUGUI PlayerDamageText;// shows the damage the player takes when attacked
 
     public Transform playerBattleStation; //where the player prefab will be spawned in the battle scene
     public Transform enemyBattleStation; //where the enemy prefab will be spawned in the battle scene
@@ -80,11 +82,13 @@ public class BattleSystem : MonoBehaviour
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
         enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");//plays attack animation on the enemy hud
         enemyPrefab.GetComponent<Animator>().Play("enemy attacked");//plays attack animation on the enemy prefab
+        EnemyDamageText.SetText(playerUnit.damage.ToString());
+        EnemyDamageText.GetComponent<Animator>().Play("Enemy damge number");
         enemyHUD.SetHP(enemyUnit.currentHP);
         textMeshPro.SetText(enemyUnit.unitName + " takes " + playerUnit.damage + " damage!");
 
         yield return new WaitForSeconds(1f);
-
+        EnemyDamageText.SetText("");
         //check if enemy is dead
         if (isDead)
         {
@@ -108,9 +112,13 @@ public class BattleSystem : MonoBehaviour
         playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
         //enemy performs attack
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        PlayerDamageText.SetText(enemyUnit.damage.ToString());
+        PlayerDamageText.GetComponent<Animator>().Play("Player damge number");
         playerHUD.SetHP(playerUnit.currentHP);
 
         yield return new WaitForSeconds(1f);
+                PlayerDamageText.SetText("");
+
         if (isDead)
         {
             //if player is alive then subtract health else set state to won
@@ -160,6 +168,7 @@ public class BattleSystem : MonoBehaviour
 
     public void ShowButtons()
     {
+        buttonContainer.GetComponent<Animator>().Play("Button Appear");
         // Show the buttons
         foreach (Transform child in buttonContainer)
         {

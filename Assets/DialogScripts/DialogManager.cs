@@ -14,7 +14,6 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
     public Transform ContinueButtonContainer; //container which holds buttons
     public Dialog dialog;// contains dialog lines
     int index;//keeps track of which line you are on
-    public Animator animator;
 
     private void Awake()
     {
@@ -23,20 +22,19 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
             Instance1 = this;
         else
             Destroy(gameObject);
-
-        HideDialog();
-        animator = GetComponent<Animator>();
+        
+        DialogParent.SetActive(false);
     }
 
 
     public void StartDialog() //begins the dialog by showing the first line and creating a button to continue
     {
-        animator.Play("DialogBoxAppear");
-        //yield return new WaitForSeconds(0.2f);
+
         // start from first line
         index = 0;
         // show the dialog UI and clear previous buttons
         DialogParent.SetActive(true);
+        DialogParent.GetComponent<Animator>().Play("DialogBoxAppear");//makes the dialog box appear with an animation
         foreach (Transform child in ContinueButtonContainer)
         {
             Destroy(child.gameObject);
@@ -84,7 +82,7 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
         }
         else
         {
-            HideDialog();
+            StartCoroutine(HideDialog());
         }
 
     }
@@ -100,10 +98,11 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
 
     }
 
-
-    public void HideDialog()//hides the dialog UI
+    
+    public IEnumerator HideDialog()//hides the dialog UI
     {
-        animator.Play("DialogBoxDisappear");
+        DialogParent.GetComponent<Animator>().Play("DialogBoxDisapear",0,0f);//makes the dialog box disappear with an animation
+        yield return new WaitForSeconds(0.4f); // Wait for the animation to finish
         DialogParent.SetActive(false);
         foreach (Transform child in ContinueButtonContainer)
         {

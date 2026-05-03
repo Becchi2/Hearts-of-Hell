@@ -17,17 +17,25 @@ public class SceneDirectorScriptMorning : MonoBehaviour
     BattleSystem RefBattleSystem; // reference to the battle system script to get the win or lose state of a battle
 
 
-    public void Start()
+    public void Update()
     {
-        actor.Say(0);
-        actor.Say(2);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            actor.Say(0);
+        }
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            narrator.Narrate(0);
+        }
     }
 
-    public void CreateButton(string buttonText, int nextDialogNum)//creates response buttons with the text and the next dialog number to trigger when clicked
+    public void CreateButton(string buttonText, int nextDialogNum, int attractionPoints)//creates response buttons with the text and the next dialog number to trigger when clicked
     {
         //creates button
         GameObject buttonObj = Instantiate(ResponseButtonPrefab, ResponseButtonContainer);
         buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = buttonText;
+        RefAttraction = FindObjectOfType<CharacterData>();
+        RefAttraction.Attraction = attractionPoints;
 
         //makes button trigger a response when clicked
         buttonObj.GetComponent<Button>().onClick.AddListener(() => actor.Say(nextDialogNum));
