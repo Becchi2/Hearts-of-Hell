@@ -95,6 +95,8 @@ public class BattleSystem : MonoBehaviour
         {
             enemyUnit.currentHP -= playerUnit.damage;
             enemyHUD.SetHP(enemyUnit.currentHP);
+            textMeshPro.SetText(playerUnit.unitName + " attacks!");
+                yield return new WaitForSeconds(1f);
         }
         bool isDead = enemyUnit.currentHP <= 0;
 
@@ -109,6 +111,7 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
+            //apply bleeding damage if player is bleeding
             if (playerUnit.bleeding > 0)
             {
                 playerUnit.currentHP -= 5;
@@ -139,7 +142,7 @@ public enum EnemyAttacks
         textMeshPro.SetText(enemyUnit.unitName + " attacks!");
         //enemy performs attack
         EnemyAttacks attack = (EnemyAttacks)Random.Range(0, System.Enum.GetValues(typeof(EnemyAttacks)).Length);
-       
+        //enemy stabs player and causes bleeding
         if (attack == EnemyAttacks.Stab)
         {
             textMeshPro.SetText(enemyUnit.unitName + " uses Stab!");
@@ -153,6 +156,7 @@ public enum EnemyAttacks
                 textMeshPro.SetText(playerUnit.unitName + " is bleeding now bleeding");
         
         }
+        //enemy slashes player and causes damage
         else if (attack == EnemyAttacks.Slash)
         {
             playerUnit.currentHP -= enemyUnit.damage;
@@ -160,6 +164,7 @@ public enum EnemyAttacks
             textMeshPro.SetText(enemyUnit.unitName + " uses Slash!");
             yield return new WaitForSeconds(1f);
         }
+        //enemy reflects the next attack
         else if (attack == EnemyAttacks.Reflect)
         {
             enemyUnit.reflect += 1;
