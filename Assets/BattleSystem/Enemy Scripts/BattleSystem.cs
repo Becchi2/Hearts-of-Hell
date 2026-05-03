@@ -160,10 +160,19 @@ public class BattleSystem : MonoBehaviour
         //enemy slashes player and causes damage
         else if (attack == EnemyAttacks.Slash)
         {
-            playerUnit.currentHP -= enemyUnit.damage;
-            playerHUD.SetHP(playerUnit.currentHP);
-            textMeshPro.SetText(enemyUnit.unitName + " uses Slash!");
-            yield return new WaitForSeconds(1f);
+            if (playerUnit.defenseDuration > 0)
+            {
+                playerUnit.defenseDuration -= 1;
+                textMeshPro.SetText(playerUnit.unitName + " blocks the attack!");
+                yield return new WaitForSeconds(1f);
+            }
+            else
+            {
+                playerUnit.currentHP -= enemyUnit.damage;
+                playerHUD.SetHP(playerUnit.currentHP);
+                textMeshPro.SetText(enemyUnit.unitName + " uses Slash!");
+                yield return new WaitForSeconds(1f);
+            }
         }
         //enemy reflects the next attack
         else if (attack == EnemyAttacks.Reflect)
@@ -274,6 +283,28 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(EnemyTurn());
     }
 
+    IEnumerator PlayerDefend()
+    {
+        if (playerUnit.currentMP < playerUnit.mpCost)
+        {
+            textMeshPro.SetText("Not enough MP!");
+            yield break;
+        }
+        playerUnit.currentMP -= playerUnit.mpCost;
+        playerHUD.SetMP(playerUnit.currentMP);
+
+        playerUnit.defenseDuration += 1;
+
+        if (playerUnit.defenseDuration > 1)
+        {
+            playerUnit.defenseDuration = 1;
+        }
+
+        textMeshPro.SetText(playerUnit.unitName + " uses a Defense Up!");
+        yield return new WaitForSeconds(1f);
+        turnState = TurnState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
 
     //Performs attack when clicked
     public void OnAttackButton()
@@ -310,6 +341,17 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerBuff());
     }
 
+    public void OnDefendButton()
+    {
+        if(turnState != TurnState.PLAYERTURN)
+            return;
+        if(playerUnit.currentMP < playerUnit.mpCost)
+        {
+            textMeshPro.SetText("Not enough MP!");
+            return;
+        } 
+        StartCoroutine(PlayerDefend());
+    }
     public void OnTalkButton()
     {         if(turnState != TurnState.PLAYERTURN)
             return;

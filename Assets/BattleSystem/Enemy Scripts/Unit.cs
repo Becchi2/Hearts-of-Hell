@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Unit : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class Unit : MonoBehaviour
     public int attackBuffValue = 10;
     public int attackBuffTurns = 0;
     public int buffMPCost = 15;
+    
+    public int defenseDuration;
+    public int defense;
 
     public int bleeding;
     public int reflect;
