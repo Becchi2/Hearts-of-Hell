@@ -198,6 +198,8 @@ public class BattleSystem : MonoBehaviour
                 playerHUD.SetHP(playerUnit.currentHP);
                 enemyPrefab.GetComponent<Animator>().Play("enemy attack");
                 textMeshPro.SetText(enemyUnit.unitName + " uses Slash!");
+                enemyPrefab.GetComponent<Animator>().Play("enemy attack");//plays attack animation on the enemy prefab
+                playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
                 yield return new WaitForSeconds(1f);
             }
         }
