@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Unit : MonoBehaviour
 {
@@ -18,28 +19,25 @@ public class Unit : MonoBehaviour
     public int maxLimit;
     public int limit;
 
+    public int attackBuff;
+
+    public int attackBuffValue = 10;
+    public int attackBuffTurns = 0;
+    public int buffMPCost = 15;
+    
+    public int defenseDuration;
+    public int defense;
+
+    public int bleeding;
+    public int reflect;
     void Awake()
     {
         currentHP = maxHP;
         currentMP = maxMP;
     }
 
-    public bool TakeDamage(int damage)
+    public bool checkHealth()
     {
-        currentHP -= damage;
-
-        if (currentHP <= 0)
-            return true;
-        else
-            return false;
-
-    }
-
-    public bool TakeMagicDamage(int magicDamage)
-    {
-        currentHP -= magicDamage;
-        
-
         if (currentHP <= 0)
             return true;
         else

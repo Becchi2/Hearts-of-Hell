@@ -1,5 +1,7 @@
 using System.Collections;
 using TMPro;
+using Unity.Hierarchy;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,8 +17,6 @@ public class BattleSystem : MonoBehaviour
     public GameObject playerPrefab; // spawns the player prefab in the battle scene
     public GameObject enemyPrefab; // spawns the enemy prefab in the battle scene
     public TextMeshProUGUI textMeshPro;
-    public TextMeshProUGUI EnemyDamageText;// shows the damage the enemy takes when attacked
-    public TextMeshProUGUI PlayerDamageText;// shows the damage the player takes when attacked
 
     public Transform playerBattleStation; //where the player prefab will be spawned in the battle scene
     public Transform enemyBattleStation; //where the enemy prefab will be spawned in the battle scene
@@ -73,22 +73,50 @@ public class BattleSystem : MonoBehaviour
     {
         textMeshPro.SetText("choose action");
         ShowButtons();
+        
+
     }
 
     IEnumerator PlayerAttack()
     {
 
-        //Damage enemy
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
-        enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");//plays attack animation on the enemy hud
-        enemyPrefab.GetComponent<Animator>().Play("enemy attacked");//plays attack animation on the enemy prefab
-        EnemyDamageText.SetText(playerUnit.damage.ToString());
-        EnemyDamageText.GetComponent<Animator>().Play("Enemy damge number");
-        enemyHUD.SetHP(enemyUnit.currentHP);
-        textMeshPro.SetText(enemyUnit.unitName + " takes " + playerUnit.damage + " damage!");
+        //reflects the attack back to the player if the enemy has reflect active
+        if (enemyUnit.reflect > 0)
+        {
+            enemyUnit.reflect -= 1;
+            textMeshPro.SetText(enemyUnit.unitName + " reflects the attack!");
+            yield return new WaitForSeconds(1f);
+            playerUnit.currentHP -= playerUnit.damage;
+            playerHUD.SetHP(playerUnit.currentHP);
+            textMeshPro.SetText(playerUnit.unitName + " takes damage from reflection!");
+            yield return new WaitForSeconds(1f);
+        }
+        else if (playerUnit.attackBuffTurns > 0)
+        {  
+            enemyUnit.currentHP -= playerUnit.damage;
+            enemyHUD.SetHP(enemyUnit.currentHP);
+            textMeshPro.SetText(playerUnit.unitName + " attacks with a buff!");
+            playerUnit.attackBuffTurns -= 1;
+
+            if (playerUnit.attackBuffTurns <= 0)
+            {
+                playerUnit.damage -= playerUnit.attackBuffValue;
+                playerUnit.attackBuff = 0;
+                textMeshPro.SetText(playerUnit.unitName + "'s attack buff wears off!");
+            }
+            yield return new WaitForSeconds(1f);
+        }
+        else //damages the enemy normally if there is no reflection or attack buff
+        {
+            enemyUnit.currentHP -= playerUnit.damage;
+            enemyHUD.SetHP(enemyUnit.currentHP);
+            textMeshPro.SetText(playerUnit.unitName + " attacks!");
+                yield return new WaitForSeconds(1f);
+        }
+        bool isDead = enemyUnit.currentHP <= 0;
 
         yield return new WaitForSeconds(1f);
-        EnemyDamageText.SetText("");
+
         //check if enemy is dead
         if (isDead)
         {
@@ -98,27 +126,84 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
+            //apply bleeding damage if player is bleeding
+            if (playerUnit.bleeding > 0)
+            {
+                playerUnit.currentHP -= 5;
+                playerHUD.SetHP(playerUnit.currentHP);
+                textMeshPro.SetText(playerUnit.unitName + " takes damage from bleeding!");
+            }
+            playerUnit.bleeding -= 1;
+            if (playerUnit.bleeding < 0)
+            {
+                playerUnit.bleeding = 0;
+            }
+             yield return new WaitForSeconds(1f);
             //enemy turn
             turnState = TurnState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
 }
   
+    public enum EnemyAttacks
+    {
+        Stab,
+        Slash,
+        Reflect,
+    }
+
     IEnumerator EnemyTurn()
     {
         HideButtons();
         textMeshPro.SetText(enemyUnit.unitName + " attacks!");
-        playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
-        playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
         //enemy performs attack
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
-        PlayerDamageText.SetText(enemyUnit.damage.ToString());
-        PlayerDamageText.GetComponent<Animator>().Play("Player damge number");
-        playerHUD.SetHP(playerUnit.currentHP);
+        EnemyAttacks attack = (EnemyAttacks)Random.Range(0, System.Enum.GetValues(typeof(EnemyAttacks)).Length);
+        //enemy stabs player and causes bleeding
+        if (attack == EnemyAttacks.Stab)
+        {
+            textMeshPro.SetText(enemyUnit.unitName + " uses Stab!");
+            yield return new WaitForSeconds(1f);
+
+            playerUnit.bleeding += 3;
+            if (playerUnit.bleeding > 3)
+            {               
+                playerUnit.bleeding = 3; 
+            }
+                textMeshPro.SetText(playerUnit.unitName + " is bleeding now bleeding");
+        
+        }
+        //enemy slashes player and causes damage
+        else if (attack == EnemyAttacks.Slash)
+        {
+            if (playerUnit.defenseDuration > 0)
+            {
+                playerUnit.defenseDuration -= 1;
+                textMeshPro.SetText(playerUnit.unitName + " blocks the attack!");
+                yield return new WaitForSeconds(1f);
+            }
+            else
+            {
+                playerUnit.currentHP -= enemyUnit.damage;
+                playerHUD.SetHP(playerUnit.currentHP);
+                textMeshPro.SetText(enemyUnit.unitName + " uses Slash!");
+                yield return new WaitForSeconds(1f);
+            }
+        }
+        //enemy reflects the next attack
+        else if (attack == EnemyAttacks.Reflect)
+        {
+            enemyUnit.reflect += 1;
+            if (enemyUnit.reflect > 1)
+            {
+                enemyUnit.reflect = 1;
+            }
+            textMeshPro.SetText(enemyUnit.unitName + " uses Reflect!");
+            yield return new WaitForSeconds(1f);
+        }
+
+        bool isDead = playerUnit.currentHP <= 0;
 
         yield return new WaitForSeconds(1f);
-                PlayerDamageText.SetText("");
-
         if (isDead)
         {
             //if player is alive then subtract health else set state to won
@@ -135,6 +220,107 @@ public class BattleSystem : MonoBehaviour
 
     }
 
+    IEnumerator PlayerAbility()
+    {
+        if (enemyUnit.reflect > 0)
+        {
+            enemyUnit.reflect -= 1;
+            textMeshPro.SetText(enemyUnit.unitName + " reflects the attack!");
+            yield return new WaitForSeconds(1f);
+            playerUnit.currentHP -= playerUnit.magicDamage;
+            playerHUD.SetHP(playerUnit.currentHP);
+            playerUnit.currentMP -= playerUnit.mpCost;
+            playerHUD.SetMP(playerUnit.currentMP);
+            textMeshPro.SetText(playerUnit.unitName + " takes damage from reflection!");
+            yield return new WaitForSeconds(1f);
+        }
+        else
+        {
+            enemyUnit.currentHP -= playerUnit.magicDamage;
+            enemyHUD.SetHP(enemyUnit.currentHP);
+            playerUnit.currentMP -= playerUnit.mpCost;
+            playerHUD.SetMP(playerUnit.currentMP);
+            textMeshPro.SetText(playerUnit.unitName + " uses a magical ability!");
+            yield return new WaitForSeconds(1f);
+        }
+        bool isDead = enemyUnit.currentHP <= 0;
+
+        yield return new WaitForSeconds(1f);
+
+        //check if enemy is dead
+        if (isDead)
+        {
+            //end battle
+            victoryState = VictoryState.WON;
+            EndBattle();
+        }
+        else
+        {
+            //apply bleeding damage if player is bleeding
+            if (playerUnit.bleeding > 0)
+            {
+                playerUnit.currentHP -= 5;
+                playerHUD.SetHP(playerUnit.currentHP);
+                textMeshPro.SetText(playerUnit.unitName + " takes damage from bleeding!");
+            }
+            playerUnit.bleeding -= 1;
+            if (playerUnit.bleeding < 0)
+            {
+                playerUnit.bleeding = 0;
+            }
+            yield return new WaitForSeconds(1f);
+            //enemy turn
+            turnState = TurnState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+        }
+
+    }
+
+    IEnumerator PlayerBuff()
+    {
+        if (playerUnit.currentMP < playerUnit.mpCost)
+        {
+            textMeshPro.SetText("Not enough MP!");
+            yield break;
+        }
+
+        playerUnit.currentMP -= playerUnit.buffMPCost;
+        playerHUD.SetMP(playerUnit.currentMP);
+
+        playerUnit.attackBuff += playerUnit.attackBuffValue;
+        playerUnit.attackBuffTurns = 2;
+        playerUnit.damage += playerUnit.attackBuffValue;
+
+        textMeshPro.SetText(playerUnit.unitName + " uses a Power Up!");
+        yield return new WaitForSeconds(1f);
+
+        turnState = TurnState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
+
+    IEnumerator PlayerDefend()
+    {
+        if (playerUnit.currentMP < playerUnit.mpCost)
+        {
+            textMeshPro.SetText("Not enough MP!");
+            yield break;
+        }
+        playerUnit.currentMP -= playerUnit.mpCost;
+        playerHUD.SetMP(playerUnit.currentMP);
+
+        playerUnit.defenseDuration += 1;
+
+        if (playerUnit.defenseDuration > 1)
+        {
+            playerUnit.defenseDuration = 1;
+        }
+
+        textMeshPro.SetText(playerUnit.unitName + " prepares to defend!");
+        yield return new WaitForSeconds(1f);
+        turnState = TurnState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
+
     //Performs attack when clicked
     public void OnAttackButton()
     {
@@ -143,6 +329,44 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerAttack());
     }
 
+    public void OnMagicButton()
+    {
+        if(turnState != TurnState.PLAYERTURN)
+            return;
+
+        if(playerUnit.currentMP < playerUnit.mpCost)
+        {
+            textMeshPro.SetText("Not enough MP!");
+            return;
+        } 
+        StartCoroutine(PlayerAbility());
+    }
+
+    public void OnBuffButton()
+    {
+        if(turnState != TurnState.PLAYERTURN)
+            return;
+
+        if(playerUnit.currentMP < playerUnit.buffMPCost)
+        {
+            textMeshPro.SetText("Not enough MP!");
+            return;
+        } 
+
+        StartCoroutine(PlayerBuff());
+    }
+
+    public void OnDefendButton()
+    {
+        if(turnState != TurnState.PLAYERTURN)
+            return;
+        if(playerUnit.currentMP < playerUnit.mpCost)
+        {
+            textMeshPro.SetText("Not enough MP!");
+            return;
+        } 
+        StartCoroutine(PlayerDefend());
+    }
     public void OnTalkButton()
     {         if(turnState != TurnState.PLAYERTURN)
             return;
@@ -168,7 +392,6 @@ public class BattleSystem : MonoBehaviour
 
     public void ShowButtons()
     {
-        buttonContainer.GetComponent<Animator>().Play("Button Appear");
         // Show the buttons
         foreach (Transform child in buttonContainer)
         {
@@ -178,7 +401,7 @@ public class BattleSystem : MonoBehaviour
 
     public void HideButtons()
     {
-        buttonContainer.GetComponent<Animator>().Play("Button Disappear");
+    
         // Hide the buttons
         foreach (Transform child in buttonContainer)
         {
