@@ -157,4 +157,9 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
 
     }
 
+    public bool IsDialogActive() // checks if the narration is currently active
+    {
+        return DialogParent.activeSelf;
+    }
+
 }

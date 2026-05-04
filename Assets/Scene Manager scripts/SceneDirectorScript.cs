@@ -19,22 +19,26 @@ public class SceneDirectorScriptMorning : MonoBehaviour
     public void Start()
     {
         RefAttraction = FindObjectOfType<CharacterData>();
- StartTalking();
+        StartCoroutine(StartTalking());
      
     }
 
-    public void StartTalking()
+    public IEnumerator StartTalking()
     {
 
         actor.Say(0);
+        yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+
         if (RefAttraction.Attraction == 1)
         {
-            actor.Say(0);
+            actor.Say(1);
+            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
 
         }
         else
         {
             narrator.Narrate(0);
+            yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
