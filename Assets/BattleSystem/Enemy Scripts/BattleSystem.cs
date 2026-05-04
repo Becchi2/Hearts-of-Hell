@@ -79,8 +79,8 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
-       
-        //Damage enemy
+
+        //reflects the attack back to the player if the enemy has reflect active
         if (enemyUnit.reflect > 0)
         {
             enemyUnit.reflect -= 1;
@@ -106,7 +106,7 @@ public class BattleSystem : MonoBehaviour
             }
             yield return new WaitForSeconds(1f);
         }
-        else
+        else //damages the enemy normally if there is no reflection or attack buff
         {
             enemyUnit.currentHP -= playerUnit.damage;
             enemyHUD.SetHP(enemyUnit.currentHP);
