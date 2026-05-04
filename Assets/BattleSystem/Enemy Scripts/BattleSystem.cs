@@ -23,6 +23,7 @@ public class BattleSystem : MonoBehaviour
     public Transform buttonContainer; //where the buttons will be spawned in the battle scene
     public GameObject AttackbuttonPrefab; // prefab for the buttons to be spawned in the battle scene
     public GameObject AbilityButtonPrefab; // prefab for the buttons to be spawned in the battle scene
+    public Transform abilityCuttonContainer;//where ability buttons go
 
     Unit playerUnit;// reference to the Unit script attached to the player prefab
     Unit enemyUnit;// reference to the Unit script attached to the enemy prefab
@@ -48,13 +49,10 @@ public class BattleSystem : MonoBehaviour
         playerUnit = playerGo.GetComponent<Unit>();
         GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Unit>();
-
-        textMeshPro.SetText("player turn");
-
         //assign hud to characters
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
         //start the player's turn
         turnState = TurnState.PLAYERTURN;
@@ -88,7 +86,10 @@ public class BattleSystem : MonoBehaviour
             yield return new WaitForSeconds(1f);
             playerUnit.currentHP -= playerUnit.damage;
             playerHUD.SetHP(playerUnit.currentHP);
+
             textMeshPro.SetText(playerUnit.unitName + " takes damage from reflection!");
+            playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
+            playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
             yield return new WaitForSeconds(1f);
         }
         else if (playerUnit.attackBuffTurns > 0)
@@ -96,6 +97,8 @@ public class BattleSystem : MonoBehaviour
             enemyUnit.currentHP -= playerUnit.damage;
             enemyHUD.SetHP(enemyUnit.currentHP);
             textMeshPro.SetText(playerUnit.unitName + " attacks with a buff!");
+            enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");//plays attack animation on the enemy hud
+            enemyPrefab.GetComponent<Animator>().Play("enemy attacked");//plays attack animation on the enemy prefab
             playerUnit.attackBuffTurns -= 1;
 
             if (playerUnit.attackBuffTurns <= 0)
@@ -111,7 +114,9 @@ public class BattleSystem : MonoBehaviour
             enemyUnit.currentHP -= playerUnit.damage;
             enemyHUD.SetHP(enemyUnit.currentHP);
             textMeshPro.SetText(playerUnit.unitName + " attacks!");
-                yield return new WaitForSeconds(1f);
+            enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");//plays attack animation on the enemy hud
+            enemyPrefab.GetComponent<Animator>().Play("enemy attacked");//plays attack animation on the enemy prefab
+            yield return new WaitForSeconds(1f);
         }
         bool isDead = enemyUnit.currentHP <= 0;
 
@@ -129,6 +134,8 @@ public class BattleSystem : MonoBehaviour
             //apply bleeding damage if player is bleeding
             if (playerUnit.bleeding > 0)
             {
+                playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
+                playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
                 playerUnit.currentHP -= 5;
                 playerHUD.SetHP(playerUnit.currentHP);
                 textMeshPro.SetText(playerUnit.unitName + " takes damage from bleeding!");
@@ -163,6 +170,9 @@ public class BattleSystem : MonoBehaviour
         {
             textMeshPro.SetText(enemyUnit.unitName + " uses Stab!");
             yield return new WaitForSeconds(1f);
+            enemyPrefab.GetComponent<Animator>().Play("enemy attack");//plays attack animation on the enemy prefab
+            playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
+            playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
 
             playerUnit.bleeding += 3;
             if (playerUnit.bleeding > 3)
@@ -179,12 +189,14 @@ public class BattleSystem : MonoBehaviour
             {
                 playerUnit.defenseDuration -= 1;
                 textMeshPro.SetText(playerUnit.unitName + " blocks the attack!");
+                playerPrefab.GetComponent<Animator>().Play("Player Blocked");
                 yield return new WaitForSeconds(1f);
             }
             else
             {
                 playerUnit.currentHP -= enemyUnit.damage;
                 playerHUD.SetHP(playerUnit.currentHP);
+                enemyPrefab.GetComponent<Animator>().Play("enemy attack");
                 textMeshPro.SetText(enemyUnit.unitName + " uses Slash!");
                 yield return new WaitForSeconds(1f);
             }
@@ -198,6 +210,7 @@ public class BattleSystem : MonoBehaviour
                 enemyUnit.reflect = 1;
             }
             textMeshPro.SetText(enemyUnit.unitName + " uses Reflect!");
+            enemyPrefab.GetComponent<Animator>().Play("enemy reflect");
             yield return new WaitForSeconds(1f);
         }
 
@@ -231,6 +244,8 @@ public class BattleSystem : MonoBehaviour
             playerHUD.SetHP(playerUnit.currentHP);
             playerUnit.currentMP -= playerUnit.mpCost;
             playerHUD.SetMP(playerUnit.currentMP);
+            playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
+            playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
             textMeshPro.SetText(playerUnit.unitName + " takes damage from reflection!");
             yield return new WaitForSeconds(1f);
         }
@@ -240,6 +255,8 @@ public class BattleSystem : MonoBehaviour
             enemyHUD.SetHP(enemyUnit.currentHP);
             playerUnit.currentMP -= playerUnit.mpCost;
             playerHUD.SetMP(playerUnit.currentMP);
+            enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");//plays attack animation on the enemy hud
+            enemyPrefab.GetComponent<Animator>().Play("enemy attacked");//plays attack animation on the enemy prefab
             textMeshPro.SetText(playerUnit.unitName + " uses a magical ability!");
             yield return new WaitForSeconds(1f);
         }
@@ -261,6 +278,8 @@ public class BattleSystem : MonoBehaviour
             {
                 playerUnit.currentHP -= 5;
                 playerHUD.SetHP(playerUnit.currentHP);
+                playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
+                playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
                 textMeshPro.SetText(playerUnit.unitName + " takes damage from bleeding!");
             }
             playerUnit.bleeding -= 1;
@@ -397,6 +416,15 @@ public class BattleSystem : MonoBehaviour
         {
             child.gameObject.SetActive(true);
         }
+    }
+    public void ShowAbilityButtons()
+    {
+        abilityCuttonContainer.gameObject.SetActive(true);
+    }
+
+    public void HideAbilityButtons()
+    {
+        abilityCuttonContainer.gameObject.SetActive(false);
     }
 
     public void HideButtons()
