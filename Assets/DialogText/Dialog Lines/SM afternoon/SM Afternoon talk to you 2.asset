@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
+  m_Name: SM Afternoon talk to you 2
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
+  lines:
+  - speaker: Kuchisake-Onna
+    line: 'Forgive me. '
+    SpriteRange: 5
+  - speaker: Kuchisake-Onna
+    line: I had gone off on a slight tangent there.
+    SpriteRange: 5
+  - speaker: You
+    line: Don't worry about it...
+    SpriteRange: 5
+  - speaker: You
+    line: You seem like you're carrying a lot.
+    SpriteRange: 5
+  - speaker: Kuchisake-onna
+    line: 'I am. Or at least I believe so. '
+    SpriteRange: 5
+  - speaker: Kuchisake-onna
+    line: Every time I hear them, their lies.
+    SpriteRange: 4
+  - speaker: Kuchisake-onna
+    line: "It\u2019s as though I\u2019m taken back to a time that I can\u2019t seem
+      to remember clearly."
+    SpriteRange: 5
+  - speaker: Kuchisake-onna
+    line: It feels similar to that of a dream.
+    SpriteRange: 5
+  - speaker: You
+    line: Maybe I can try and help you figure that out.
+    SpriteRange: 5
+  - speaker: Kuchisake-Onna
+    line: What are you saying?
+    SpriteRange: 5
+  - speaker: You
+    line: "Maybe that feeling of anger is what\u2019s causing you to kill all those
+      people."
+    SpriteRange: 5
+  - speaker: Kuchisake-Onna
+    line: "Really? You\u2019d be willing to help me?"
+    SpriteRange: 6
+  buttons:
+  - ButtonText: Just kidding
+    Attraction: 3
+  - ButtonText: Ehh
+    Attraction: 6
+  - ButtonText: Yes
+    Attraction: 9

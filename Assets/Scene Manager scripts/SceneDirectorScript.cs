@@ -26,20 +26,74 @@ public class SceneDirectorScriptMorning : MonoBehaviour
 
     public IEnumerator StartTalking()
     {
-
+        narrator.Narrate(0);
+        yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
         actor.Say(0);
         yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+        narrator.Narrate(1);
+        yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+        actor.Say(1);
+        yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+        narrator.Narrate(2);
+        yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+            actor.Say(2);
+        yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+        narrator.Narrate(3);
+        yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+        actor.Say(3);
+        yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+        narrator.Narrate(4);
+        yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+        actor.Say(4);
+        yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
         Debug.Log(RefAttraction.Attraction);
-        if (RefAttraction.Attraction == 1)
+        if (RefAttraction.Attraction == 2)
         {
-            actor.Say(1);
+            actor.Say(5);
             yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+            narrator.Narrate(5);
+            yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+            actor.Say(6);
+            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+            narrator.Narrate(6);
+            yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+            actor.Say(7);
+            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+            narrator.Narrate(7);
+            yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+            //start nbattle scene
 
         }
-        else if(RefAttraction.Attraction == 5)
+        else if(RefAttraction.Attraction == 7)
         {
-            narrator.Narrate(0);
+            actor.Say(8);
+            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+            narrator.Narrate(8);
             yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+            actor.Say(9);
+            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+            narrator.Narrate(9);
+            yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+            actor.Say(10);
+            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+            narrator.Narrate(10);
+            yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+            actor.Say(11);
+            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+            narrator.Narrate(11);
+            yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+            //load office scene
+            SceneManager.LoadScene(4);
+
+        }
+        else if (RefAttraction.Attraction == 4)
+        {
+            actor.Say(12);
+            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+            narrator.Narrate(7);
+            yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+            //start battle scene
+            SceneManager.LoadScene(10);
         }
 
     }

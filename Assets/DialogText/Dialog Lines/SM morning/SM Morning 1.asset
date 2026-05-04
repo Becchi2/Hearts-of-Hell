@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
+  m_Name: SM Morning 1
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
+  lines:
+  - speaker: ???
+    line: 'Oh what a surprise! '
+    SpriteRange: 6
+  - speaker: ???
+    line: "It\u2019s quite unusual for someone to be here this early."
+    SpriteRange: 5
+  - speaker: You
+    line: "I could say the same about you ma\u2019am. Why are you out so early if
+      you don\u2019t mind me asking?"
+    SpriteRange: 5
+  - speaker: ???
+    line: I'm walking.
+    SpriteRange: 4
+  - speaker: ???
+    line: "It\u2019s become a sort of tradition for me. "
+    SpriteRange: 5
+  - speaker: ???
+    line: The city is quite beautiful during the early hours of the morning, wouldn't
+      you agree?
+    SpriteRange: 5
+  - speaker: You
+    line: "Yeah\u2026I guess you\u2019re right."
+    SpriteRange: 5
+  buttons: []

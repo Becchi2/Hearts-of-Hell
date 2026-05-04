@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
+  m_Name: SM night 5
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
+  lines:
+  - speaker: You
+    line: ...
+    SpriteRange: 4
+  - speaker: You
+    line: "You\u2019ve held onto it for so long you\u2019ve become trapped by it. "
+    SpriteRange: 4
+  - speaker: Kuchisake-Onna
+    line: What?
+    SpriteRange: 3
+  - speaker: You
+    line: Your husband's words are what causes you to believe it's all lies.
+    SpriteRange: 3
+  - speaker: Kuchisake-Onna
+    line: 'Because what if they are?! '
+    SpriteRange: 2
+  - speaker: Kuchisake-Onna
+    line: What if it's all to manipulate me to get what they want?!
+    SpriteRange: 2
+  - speaker: You
+    line: 'I understand how you could feel that way. '
+    SpriteRange: 2
+  - speaker: You
+    line: I really do.
+    SpriteRange: 2
+  - speaker: You
+    line: "But that doesn\u2019t justify what you did. You need to move on\u2026"
+    SpriteRange: 2
+  - speaker: Kuchisake-Onna
+    line: "How\u2026How do I move on?"
+    SpriteRange: 4
+  - speaker: You
+    line: 'By letting go. Letting go of all that anger and pain and hate. '
+    SpriteRange: 4
+  - speaker: You
+    line: Trusting. Even if it's a little bit.
+    SpriteRange: 4
+  - speaker: Kuchisake-Onna
+    line: "...I-I can\u2019t."
+    SpriteRange: 4
+  - speaker: You
+    line: You can. You can start by trusting me.
+    SpriteRange: 4
+  - speaker: Kuchisake-Onna
+    line: Then answer me truthfully.
+    SpriteRange: 5
+  - speaker: Kuchisake-Onna
+    line: "Do you think I\u2019m pretty?"
+    SpriteRange: 6
+  buttons:
+  - ButtonText: Yes
+    Attraction: 7
+  - ButtonText: No
+    Attraction: 6

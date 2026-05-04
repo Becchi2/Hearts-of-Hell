@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947c76105d7454747a8fc8874cd8bff8, type: 3}
+  m_Name: Sm nar night yes
+  m_EditorClassIdentifier: Assembly-CSharp::NarrationLines
+  lines:
+  - She walks over and gives me a kiss on the cheek.
+  - Her body begins to fade.
+  - Small wisps fly off from her. Her entire demeanor becomes more peaceful.
+  - The last wisps of her essence vanish with the wind.
+  - Rising into the sky till I can no longer see them.
+  line: Rising into the sky till I could no longer see them.

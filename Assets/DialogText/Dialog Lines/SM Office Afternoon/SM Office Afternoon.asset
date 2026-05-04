@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
+  m_Name: SM Office Afternoon
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
+  lines:
+  - speaker: Supervisor
+    line: Yo, word around the block is that you seem to be taking on Ms Slitmouth
+      herself.
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: You got anything to say for yourself newbie?
+    SpriteRange: 0
+  - speaker: You
+    line: "I accepted the contract cause I didn\u2019t think much of it. "
+    SpriteRange: 0
+  - speaker: You
+    line: But she got away.
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: "Don\u2019t beat yourself up about it. She is a tricky one to deal with. "
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: 'Even experienced exorcists struggle with taking her down. '
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: But Rember...
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: She's a killer. You need to get rid of er somehow or we'll have a lot more
+      lives to worry about
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: "Anyways I got my own stuff to deal with so I\u2019ll catch you later."
+    SpriteRange: 0
+  buttons: []

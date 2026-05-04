@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
+  m_Name: SM night yes 1
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
+  lines:
+  - speaker: You
+    line: You're beautiful.
+    SpriteRange: 10
+  - speaker: Kuchisake-Onna
+    line: I've never met someone like you.
+    SpriteRange: 10
+  - speaker: Kuchisake-Onna
+    line: Thank you...
+    SpriteRange: 10
+  - speaker: You
+    line: It's part of the job.
+    SpriteRange: 10
+  - speaker: You
+    line: Take this as a token of my appreciation. Until we meet again.
+    SpriteRange: 10
+  buttons: []

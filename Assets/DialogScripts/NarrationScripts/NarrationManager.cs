@@ -68,7 +68,7 @@ public class NarrationManager : MonoBehaviour
 
             return;
         }
-
+        StopAllCoroutines(); // Stop any ongoing typing coroutine
         StartCoroutine(TypeOut()); // Start the coroutine to type out the text
     }
 

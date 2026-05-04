@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
+  m_Name: SM Afternoon yes
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
+  lines:
+  - speaker: Yes
+    line: 'You got me. I was following you. '
+    SpriteRange: 6
+  - speaker: You
+    line: "Gotta make sure you don\u2019t go out killing anyone else."
+    SpriteRange: 6
+  - speaker: Kuchisake-Onna
+    line: Oh? Do you truly believe I would do such without cause?
+    SpriteRange: 6
+  - speaker: YOu
+    line: "I mean\u2026I wouldn\u2019t really put it past you."
+    SpriteRange: 5
+  - speaker: Kuchisake-Onna
+    line: 'My my. You have quite the mouth on you to be saying such a thing. '
+    SpriteRange: 4
+  - speaker: Kuchisake-Onna
+    line: However, I commend your honesty.
+    SpriteRange: 6
+  buttons: []

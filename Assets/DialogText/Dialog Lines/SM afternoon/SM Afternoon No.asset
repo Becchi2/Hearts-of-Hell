@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
+  m_Name: SM Afternoon No
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
+  lines:
+  - speaker: You
+    line: What, are you talking about? I just needed a place to throw away some trash.
+    SpriteRange: 4
+  - speaker: Kuchisake-Onna
+    line: "Is that so\u2026"
+    SpriteRange: 4
+  - speaker: Kuchisake-Onna
+    line: then it must be an odd coincidence for us to meet here.
+    SpriteRange: 4
+  - speaker: You
+    line: 'Yeah, rather odd if you ask me. What are you even doing here? '
+    SpriteRange: 5
+  - speaker: You
+    line: "It\u2019s not often you see a spirit out and about at this time."
+    SpriteRange: 5
+  - speaker: You
+    line: Especially not one with a reputation such as yours.
+    SpriteRange: 5
+  - speaker: Kuchisake-Onna
+    line: I figured I would be rather popular amongst your little community.
+    SpriteRange: 3
+  - speaker: Kuchisake-Onna
+    line: 'To answer your question I simply happened upon this little place and saw
+      you there. '
+    SpriteRange: 5
+  - speaker: Kuchisake-Onna
+    line: Unfotunately, you piqued my interst.
+    SpriteRange: 5
+  - speaker: You
+    line: So you followed me here.
+    SpriteRange: 5
+  - speaker: Kuchisake-Onna
+    line: I suppose you could say that.
+    SpriteRange: 6
+  buttons: []

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
+  m_Name: SM Morning Meh 1
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
+  lines:
+  - speaker: You
+    line: "Oh uhm, I\u2019m sorry if that sounded a bit harsh-"
+    SpriteRange: 6
+  - speaker: ???
+    line: 'No no no. By no means am I offended. '
+    SpriteRange: 6
+  - speaker: ???
+    line: "Matter of fact I\u2019m rather impressed. "
+    SpriteRange: 8
+  - speaker: ???
+    line: "I\u2019ve never received an answer quite like that before."
+    SpriteRange: 5
+  - speaker: ???
+    line: I was just surprised.
+    SpriteRange: 5
+  - speaker: ???
+    line: "Oh\u2026alright then."
+    SpriteRange: 5
+  buttons: []

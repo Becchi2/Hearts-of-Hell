@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
+  m_Name: SM Office night
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
+  lines:
+  - speaker: Supervisor
+    line: "Hey! How\u2019s my favorite newbie doing?"
+    SpriteRange: 0
+  - speaker: You
+    line: "I\u2019m doing alright? I just wanted to ask something."
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: Shoot.
+    SpriteRange: 0
+  - speaker: YOu
+    line: How much do you know about Kuchisake-Onna?
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: ...
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: "She\u2019s a bit of a tricky one I won\u2019t lie. "
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: 'The most I can tell you is that she''s an urban legend who died a long
+      time ago in feudal Japan. '
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: "That\u2019s all I can say for certain though. Why?"
+    SpriteRange: 0
+  - speaker: You
+    line: "Well\u2026"
+    SpriteRange: 0
+  - speaker: You
+    line: "I spoke to her not too long ago and she said she\u2019s \u2018taken back
+      to a long time ago.\u2019 "
+    SpriteRange: 0
+  - speaker: You
+    line: So I kinda agreed to help her out.
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: Uh huh, look at you taking my advice. I really am a good teacher.
+    SpriteRange: 0
+  - speaker: You
+    line: Yeah yeah whatever. But is that all you know?
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: Weeellll I did hear that she had a partner way back when she was still
+      alive who did something to her.
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: "But that\u2019s all I got. "
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: "Even then I ain\u2019t too sure about how valid that claim is."
+    SpriteRange: 0
+  - speaker: You
+    line: "It\u2019s fine, it should be good enough. Thanks"
+    SpriteRange: 0
+  - speaker: Supervisor
+    line: Alrighty then. Stay safe newbie.
+    SpriteRange: 0
+  buttons: []

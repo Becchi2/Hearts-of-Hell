@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
+  m_Name: SM Afternoon talk to you
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
+  lines:
+  - speaker: You
+    line: "I don\u2019t know about you but I\u2019m just here to talk."
+    SpriteRange: 5
+  - speaker: Kuchisake-Onna
+    line: 'Oh is that why you were so adamant on meeting me? '
+    SpriteRange: 5
+  - speaker: Kuchisake-Onna
+    line: 'Did I leave that much of an impression? '
+    SpriteRange: 8
+  - speaker: Kuchisake-Onna
+    line: I will say though, I am rather flattered that I have a spot in your mind.
+    SpriteRange: 6
+  - speaker: You
+    line: 'What could you possibly gain from all this killing? '
+    SpriteRange: 5
+  - speaker: You
+    line: You seem pretty different from the other spirits i've encountered.
+    SpriteRange: 5
+  buttons: []

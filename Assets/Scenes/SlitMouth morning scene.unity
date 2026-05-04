@@ -1265,7 +1265,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Narrator
   name: SlitMouthNarration
   lines:
-  - {fileID: 11400000, guid: 5acc915d5813ab54b9efe85c176dcc7d, type: 2}
+  - {fileID: 11400000, guid: 31c3abcabff36bd46a4e4e09aca51bd6, type: 2}
+  - {fileID: 11400000, guid: bba3d8606a7bde449b1a62fe31727f4b, type: 2}
+  - {fileID: 11400000, guid: d80259470c898ad468349b05a294c39a, type: 2}
+  - {fileID: 11400000, guid: e9c9c87cb4cd9b348a89fd2e12bf31ad, type: 2}
+  - {fileID: 11400000, guid: f20995f6877b22a4284123a5347f2b07, type: 2}
+  - {fileID: 11400000, guid: 780f604964031614da1cfea5b1ea1a2d, type: 2}
+  - {fileID: 11400000, guid: 65cb885a941edd84ea3d657baeb1eaec, type: 2}
+  - {fileID: 11400000, guid: d579bcc69ce5ddf488a02148bc516e16, type: 2}
+  - {fileID: 11400000, guid: 14cdf91a978a86e418768152fcd934ce, type: 2}
+  - {fileID: 11400000, guid: fec91eef869aa734d89eadb7a36243ab, type: 2}
+  - {fileID: 11400000, guid: 417e18089af0943458c2ac7f5c239c62, type: 2}
+  - {fileID: 11400000, guid: bfcfb9206c279c34fb3ce338372f5c30, type: 2}
+  - {fileID: 11400000, guid: bfcfb9206c279c34fb3ce338372f5c30, type: 2}
 --- !u!114 &1353203298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1279,8 +1291,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Actor
   lines:
-  - {fileID: 11400000, guid: dc68cd20b2d63cf4db7dc30e0466a66c, type: 2}
-  - {fileID: 11400000, guid: 9f0acfda42bb1694197741450121f301, type: 2}
+  - {fileID: 11400000, guid: d8800afe96d328a4a98ba703189387fb, type: 2}
+  - {fileID: 11400000, guid: ece0dedbf9f79264d8e330d13b615c7c, type: 2}
+  - {fileID: 11400000, guid: e025f6bb604a08f4a871a776e7b0a129, type: 2}
+  - {fileID: 11400000, guid: 245c8909d2f12bb469fd503f1ea87706, type: 2}
+  - {fileID: 11400000, guid: d8faec26d51e75141859cdb8e92697ae, type: 2}
+  - {fileID: 11400000, guid: b158afcfe28ac424e8f33ca02552e58d, type: 2}
+  - {fileID: 11400000, guid: bcffef0a3899537458e5b93626189375, type: 2}
+  - {fileID: 11400000, guid: 6d3b01b056517e94f80a197dcd75939e, type: 2}
+  - {fileID: 11400000, guid: 5e7bf1f0ed933cf46aa07f065d9f313e, type: 2}
+  - {fileID: 11400000, guid: 241aaea5396cf684db1e31cb203cb589, type: 2}
+  - {fileID: 11400000, guid: 00e489aa03d42054a9f32e29c5c44ffa, type: 2}
+  - {fileID: 11400000, guid: dde520f999caa9d408bae10b765f5eb1, type: 2}
+  - {fileID: 11400000, guid: f7ca970040a2b2a4ba31726a75f7a4db, type: 2}
 --- !u!1 &1368964190
 GameObject:
   m_ObjectHideFlags: 0

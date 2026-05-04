@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
+  m_Name: SM Morning 2
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
+  lines:
+  - speaker: You
+    line: "Well word around the street is that there\u2019s been a series of incidents
+      happening around here. "
+    SpriteRange: 5
+  - speaker: You
+    line: So best be careful.
+    SpriteRange: 5
+  - speaker: ???
+    line: "Oh that\u2019s no worry to me. "
+    SpriteRange: 5
+  - speaker: ???
+    line: "I\u2019m rather capable of defending myself. "
+    SpriteRange: 4
+  - speaker: ???
+    line: "However, I must ask why you\u2019re here by yourself at this time."
+    SpriteRange: 5
+  - speaker: You
+    line: "I\u2019m uhhh... heading to work. I just like to take a longer route to
+      pass the time."
+    SpriteRange: 5
+  - speaker: ???
+    line: My work at this hour? You sure are committed.
+    SpriteRange: 6
+  - speaker: You
+    line: Thanks..
+    SpriteRange: 6
+  buttons: []
