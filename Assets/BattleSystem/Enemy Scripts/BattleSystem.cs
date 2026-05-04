@@ -91,6 +91,21 @@ public class BattleSystem : MonoBehaviour
             textMeshPro.SetText(playerUnit.unitName + " takes damage from reflection!");
             yield return new WaitForSeconds(1f);
         }
+        else if (playerUnit.attackBuffTurns > 0)
+        {  
+            enemyUnit.currentHP -= playerUnit.damage;
+            enemyHUD.SetHP(enemyUnit.currentHP);
+            textMeshPro.SetText(playerUnit.unitName + " attacks with a buff!");
+            playerUnit.attackBuffTurns -= 1;
+
+            if (playerUnit.attackBuffTurns <= 0)
+            {
+                playerUnit.damage -= playerUnit.attackBuffValue;
+                playerUnit.attackBuff = 0;
+                textMeshPro.SetText(playerUnit.unitName + "'s attack buff wears off!");
+            }
+            yield return new WaitForSeconds(1f);
+        }
         else
         {
             enemyUnit.currentHP -= playerUnit.damage;
@@ -273,7 +288,7 @@ public class BattleSystem : MonoBehaviour
         playerHUD.SetMP(playerUnit.currentMP);
 
         playerUnit.attackBuff += playerUnit.attackBuffValue;
-        playerUnit.attackBuffTurns = 1;
+        playerUnit.attackBuffTurns = 2;
         playerUnit.damage += playerUnit.attackBuffValue;
 
         textMeshPro.SetText(playerUnit.unitName + " uses a Power Up!");
@@ -300,7 +315,7 @@ public class BattleSystem : MonoBehaviour
             playerUnit.defenseDuration = 1;
         }
 
-        textMeshPro.SetText(playerUnit.unitName + " uses a Defense Up!");
+        textMeshPro.SetText(playerUnit.unitName + " prepares to defend!");
         yield return new WaitForSeconds(1f);
         turnState = TurnState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
