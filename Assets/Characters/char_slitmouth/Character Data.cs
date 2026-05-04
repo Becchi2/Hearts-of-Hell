@@ -78,5 +78,10 @@ public class CharacterData : MonoBehaviour
 
         }
     }
+
+    public void ChangeAttraction(int num)
+    {
+        Attraction = num;
+    }
 }
  

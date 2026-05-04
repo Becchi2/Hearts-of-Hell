@@ -37,6 +37,7 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
         index = 0;
         // show the dialog UI and clear previous buttons
         DialogParent.SetActive(true);
+
         DialogParent.GetComponent<Animator>().Play("DialogBoxAppear");//makes the dialog box appear with an animation
         foreach (Transform child in ContinueButtonContainer)
         {
@@ -143,6 +144,7 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
         RefAttraction.Attraction = dialog.ButtonAttraction(num);
 
         //makes button trigger a response when clicked
+        buttonObj.GetComponent<Button>().onClick.AddListener(() => RefAttraction.ChangeAttraction(dialog.ButtonAttraction(num)));
         buttonObj.GetComponent<Button>().onClick.AddListener(() => HideButton(buttonObj));
         buttonObj.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(HideDialog()));
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.Jobs;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,22 +29,19 @@ public class SceneDirectorScriptMorning : MonoBehaviour
 
         actor.Say(0);
         yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
-
+        Debug.Log(RefAttraction.Attraction);
         if (RefAttraction.Attraction == 1)
         {
             actor.Say(1);
             yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
 
         }
-        else
+        else if(RefAttraction.Attraction == 5)
         {
             narrator.Narrate(0);
             yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
         }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            narrator.Narrate(0);
-        }
+
     }
         
         
