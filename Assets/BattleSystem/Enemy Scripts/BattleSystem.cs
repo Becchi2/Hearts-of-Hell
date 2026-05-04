@@ -399,11 +399,13 @@ public class BattleSystem : MonoBehaviour
         if (victoryState == VictoryState.WON)
         {
             textMeshPro.SetText("You won the battle!");
+            SceneManager.LoadScene(9);
 
         }
         else if (victoryState == VictoryState.LOST)
         {
             textMeshPro.SetText("You lost the battle!");
+            SceneManager.LoadScene(1);
 
         }
     }
