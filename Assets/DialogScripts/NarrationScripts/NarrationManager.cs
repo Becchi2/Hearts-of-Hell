@@ -98,6 +98,8 @@ public class NarrationManager : MonoBehaviour
         index = 0;
     }
 
+
+
     //types out the text letter by letter
     IEnumerator TypeOut()
     {

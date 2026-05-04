@@ -8,6 +8,7 @@ public class Dialog : ScriptableObject // where the dialog lines are stored and 
 {
     CharacterData refAttraction;
     public List<DialogLine> lines = new List<DialogLine>(); // list where the speaker and lines of dialog can be defined
+    public List<DialogResponseButton> buttons = new List<DialogResponseButton>();//list of possible responses
     string speaker;
     string dialogText;
     public string SetSpeaker(int num) //gets the speaker of a line
@@ -25,6 +26,19 @@ public class Dialog : ScriptableObject // where the dialog lines are stored and 
     {
         return lines.Count;
     }
+
+    public string ButtonText(int num)
+    {
+        return buttons[num].ButtonText;
+
+
+    }
+    public int ButtonAttraction(int num)
+    {
+        return buttons[num].Attraction;
+    }
+
+ 
 
     public void setSprite(int num) // sets the sprite of the character for a line of dialog
     {

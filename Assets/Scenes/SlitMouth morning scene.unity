@@ -1236,8 +1236,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneDirectorScript
   narrator: {fileID: 1353203297}
   actor: {fileID: 1353203298}
-  ResponseButtonContainer: {fileID: 1368964191}
-  ResponseButtonPrefab: {fileID: 3139868799126147602, guid: 3bb9244d52754554caf15b4fd174d7be, type: 3}
 --- !u!4 &1353203296
 Transform:
   m_ObjectHideFlags: 0
@@ -1661,6 +1659,9 @@ MonoBehaviour:
   SpeakerText: {fileID: 2028882973}
   ContinueButtonPrefab: {fileID: 3139868799126147602, guid: e4a73849291286d4e9d6750e5b10457a, type: 3}
   ContinueButtonContainer: {fileID: 2076720150}
+  ResponseButtonContainer: {fileID: 1368964191}
+  ResponseButtonPrefab: {fileID: 3139868799126147602, guid: 3bb9244d52754554caf15b4fd174d7be, type: 3}
+  RefAttraction: {fileID: 0}
   dialog: {fileID: 0}
 --- !u!95 &2049740621
 Animator:

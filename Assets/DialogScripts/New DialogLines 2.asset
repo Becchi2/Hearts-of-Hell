@@ -10,19 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
-  m_Name: New DialogLines 1
-  m_EditorClassIdentifier: Assembly-CSharp::DialogLines
+  m_Name: New DialogLines 2
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
   lines:
-  - speaker: sakjnask
-    line: ksajfnka
+  - speaker: 
+    line: 
     SpriteRange: 0
-  - speaker: ljsankf
-    line: lajsf
+  - speaker: 
+    line: 
     SpriteRange: 0
-  - speaker: slkfn
-    line: alksjnfla
+  - speaker: 
+    line: 
     SpriteRange: 0
-  - speaker: alksnf
-    line: alsnflanfl
+  - speaker: 
+    line: 
     SpriteRange: 0
-  buttons: []
+  buttons:
+  - ButtonText: 
+    Attraction: 0
+  - ButtonText: 
+    Attraction: 0

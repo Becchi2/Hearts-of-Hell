@@ -12,6 +12,9 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
     public TextMeshProUGUI SpeakerText;//where the speaker's name goes
     public GameObject ContinueButtonPrefab; // Prefab for continue button
     public Transform ContinueButtonContainer; //container which holds buttons
+    public Transform ResponseButtonContainer; // Container for response buttons
+    public GameObject ResponseButtonPrefab; // Prefab for response buttons
+    public CharacterData RefAttraction;
     public Dialog dialog;// contains dialog lines
     int index;//keeps track of which line you are on
 
@@ -75,10 +78,22 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
 
     public void NextDialog()// goes to the next line of dialog
     {
+
+
         if (index < dialog.DialogAmmount() - 1)
         {
             index++;
             ShowDialog();
+            if (index == dialog.DialogAmmount() - 1)
+            {
+                int index2 = -1;
+                foreach (DialogResponseButton button in dialog.buttons)
+                {
+                    
+                    index2++;
+                    CreateButton(index2);
+                }
+            }
         }
         else
         {
@@ -98,7 +113,7 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
 
     }
 
-    
+
     public IEnumerator HideDialog()//hides the dialog UI
     {
         DialogParent.GetComponent<Animator>().Play("DialogBoxDisapear",0,0f);//makes the dialog box disappear with an animation
@@ -111,6 +126,34 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
         }
         if (DialogText != null) DialogText.text = string.Empty;
         index = 0;
+
+    }
+
+    public void CreateButton(int num)//creates response buttons with the text and changes the attraction points 
+    {
+        //gets rid of continue button for dialog box
+        foreach (Transform child in ContinueButtonContainer)
+        {
+            Destroy(child.gameObject);
+        }
+        //creates button
+        GameObject buttonObj = Instantiate(ResponseButtonPrefab, ResponseButtonContainer);
+        buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = dialog.ButtonText(num);
+        RefAttraction = FindObjectOfType<CharacterData>();
+        RefAttraction.Attraction = dialog.ButtonAttraction(num);
+
+        //makes button trigger a response when clicked
+        buttonObj.GetComponent<Button>().onClick.AddListener(() => HideButton(buttonObj));
+        buttonObj.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(HideDialog()));
+
+    }
+    public void HideButton(GameObject buttonObj)//hides the button after it is clicked
+    {
+        // Hides the button after it is clicked
+        foreach (Transform child in ResponseButtonContainer)
+        {
+            Destroy(child.gameObject);
+        }
 
     }
 

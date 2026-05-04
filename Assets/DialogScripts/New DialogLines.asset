@@ -22,3 +22,8 @@ MonoBehaviour:
   - speaker: hksajfk
     line: why did u call me that :(
     SpriteRange: 2
+  buttons:
+  - ButtonText: jkjk
+    Attraction: 1
+  - ButtonText: koko
+    Attraction: 1
