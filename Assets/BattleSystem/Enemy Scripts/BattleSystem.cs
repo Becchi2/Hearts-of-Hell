@@ -90,6 +90,7 @@ public class BattleSystem : MonoBehaviour
             textMeshPro.SetText(playerUnit.unitName + " takes damage from reflection!");
             playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
             playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
+            playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);
             yield return new WaitForSeconds(1f);
         }
         else if (playerUnit.attackBuffTurns > 0)
@@ -99,6 +100,7 @@ public class BattleSystem : MonoBehaviour
             textMeshPro.SetText(playerUnit.unitName + " attacks with a buff!");
             enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");//plays attack animation on the enemy hud
             enemyPrefab.GetComponent<Animator>().Play("enemy attacked");//plays attack animation on the enemy prefab
+            enemyPrefab.GetComponent<AudioSource>().PlayOneShot(enemyPrefab.GetComponent<AudioSource>().clip);//plays sound when attacking
             playerUnit.attackBuffTurns -= 1;
 
             if (playerUnit.attackBuffTurns <= 0)
@@ -116,6 +118,7 @@ public class BattleSystem : MonoBehaviour
             textMeshPro.SetText(playerUnit.unitName + " attacks!");
             enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");//plays attack animation on the enemy hud
             enemyPrefab.GetComponent<Animator>().Play("enemy attacked");//plays attack animation on the enemy prefab
+            enemyPrefab.GetComponent<AudioSource>().PlayOneShot(enemyPrefab.GetComponent<AudioSource>().clip);//plays sound when attacking
             yield return new WaitForSeconds(1f);
         }
         bool isDead = enemyUnit.currentHP <= 0;
@@ -139,6 +142,7 @@ public class BattleSystem : MonoBehaviour
                 playerUnit.currentHP -= 5;
                 playerHUD.SetHP(playerUnit.currentHP);
                 textMeshPro.SetText(playerUnit.unitName + " takes damage from bleeding!");
+                playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);//plays sound when taking damage
             }
             playerUnit.bleeding -= 1;
             if (playerUnit.bleeding < 0)
@@ -173,6 +177,7 @@ public class BattleSystem : MonoBehaviour
             enemyPrefab.GetComponent<Animator>().Play("enemy attack");//plays attack animation on the enemy prefab
             playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
             playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
+            playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);//plays sound when attacking
 
             playerUnit.bleeding += 3;
             if (playerUnit.bleeding > 3)
@@ -190,6 +195,7 @@ public class BattleSystem : MonoBehaviour
                 playerUnit.defenseDuration -= 1;
                 textMeshPro.SetText(playerUnit.unitName + " blocks the attack!");
                 playerPrefab.GetComponent<Animator>().Play("Player Blocked");
+                playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);
                 yield return new WaitForSeconds(1f);
             }
             else
@@ -200,6 +206,7 @@ public class BattleSystem : MonoBehaviour
                 textMeshPro.SetText(enemyUnit.unitName + " uses Slash!");
                 enemyPrefab.GetComponent<Animator>().Play("enemy attack");//plays attack animation on the enemy prefab
                 playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
+                playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);//plays sound when attacking
                 yield return new WaitForSeconds(1f);
             }
         }
@@ -213,6 +220,7 @@ public class BattleSystem : MonoBehaviour
             }
             textMeshPro.SetText(enemyUnit.unitName + " uses Reflect!");
             enemyPrefab.GetComponent<Animator>().Play("enemy reflect");
+            playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);//plays sound when attacking
             yield return new WaitForSeconds(1f);
         }
 
@@ -249,6 +257,7 @@ public class BattleSystem : MonoBehaviour
             playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
             playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
             textMeshPro.SetText(playerUnit.unitName + " takes damage from reflection!");
+            playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);
             yield return new WaitForSeconds(1f);
         }
         else
@@ -260,6 +269,7 @@ public class BattleSystem : MonoBehaviour
             enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");//plays attack animation on the enemy hud
             enemyPrefab.GetComponent<Animator>().Play("enemy attacked");//plays attack animation on the enemy prefab
             textMeshPro.SetText(playerUnit.unitName + " uses a magical ability!");
+            enemyPrefab.GetComponent<AudioSource>().PlayOneShot(enemyPrefab.GetComponent<AudioSource>().clip);
             yield return new WaitForSeconds(1f);
         }
         bool isDead = enemyUnit.currentHP <= 0;
@@ -283,6 +293,7 @@ public class BattleSystem : MonoBehaviour
                 playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
                 playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
                 textMeshPro.SetText(playerUnit.unitName + " takes damage from bleeding!");
+                playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);
             }
             playerUnit.bleeding -= 1;
             if (playerUnit.bleeding < 0)
