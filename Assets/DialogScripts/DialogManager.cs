@@ -109,8 +109,10 @@ public class DialogManager : MonoBehaviour // makes dialog appear on the screen 
         foreach (char letter in dialog.SetDialogText(index).ToCharArray())
         {
             DialogText.text += letter;
+            DialogParent.GetComponent<AudioSource>().PlayOneShot(DialogParent.GetComponent<AudioSource>().clip);//plays sound
             yield return new WaitForSeconds(0.02f);
         }
+
 
     }
 

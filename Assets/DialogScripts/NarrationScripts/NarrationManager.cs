@@ -108,6 +108,7 @@ public class NarrationManager : MonoBehaviour
         {
             textComponent.text += letter;
             yield return new WaitForSeconds(0.03f);
+            NarrationDialogParent.GetComponent<AudioSource>().PlayOneShot(NarrationDialogParent.GetComponent<AudioSource>().clip);//plays sound
         }
     }
 
