@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
+
 public enum TurnState { PLAYERTURN, ENEMYTURN }//checks if it is the players turn or the enemies turn
 public enum VictoryState { WON, LOST}//checks if the player won, lost, or drew the battle
 public enum StatusState { ACTIVE, INACTIVE }//checks if the status is active or inactive
