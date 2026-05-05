@@ -62,7 +62,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
             narrator.Narrate(7);
             yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
             //start nbattle scene
-
+            SceneManager.LoadScene(10);
         }
         else if(RefAttraction.Attraction == 7)
         {
