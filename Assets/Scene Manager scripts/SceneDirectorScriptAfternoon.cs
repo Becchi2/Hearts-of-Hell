@@ -61,16 +61,19 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
                     actor.Say(7);
                     yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
                     //enter battle sequence
+                    SceneManager.LoadScene(10);
                 }
                 else if (RefAttraction.Attraction == 6)//say mehh
                 {
                     actor.Say(8);
                     yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+                    SceneManager.LoadScene(6);
                 }
                 else if (RefAttraction.Attraction == 9)//say yes
                 {
                     actor.Say(9);
                     yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+                    SceneManager.LoadScene(6);
                 }
 
 
@@ -89,6 +92,7 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
                 actor.Say(3);
                 yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
                 //start battle
+                SceneManager.LoadScene(10);
             }
             else if (RefAttraction.Attraction == 5)
             {
