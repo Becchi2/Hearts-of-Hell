@@ -17,6 +17,10 @@ public class BattleSystem : MonoBehaviour
     public GameObject playerPrefab; // spawns the player prefab in the battle scene
     public GameObject enemyPrefab; // spawns the enemy prefab in the battle scene
     public TextMeshProUGUI textMeshPro;
+    public GameObject reflectIconPrefab;
+    public GameObject bleedIconPrefab;
+    public GameObject defendIconPrefab;
+    public GameObject buffIconPrefab;
 
     public Transform playerBattleStation; //where the player prefab will be spawned in the battle scene
     public Transform enemyBattleStation; //where the enemy prefab will be spawned in the battle scene
@@ -44,6 +48,7 @@ public class BattleSystem : MonoBehaviour
     //start the battle
     public IEnumerator Battle()
     {
+        
         //spawn character prefabs
         GameObject playerGo = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = playerGo.GetComponent<Unit>();
@@ -53,7 +58,7 @@ public class BattleSystem : MonoBehaviour
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
         yield return new WaitForSeconds(1f);
-
+        playerUnit.bleeding = 0;
         //start the player's turn
         turnState = TurnState.PLAYERTURN;
         PlayerTurn();
@@ -108,6 +113,7 @@ public class BattleSystem : MonoBehaviour
                 playerUnit.damage -= playerUnit.attackBuffValue;
                 playerUnit.attackBuff = 0;
                 textMeshPro.SetText(playerUnit.unitName + "'s attack buff wears off!");
+                buffIconPrefab.SetActive(false);
             }
             yield return new WaitForSeconds(1f);
         }
@@ -144,10 +150,19 @@ public class BattleSystem : MonoBehaviour
                 textMeshPro.SetText(playerUnit.unitName + " takes damage from bleeding!");
                 playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);//plays sound when taking damage
             }
+
+            if(enemyUnit.reflect <= 0)
+            {
+                reflectIconPrefab.SetActive(false);
+            }
+          
             playerUnit.bleeding -= 1;
             if (playerUnit.bleeding < 0)
             {
+                bleedIconPrefab.GetComponent<Animator>().Play("BleedIconDisappear");//plays bleed icon animation
                 playerUnit.bleeding = 0;
+                bleedIconPrefab.SetActive(false);
+
             }
              yield return new WaitForSeconds(1f);
             //enemy turn
@@ -167,6 +182,7 @@ public class BattleSystem : MonoBehaviour
     {
         HideButtons();
         textMeshPro.SetText(enemyUnit.unitName + " attacks!");
+        defendIconPrefab.SetActive(false);
         //enemy performs attack
         EnemyAttacks attack = (EnemyAttacks)Random.Range(0, System.Enum.GetValues(typeof(EnemyAttacks)).Length);
         //enemy stabs player and causes bleeding
@@ -178,13 +194,16 @@ public class BattleSystem : MonoBehaviour
             playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
             playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
             playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);//plays sound when attacking
+            bleedIconPrefab.SetActive(true);
+            bleedIconPrefab.GetComponent<Animator>().Play("BleedIconAppear");//plays bleed icon animation
 
             playerUnit.bleeding += 3;
             if (playerUnit.bleeding > 3)
             {               
-                playerUnit.bleeding = 3; 
+                playerUnit.bleeding = 3;
+                
             }
-                textMeshPro.SetText(playerUnit.unitName + " is bleeding now bleeding");
+                textMeshPro.SetText(playerUnit.unitName + " is bleeding");
         
         }
         //enemy slashes player and causes damage
@@ -221,6 +240,7 @@ public class BattleSystem : MonoBehaviour
             textMeshPro.SetText(enemyUnit.unitName + " uses Reflect!");
             enemyPrefab.GetComponent<Animator>().Play("enemy reflect");
             playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);//plays sound when attacking
+            reflectIconPrefab.SetActive(true);
             yield return new WaitForSeconds(1f);
         }
 
@@ -324,10 +344,12 @@ public class BattleSystem : MonoBehaviour
         playerUnit.damage += playerUnit.attackBuffValue;
 
         textMeshPro.SetText(playerUnit.unitName + " uses a Power Up!");
+        buffIconPrefab.SetActive(true);
         yield return new WaitForSeconds(1f);
 
         turnState = TurnState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
+        
     }
 
     IEnumerator PlayerDefend()
@@ -348,6 +370,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         textMeshPro.SetText(playerUnit.unitName + " prepares to defend!");
+        defendIconPrefab.SetActive(true);
         yield return new WaitForSeconds(1f);
         turnState = TurnState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
