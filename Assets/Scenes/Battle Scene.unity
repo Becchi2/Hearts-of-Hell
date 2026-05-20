@@ -5183,7 +5183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6634347776372914740, guid: 5260a0ea51f5b284b99ee6445de76c0e, type: 3}
       propertyPath: defenseDuration
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7700003505896667576, guid: 5260a0ea51f5b284b99ee6445de76c0e, type: 3}
       propertyPath: m_LocalScale.x
