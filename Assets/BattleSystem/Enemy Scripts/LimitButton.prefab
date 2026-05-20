@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 1508344642543775656}
   - component: {fileID: 244966299468012228}
   m_Layer: 0
-  m_Name: Attack
+  m_Name: Limit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

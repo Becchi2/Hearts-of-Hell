@@ -16,8 +16,9 @@ public class Unit : MonoBehaviour
     public int currentMP;
     public int mpCost;
 
-    public int maxLimit;
-    public int limit;
+    public int blockDuration;
+    public int block;
+    public int healthPotion;
 
     public int attackBuff;
 
