@@ -66,20 +66,22 @@ public class BattleSystem : MonoBehaviour
 
     }
 
-        IEnumerator PlayerTalk()
-    {
-        return null;
-    }
-
     //wait for the player to choose an action
     void PlayerTurn()
     {
         textMeshPro.SetText("choose action");
         ShowButtons();
         
-
     }
+    IEnumerator PlayerBlock()
+    {
+        playerUnit.blockDuration = 1;
+        textMeshPro.SetText(playerUnit.unitName + " is blocking!");
+        yield return new WaitForSeconds(1.5f);
 
+        turnState = TurnState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
     IEnumerator PlayerAttack()
     {
 
@@ -88,7 +90,7 @@ public class BattleSystem : MonoBehaviour
         {
             enemyUnit.reflect -= 1;
             textMeshPro.SetText(enemyUnit.unitName + " reflects the attack!");
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
             playerUnit.currentHP -= playerUnit.damage;
             playerHUD.SetHP(playerUnit.currentHP);
 
@@ -96,7 +98,7 @@ public class BattleSystem : MonoBehaviour
             playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
             playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
             playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
         }
         else if (playerUnit.attackBuffTurns > 0)
         {  
@@ -115,7 +117,7 @@ public class BattleSystem : MonoBehaviour
                 textMeshPro.SetText(playerUnit.unitName + "'s attack buff wears off!");
                 buffIconPrefab.SetActive(false);
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
         }
         else //damages the enemy normally if there is no reflection or attack buff
         {
@@ -125,12 +127,11 @@ public class BattleSystem : MonoBehaviour
             enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");//plays attack animation on the enemy hud
             enemyPrefab.GetComponent<Animator>().Play("enemy attacked");//plays attack animation on the enemy prefab
             enemyPrefab.GetComponent<AudioSource>().PlayOneShot(enemyPrefab.GetComponent<AudioSource>().clip);//plays sound when attacking
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
         }
         bool isDead = enemyUnit.currentHP <= 0;
 
         yield return new WaitForSeconds(1f);
-
         //check if enemy is dead
         if (isDead)
         {
@@ -212,10 +213,21 @@ public class BattleSystem : MonoBehaviour
             if (playerUnit.defenseDuration > 0)
             {
                 playerUnit.defenseDuration -= 1;
+                playerUnit.currentHP -= enemyUnit.damage / 2;
+                playerHUD.SetHP(playerUnit.currentHP); 
+                textMeshPro.SetText(playerUnit.unitName + " takes reduced damage!");
+                playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
+                playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
+                playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);
+                yield return new WaitForSeconds(1.5f);
+            }
+            else if (playerUnit.blockDuration > 0)
+            {
+                playerUnit.blockDuration -= 1;
                 textMeshPro.SetText(playerUnit.unitName + " blocks the attack!");
                 playerPrefab.GetComponent<Animator>().Play("Player Blocked");
                 playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.5f);
             }
             else
             {
@@ -226,7 +238,7 @@ public class BattleSystem : MonoBehaviour
                 enemyPrefab.GetComponent<Animator>().Play("enemy attack");//plays attack animation on the enemy prefab
                 playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
                 playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);//plays sound when attacking
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.5f);
             }
         }
         //enemy reflects the next attack
@@ -241,7 +253,7 @@ public class BattleSystem : MonoBehaviour
             enemyPrefab.GetComponent<Animator>().Play("enemy reflect");
             playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);//plays sound when attacking
             reflectIconPrefab.SetActive(true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
         }
 
         bool isDead = playerUnit.currentHP <= 0;
@@ -278,7 +290,7 @@ public class BattleSystem : MonoBehaviour
             playerPrefab.GetComponent<Animator>().Play("Player attacked"); //plays attack animation on the player prefab
             textMeshPro.SetText(playerUnit.unitName + " takes damage from reflection!");
             playerPrefab.GetComponent<AudioSource>().PlayOneShot(playerPrefab.GetComponent<AudioSource>().clip);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
         }
         else
         {
@@ -290,7 +302,7 @@ public class BattleSystem : MonoBehaviour
             enemyPrefab.GetComponent<Animator>().Play("enemy attacked");//plays attack animation on the enemy prefab
             textMeshPro.SetText(playerUnit.unitName + " uses a magical ability!");
             enemyPrefab.GetComponent<AudioSource>().PlayOneShot(enemyPrefab.GetComponent<AudioSource>().clip);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
         }
         bool isDead = enemyUnit.currentHP <= 0;
 
@@ -320,7 +332,7 @@ public class BattleSystem : MonoBehaviour
             {
                 playerUnit.bleeding = 0;
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
             //enemy turn
             turnState = TurnState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
@@ -345,7 +357,7 @@ public class BattleSystem : MonoBehaviour
 
         textMeshPro.SetText(playerUnit.unitName + " uses a Power Up!");
         buffIconPrefab.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         turnState = TurnState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
@@ -362,7 +374,7 @@ public class BattleSystem : MonoBehaviour
         playerUnit.currentMP -= playerUnit.mpCost;
         playerHUD.SetMP(playerUnit.currentMP);
 
-        playerUnit.defenseDuration += 1;
+        playerUnit.defenseDuration += 2;
 
         if (playerUnit.defenseDuration > 1)
         {
@@ -371,11 +383,29 @@ public class BattleSystem : MonoBehaviour
 
         textMeshPro.SetText(playerUnit.unitName + " prepares to defend!");
         defendIconPrefab.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        turnState = TurnState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
+    IEnumerator PlayerHeal()
+    {
+        if (playerUnit.healthPotion <= 0)
+        {
+            textMeshPro.SetText("Not enough potions");
+            yield break;
+        }
+        playerUnit.healthPotion -= 1;
+        playerUnit.currentHP += 25;
+        if (playerUnit.currentHP > playerUnit.maxHP)
+        {
+            playerUnit.currentHP = playerUnit.maxHP;
+        }
+        playerHUD.SetHP(playerUnit.currentHP);
+        textMeshPro.SetText(playerUnit.unitName + " uses a health potion!");
         yield return new WaitForSeconds(1f);
         turnState = TurnState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
     }
-
     //Performs attack when clicked
     public void OnAttackButton()
     {
@@ -397,7 +427,7 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerAbility());
     }
 
-    public void OnBuffButton()
+      public void OnBuffButton()
     {
         if(turnState != TurnState.PLAYERTURN)
             return;
@@ -422,11 +452,23 @@ public class BattleSystem : MonoBehaviour
         } 
         StartCoroutine(PlayerDefend());
     }
-    public void OnTalkButton()
+    public void OnBlockButton()
     {         if(turnState != TurnState.PLAYERTURN)
             return;
         
-        StartCoroutine(PlayerTalk());
+        StartCoroutine(PlayerBlock());
+    }
+
+    public void OnhealButton()
+    {
+        if (turnState != TurnState.PLAYERTURN)
+            return;
+        if (playerUnit.healthPotion < 0)
+        {
+            textMeshPro.SetText("Not enough potions");
+            return;
+        }
+        StartCoroutine(PlayerHeal());
     }
 
     //ends the battle
