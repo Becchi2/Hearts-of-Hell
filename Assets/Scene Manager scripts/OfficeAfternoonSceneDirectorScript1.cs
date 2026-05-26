@@ -12,7 +12,7 @@ public class OfficeAfternoonSceneDirectorScript : MonoBehaviour
     //public Actor Demon;
     public Narrator narrator;
     public Actor actor;
-
+    public GameObject transition;
 
     public void Start()
     {
@@ -21,12 +21,15 @@ public class OfficeAfternoonSceneDirectorScript : MonoBehaviour
 
     public IEnumerator StartTalking()
     {
+        transition.GetComponent<Animator>().Play("intro scene transition");
         narrator.Narrate(0);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());//wait for narration to finish
         actor.Say(0);
         yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());//wait for dialog to finish
         narrator.Narrate(1);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());//wait for narration to finish
+        transition.GetComponent<Animator>().Play("outro transition");
+        yield return new WaitForSeconds(0.5f);
         //load afternoon scene
         SceneManager.LoadScene(5);
     }

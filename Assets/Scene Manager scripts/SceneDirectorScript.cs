@@ -12,7 +12,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
     //public Actor Demon;
     public Narrator narrator;
     public Actor actor;
-
+    public GameObject transition;
     CharacterData RefAttraction;// gets the AttractionPoints from CharacterData file and DialogResponse file
     BattleSystem RefBattleSystem; // reference to the battle system script to get the win or lose state of a battle
 
@@ -82,8 +82,11 @@ public class SceneDirectorScriptMorning : MonoBehaviour
             yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
             narrator.Narrate(11);
             yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+            transition.GetComponent<Animator>().Play("outro transition");
+            yield return new WaitForSeconds(0.5f);
             //load office scene
             SceneManager.LoadScene(4);
+
 
         }
         else if (RefAttraction.Attraction == 4)

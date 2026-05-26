@@ -241,6 +241,11 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &50371511 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2737485102658348250, guid: 35495fdb9bda54b41bfd7306fc40c784, type: 3}
+  m_PrefabInstance: {fileID: 9020333751272103277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &115483040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,6 +1825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneDirectorScript
   narrator: {fileID: 1353203297}
   actor: {fileID: 1353203298}
+  transition: {fileID: 50371511}
 --- !u!4 &1353203296
 Transform:
   m_ObjectHideFlags: 0
