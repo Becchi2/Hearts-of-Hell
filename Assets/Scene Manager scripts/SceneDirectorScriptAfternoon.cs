@@ -4,6 +4,7 @@ using Unity.Jobs;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 using static UnityEngine.Audio.ProcessorInstance;
 
@@ -13,6 +14,7 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
     public Narrator narrator;
     public Actor actor;
     public GameObject transition;
+    public GameObject character;
 
     CharacterData RefAttraction;// gets the AttractionPoints from CharacterData file and DialogResponse file
     BattleSystem RefBattleSystem; // reference to the battle system script to get the win or lose state of a battle
@@ -27,9 +29,14 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
 
     public IEnumerator StartTalking()
     {
+        character.SetActive(false);
         transition.GetComponent<Animator>().Play("intro scene transition");
         narrator.Narrate(0);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
+        character.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        character.GetComponent<Animator>().Play("Character apear");
+        yield return new WaitForSeconds(0.5f);
         actor.Say(0);
         yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
         if (RefAttraction.Attraction == 4)//say no

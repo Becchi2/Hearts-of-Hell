@@ -1585,6 +1585,7 @@ MonoBehaviour:
   narrator: {fileID: 1353203297}
   actor: {fileID: 1353203298}
   transition: {fileID: 2106502904}
+  character: {fileID: 1340536682}
 --- !u!1 &1368964190
 GameObject:
   m_ObjectHideFlags: 0

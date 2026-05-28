@@ -1826,6 +1826,7 @@ MonoBehaviour:
   narrator: {fileID: 1353203297}
   actor: {fileID: 1353203298}
   transition: {fileID: 50371511}
+  character: {fileID: 1340536682}
 --- !u!4 &1353203296
 Transform:
   m_ObjectHideFlags: 0
@@ -2616,6 +2617,10 @@ PrefabInstance:
     - target: {fileID: 2737485102658348250, guid: 35495fdb9bda54b41bfd7306fc40c784, type: 3}
       propertyPath: m_Name
       value: transition panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737485102658348250, guid: 35495fdb9bda54b41bfd7306fc40c784, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8770526634044092655, guid: 35495fdb9bda54b41bfd7306fc40c784, type: 3}
       propertyPath: m_Pivot.x
