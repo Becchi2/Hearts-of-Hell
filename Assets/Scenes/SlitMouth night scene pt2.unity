@@ -1549,10 +1549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Narrator
   name: SlitMouthNarration
   lines:
-  - {fileID: 11400000, guid: 451a323e443f453438d8526d8d493e01, type: 2}
-  - {fileID: 11400000, guid: 575b90cf2dce3344081fe3a35489097f, type: 2}
-  - {fileID: 11400000, guid: 7d3ff5912b33b5e47bee20bb115e563c, type: 2}
-  - {fileID: 11400000, guid: 00ffb8faf73b1a44c91638bf99e829a3, type: 2}
+  - {fileID: 11400000, guid: e56d1787f33570b44853348b01471e0b, type: 2}
 --- !u!114 &1353203298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1566,10 +1563,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Actor
   lines:
-  - {fileID: 11400000, guid: 65bbf0a9a9911464baf5a299c67c78a2, type: 2}
-  - {fileID: 11400000, guid: f4b4d188baeee65408a55ee76720c6c7, type: 2}
-  - {fileID: 11400000, guid: 9c1cf210e6561c34699557ede9e7e1a9, type: 2}
-  - {fileID: 11400000, guid: ac2f94538d0e51242a4fe9ecd5fb7f80, type: 2}
+  - {fileID: 11400000, guid: 650ce49baea70f149b1cf2bd435cfc08, type: 2}
+  - {fileID: 11400000, guid: 35213f5395b76dc428d254ed0f14e211, type: 2}
+  - {fileID: 11400000, guid: fe3e7d9e2806d434c86b51d7f1d147b8, type: 2}
 --- !u!114 &1353203299
 MonoBehaviour:
   m_ObjectHideFlags: 0

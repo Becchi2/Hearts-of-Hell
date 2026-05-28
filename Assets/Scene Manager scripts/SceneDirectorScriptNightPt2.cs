@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEngine.Audio.ProcessorInstance;
 
-public class SceneDirectorScriptNight : MonoBehaviour
+public class SceneDirectorScriptNightPt2 : MonoBehaviour
 {
     //public Actor Demon;
     public Narrator narrator;
@@ -31,21 +31,25 @@ public class SceneDirectorScriptNight : MonoBehaviour
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
         actor.Say(0);
         yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
-        narrator.Narrate(1);
-        yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
-        actor.Say(1);
+        
         yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
-        narrator.Narrate(2);
-        yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
-        actor.Say(2);
-        yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
-        narrator.Narrate(3);
-        yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
-        actor.Say(3);
-        yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
-        transition.GetComponent<Animator>().Play("outro transition");
-        yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(11);
+        if (RefAttraction.Attraction == 7)//say yes
+        {
+            actor.Say(1);
+            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+            transition.GetComponent<Animator>().Play("outro transition");
+            yield return new WaitForSeconds(0.5f);
+            //load good end scene
+            SceneManager.LoadScene(12);
+        }
+        else if(RefAttraction.Attraction == 6)//say no
+        {
+            actor.Say(2);
+            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+            //start battle
+            SceneManager.LoadScene(10);
+        }
+        
 
     }
         

@@ -972,7 +972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Narrator
   name: SlitMouthNarration
   lines:
-  - {fileID: 11400000, guid: 88577dd2009b9be4e81b76b09dc5bf14, type: 2}
+  - {fileID: 11400000, guid: 6871205afc69ee84cba7a5f3b6a8ea5a, type: 2}
 --- !u!114 &1353203299
 MonoBehaviour:
   m_ObjectHideFlags: 0

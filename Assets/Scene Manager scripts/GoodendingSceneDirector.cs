@@ -20,6 +20,6 @@ public class GoodEndingSceneDirector : MonoBehaviour
         narrator.Narrate(0);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());//wait for narration to finish
         transition.GetComponent<Animator>().Play("outro transition");
-
+        SceneManager.LoadScene(8);
     }
 }

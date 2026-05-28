@@ -27,7 +27,7 @@ public class BackstorySceneDirector : MonoBehaviour
         cutsceneStills.GetComponent<Animator>().Play("Backstory 2");
         transition.GetComponent<Animator>().Play("intro scene transition");
         yield return new WaitForSeconds(0.5f);
-        narrator.Narrate(0);
+        narrator.Narrate(1);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());//wait for narration to finish
         transition.GetComponent<Animator>().Play("outro transition");
         yield return new WaitForSeconds(0.5f);
@@ -35,7 +35,7 @@ public class BackstorySceneDirector : MonoBehaviour
         cutsceneStills.GetComponent<Animator>().Play("Backstory 3");
         transition.GetComponent<Animator>().Play("intro scene transition");
         yield return new WaitForSeconds(0.5f);
-        narrator.Narrate(0);
+        narrator.Narrate(2);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());//wait for narration to finish
         transition.GetComponent<Animator>().Play("outro transition");
         yield return new WaitForSeconds(0.5f);
@@ -43,9 +43,10 @@ public class BackstorySceneDirector : MonoBehaviour
         cutsceneStills.GetComponent<Animator>().Play("Backstory 4");
         transition.GetComponent<Animator>().Play("intro scene transition");
         yield return new WaitForSeconds(0.5f);
-        narrator.Narrate(0);
+        narrator.Narrate(3);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());//wait for narration to finish
         transition.GetComponent<Animator>().Play("outro transition");
         yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(14);
     }
 }
