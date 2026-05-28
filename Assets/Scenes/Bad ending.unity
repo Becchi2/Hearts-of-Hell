@@ -844,7 +844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353203296}
   - component: {fileID: 1353203297}
-  - component: {fileID: 1353203299}
+  - component: {fileID: 1353203298}
   m_Layer: 0
   m_Name: SceneDirector
   m_TagString: Untagged
@@ -881,8 +881,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Narrator
   name: SlitMouthNarration
   lines:
-  - {fileID: 11400000, guid: 88577dd2009b9be4e81b76b09dc5bf14, type: 2}
---- !u!114 &1353203299
+  - {fileID: 11400000, guid: 0069dac77ac325b48a86e1968bc43c9b, type: 2}
+--- !u!114 &1353203298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -891,9 +891,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1353203294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3a65f8f197702948b6a31f36d809385, type: 3}
+  m_Script: {fileID: 11500000, guid: c155523391360b5409661cb5a3b23b38, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GoodEndingSceneDirector
+  m_EditorClassIdentifier: Assembly-CSharp::BadendingSceneDirector
   narrator: {fileID: 1353203297}
   transition: {fileID: 447125780}
 --- !u!1 &1512222036
@@ -1267,7 +1267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2737485102658348250, guid: 35495fdb9bda54b41bfd7306fc40c784, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8770526634044092655, guid: 35495fdb9bda54b41bfd7306fc40c784, type: 3}
       propertyPath: m_Pivot.x
