@@ -1510,9 +1510,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1353203296}
+  - component: {fileID: 1353203299}
   - component: {fileID: 1353203298}
   - component: {fileID: 1353203297}
-  - component: {fileID: 1353203299}
   m_Layer: 0
   m_Name: SceneDirector
   m_TagString: Untagged
@@ -1550,7 +1550,6 @@ MonoBehaviour:
   name: SlitMouthNarration
   lines:
   - {fileID: 11400000, guid: e56d1787f33570b44853348b01471e0b, type: 2}
-  - {fileID: 0}
 --- !u!114 &1353203298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,7 +1566,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 650ce49baea70f149b1cf2bd435cfc08, type: 2}
   - {fileID: 11400000, guid: 35213f5395b76dc428d254ed0f14e211, type: 2}
   - {fileID: 11400000, guid: fe3e7d9e2806d434c86b51d7f1d147b8, type: 2}
-  - {fileID: 0}
 --- !u!114 &1353203299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1577,9 +1575,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1353203294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19370a484c6bfe345b1eb55ae0f100bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 6eaeaaca723419b48a28acc1bac0cffe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneDirectorScriptNightPt2
+  m_EditorClassIdentifier: Assembly-CSharp::SceneDirectorScriptNight
   narrator: {fileID: 1353203297}
   actor: {fileID: 1353203298}
   transition: {fileID: 2106502904}
