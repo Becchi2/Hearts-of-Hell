@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947c76105d7454747a8fc8874cd8bff8, type: 3}
+  m_Name: Bad end
+  m_EditorClassIdentifier: Assembly-CSharp::NarrationLines
+  lines:
+  - She drops her swords, panting heavily as her head hangs low.
+  - "\u201C...*pant*...*pant*...Damn you\u2026You and your words\u2026"
+  - "You and your lies\u2026"
+  - "I hope that when your time comes, you rot in hell\u2026"
+  - "I will never forgive the likes of you\u2026"
+  - "not ever.\u201D"
+  - 'I look at her. '
+  - Her figure trembles slightly, as though she is trying to hold back her tears.
+  - She eventually fades away.
+  - Mission accomplished.
+  - "But it doesn\u2019t feel like that."
+  line: "But it doesn\u2019t feel like that."

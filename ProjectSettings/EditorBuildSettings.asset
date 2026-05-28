@@ -38,6 +38,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle Scene.unity
     guid: e5d7fcc8f850922408cae3af573c163c
+  - enabled: 1
+    path: Assets/Scenes/Backstory.unity
+    guid: 3d584ec25d5ab21409ed0f8affc24b7c
+  - enabled: 1
+    path: Assets/Scenes/Good ending.unity
+    guid: 00db95d4bcdc5fb4eb78542c46f823f2
+  - enabled: 1
+    path: Assets/Scenes/Bad ending.unity
+    guid: 680297d4e01854640add4085b1aa4bb4
+  - enabled: 1
+    path: Assets/Scenes/SlitMouth night scene pt2.unity
+    guid: 683b43e8431de4d498b7f3d59bfd1615
   - enabled: 0
     path: Assets/Scenes/SlitMouth Afternoon scene.unity
     guid: de159e0b553cbd1408e7a68b92712016

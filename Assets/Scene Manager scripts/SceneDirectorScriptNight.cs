@@ -43,28 +43,9 @@ public class SceneDirectorScriptNight : MonoBehaviour
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
         actor.Say(3);
         yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
-        narrator.Narrate(4);
-        yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
-        actor.Say(4);
-        yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
-        if (RefAttraction.Attraction == 7)//say yes
-        {
-            actor.Say(5);
-            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
-            narrator.Narrate(5);
-            yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
-            transition.GetComponent<Animator>().Play("outro transition");
-            yield return new WaitForSeconds(0.5f);
-            //load end scene
-            SceneManager.LoadScene(8);
-        }
-        else if(RefAttraction.Attraction == 6)//say no
-        {
-            actor.Say(6);
-            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
-            //start battle
-            SceneManager.LoadScene(10);
-        }
+        transition.GetComponent<Animator>().Play("outro transition");
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(11);
 
     }
         

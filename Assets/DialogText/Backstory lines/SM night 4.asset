@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916a287e7d4abf448f52361f3e8cb1c, type: 3}
+  m_Name: SM night 4
+  m_EditorClassIdentifier: Assembly-CSharp::Dialog
+  lines:
+  - speaker: Kuchisake-Onna
+    line: "Yes\u2026Yes I remember now. "
+    SpriteRange: 8
+  - speaker: Kuchisake-Onna
+    line: 'My husband, Genji. '
+    SpriteRange: 8
+  - speaker: Kuchisake-Onna
+    line: 'My sweet, precious Genji. He was the one whom I cherished the most. '
+    SpriteRange: 6
+  - speaker: Kuchisake-Onna
+    line: The one who loved me with all his heart.
+    SpriteRange: 6
+  - speaker: Kuchisake-Onna
+    line: 'He was kind, charming, and above all else, he was honourable. His words
+      would soothe every sense of doubt that I had. '
+    SpriteRange: 6
+  - speaker: Kuchisake-Onna
+    line: His words would soothe every sense of doubt that I had.
+    SpriteRange: 6
+  - speaker: Kuchisake-Onna
+    line: "It was as though we were made for each other\u2026"
+    SpriteRange: 6
+  - speaker: You
+    line: What happened?
+    SpriteRange: 6
+  - speaker: Kuchisake-Onna
+    line: "He had found\u2026"
+    SpriteRange: 3
+  - speaker: Kuchisake-Onna
+    line: Another.
+    SpriteRange: 2
+  - speaker: Kuchisake-Onna
+    line: And would sneak off to be with that wretched woman behind my back.
+    SpriteRange: 4
+  - speaker: Kuchisake-Onna
+    line: When I caught him, all I could feel was hatred.
+    SpriteRange: 3
+  - speaker: Kuchisake-Onna
+    line: I tried pulling the woman off of him and she attacked me.
+    SpriteRange: 3
+  - speaker: Kuchisake-Onna
+    line: She beat me till I bled...
+    SpriteRange: 3
+  - speaker: Kuchisake-Onna
+    line: but when I fought back...
+    SpriteRange: 3
+  - speaker: Kuchisake-Onna
+    line: He defended her.
+    SpriteRange: 2
+  - speaker: Kuchisake-Onna
+    line: He drew his blade and struck me, leaving my face disfigured.
+    SpriteRange: 2
+  - speaker: Kuchisake-Onna
+    line: "The last thing he said to me\u2026 "
+    SpriteRange: 2
+  - speaker: Kuchisake-Onna
+    line: "\u2018Let\u2019s see who finds you beautiful now.\u2019"
+    SpriteRange: 2
+  - speaker: You
+    line: I...
+    SpriteRange: 2
+  - speaker: Kuchisake-Onna
+    line: "Those words\u2026those words made me realize that our love was nothing
+      but make believe. "
+    SpriteRange: 3
+  - speaker: Kuchisake-Onna
+    line: "Our love was nothing but lies! I wanted to believe he hadn\u2019t meant
+      it."
+    SpriteRange: 3
+  - speaker: Kuchisake-Onna
+    line: "But when he walked away\u2026that was the one truth he had ever told me."
+    SpriteRange: 3
+  buttons: []
