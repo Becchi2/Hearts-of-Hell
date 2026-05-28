@@ -298,6 +298,7 @@ public class BattleSystem : MonoBehaviour
             enemyHUD.SetHP(enemyUnit.currentHP);
             playerUnit.currentMP -= playerUnit.mpCost;
             playerHUD.SetMP(playerUnit.currentMP);
+            playerHUD.GetComponent<Animator>().Play("mp used");
             enemyHUD.GetComponent<Animator>().Play("Enemy Hud attacked");//plays attack animation on the enemy hud
             enemyPrefab.GetComponent<Animator>().Play("enemy attacked");//plays attack animation on the enemy prefab
             textMeshPro.SetText(playerUnit.unitName + " uses a magical ability!");
@@ -356,6 +357,7 @@ public class BattleSystem : MonoBehaviour
         playerUnit.damage += playerUnit.attackBuffValue;
 
         textMeshPro.SetText(playerUnit.unitName + " uses a Power Up!");
+        playerHUD.GetComponent<Animator>().Play("mp used");
         buffIconPrefab.SetActive(true);
         yield return new WaitForSeconds(1.5f);
 
@@ -382,6 +384,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         textMeshPro.SetText(playerUnit.unitName + " prepares to defend!");
+        playerHUD.GetComponent<Animator>().Play("mp used");
         defendIconPrefab.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         turnState = TurnState.ENEMYTURN;
@@ -400,6 +403,7 @@ public class BattleSystem : MonoBehaviour
         {
             playerUnit.currentHP = playerUnit.maxHP;
         }
+        playerHUD.GetComponent<Animator>().Play("player heal"); //plays heal animation on the player hud
         playerHUD.SetHP(playerUnit.currentHP);
         textMeshPro.SetText(playerUnit.unitName + " uses a health potion!");
         yield return new WaitForSeconds(1f);
@@ -477,7 +481,7 @@ public class BattleSystem : MonoBehaviour
         if (victoryState == VictoryState.WON)
         {
             textMeshPro.SetText("You won the battle!");
-            SceneManager.LoadScene(9);
+            SceneManager.LoadScene(13);
 
         }
         else if (victoryState == VictoryState.LOST)
