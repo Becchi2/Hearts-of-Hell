@@ -22,6 +22,8 @@ public class BattleSystem : MonoBehaviour
     public GameObject defendIconPrefab;
     public GameObject buffIconPrefab;
 
+    public TextMeshProUGUI healthPotionText; // reference to the TextMeshProUGUI component for displaying health potion count
+
     public Transform playerBattleStation; //where the player prefab will be spawned in the battle scene
     public Transform enemyBattleStation; //where the enemy prefab will be spawned in the battle scene
     public Transform buttonContainer; //where the buttons will be spawned in the battle scene
@@ -64,6 +66,7 @@ public class BattleSystem : MonoBehaviour
         enemyHUD.SetHUD(enemyUnit);
         yield return new WaitForSeconds(1f);
         playerUnit.bleeding = 0;
+        healthPotionText.SetText("Heal " + playerUnit.healthPotion);
         //start the player's turn
         turnState = TurnState.PLAYERTURN;
         PlayerTurn();
@@ -77,12 +80,47 @@ public class BattleSystem : MonoBehaviour
     //wait for the player to choose an action
     void PlayerTurn()
     {
-        textMeshPro.SetText("choose action");
+        playerUnit.defenseDuration -= 1;
+        if (playerUnit.defenseDuration < 0)
+        {
+            playerUnit.defenseDuration = 0;
+            playerUnit.block = 5;
+            defendIconPrefab.SetActive(false);
+        }
+        playerUnit.blockDuration -= 1;
+        if (playerUnit.blockDuration < 0)
+        {
+            playerUnit.blockDuration = 0;
+        }
+
+        playerUnit.attackBuffTurns -= 1;
+        if (playerUnit.attackBuffTurns < 0)
+        {
+            playerUnit.attackBuffTurns = 0;
+        }
+        if (playerUnit.attackBuffTurns > 0)
+        {
+            textMeshPro.SetText(playerUnit.unitName + " is empowered!");
+        }
+        else
+            {
+                textMeshPro.SetText(playerUnit.unitName + "'s attack buff wears off!");
+                buffIconPrefab.SetActive(false);
+            }
+     
+            textMeshPro.SetText("choose action");
         ShowButtons();
         
     }
     IEnumerator PlayerBlock()
-    {
+    {if (playerUnit.defenseDuration > 0)
+        {
+            playerUnit.defenseDuration -= 1;
+            playerUnit.block += 5;
+            textMeshPro.SetText(playerUnit.unitName + " boosts their block!");
+            defendIconPrefab.SetActive(true);
+            yield return new WaitForSeconds(1.5f);
+        }
         playerUnit.blockDuration = 1;
         textMeshPro.SetText(playerUnit.unitName + " is blocking!");
         yield return new WaitForSeconds(1.5f);
@@ -199,6 +237,12 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         HideButtons();
+        enemyUnit.reflect -= 1;
+        if (enemyUnit.reflect < 0)
+            {
+            enemyUnit.reflect = 0;
+            reflectIconPrefab.SetActive(false);
+            }
         textMeshPro.SetText(enemyUnit.unitName + " attacks!");
         defendIconPrefab.SetActive(false);
         //enemy performs attack
@@ -227,10 +271,10 @@ public class BattleSystem : MonoBehaviour
         //enemy slashes player and causes damage
         else if (attack == EnemyAttacks.Slash)
         {
-            if (playerUnit.defenseDuration > 0)
+            if (playerUnit.blockDuration > 0)
             {
-                playerUnit.defenseDuration -= 1;
-                playerUnit.currentHP -= enemyUnit.damage / 2;
+                playerUnit.blockDuration -= 1;
+                playerUnit.currentHP -= enemyUnit.damage -= playerUnit.block;
                 playerHUD.SetHP(playerUnit.currentHP); 
                 textMeshPro.SetText(playerUnit.unitName + " takes reduced damage!");
                 playerHUD.GetComponent<Animator>().Play("Player bars attacked"); //plays attack animation on the player hud
@@ -294,6 +338,15 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAbility()
     {
+        if (playerUnit.currentMP < playerUnit.mpCost)
+        {
+            textMeshPro.SetText("Not enough MP!");
+            yield return new WaitForSeconds(1.5f);
+            textMeshPro.SetText("choose action");
+            ShowButtons();
+            
+            yield break;
+        }
         if (enemyUnit.reflect > 0)
         {
             enemyUnit.reflect -= 1;
@@ -372,6 +425,11 @@ public class BattleSystem : MonoBehaviour
         if (playerUnit.currentMP < playerUnit.mpCost)
         {
             textMeshPro.SetText("Not enough MP!");
+            yield return new WaitForSeconds(1.5f);
+
+            textMeshPro.SetText("choose action");
+            ShowButtons();
+            
             yield break;
         }
 
@@ -397,19 +455,23 @@ public class BattleSystem : MonoBehaviour
         if (playerUnit.currentMP < playerUnit.mpCost)
         {
             textMeshPro.SetText("Not enough MP!");
-            yield break;
+            yield return new WaitForSeconds(1.5f);
+
+            textMeshPro.SetText("choose action");
+            ShowButtons();
         }
         playerUnit.currentMP -= playerUnit.mpCost;
         playerHUD.SetMP(playerUnit.currentMP);
 
         playerUnit.defenseDuration += 2;
+        playerUnit.block += 5;
 
-        if (playerUnit.defenseDuration > 1)
+        if (playerUnit.defenseDuration > 2)
         {
-            playerUnit.defenseDuration = 1;
+            playerUnit.defenseDuration = 2;
         }
 
-        textMeshPro.SetText(playerUnit.unitName + " prepares to defend!");
+        textMeshPro.SetText(playerUnit.unitName + " boosts their block!");
         playerHUD.GetComponent<Animator>().Play("mp used");
         defendIconPrefab.SetActive(true);
         yield return new WaitForSeconds(1.5f);
@@ -421,9 +483,19 @@ public class BattleSystem : MonoBehaviour
         if (playerUnit.healthPotion <= 0)
         {
             textMeshPro.SetText("Not enough potions");
+            yield return new WaitForSeconds(1.5f);
+
+            textMeshPro.SetText("choose action");
+            ShowButtons();
+            
             yield break;
         }
         playerUnit.healthPotion -= 1;
+        if (playerUnit.healthPotion < 0)
+        {
+            playerUnit.healthPotion = 0;
+        }
+        healthPotionText.SetText("Heal " + playerUnit.healthPotion);
         playerUnit.currentHP += 25;
         if (playerUnit.currentHP > playerUnit.maxHP)
         {
@@ -449,24 +521,13 @@ public class BattleSystem : MonoBehaviour
         if(turnState != TurnState.PLAYERTURN)
             return;
 
-        if(playerUnit.currentMP < playerUnit.mpCost)
-        {
-            textMeshPro.SetText("Not enough MP!");
-            return;
-        } 
         StartCoroutine(PlayerAbility());
     }
 
-      public void OnBuffButton()
+    public void OnBuffButton()
     {
-        if(turnState != TurnState.PLAYERTURN)
+        if (turnState != TurnState.PLAYERTURN)
             return;
-
-        if(playerUnit.currentMP < playerUnit.buffMPCost)
-        {
-            textMeshPro.SetText("Not enough MP!");
-            return;
-        } 
 
         StartCoroutine(PlayerBuff());
     }
@@ -475,15 +536,12 @@ public class BattleSystem : MonoBehaviour
     {
         if(turnState != TurnState.PLAYERTURN)
             return;
-        if(playerUnit.currentMP < playerUnit.mpCost)
-        {
-            textMeshPro.SetText("Not enough MP!");
-            return;
-        } 
+
         StartCoroutine(PlayerDefend());
     }
     public void OnBlockButton()
-    {         if(turnState != TurnState.PLAYERTURN)
+    {        
+        if(turnState != TurnState.PLAYERTURN)
             return;
         
         StartCoroutine(PlayerBlock());
@@ -493,11 +551,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (turnState != TurnState.PLAYERTURN)
             return;
-        if (playerUnit.healthPotion < 0)
-        {
-            textMeshPro.SetText("Not enough potions");
-            return;
-        }
+
         StartCoroutine(PlayerHeal());
     }
 
