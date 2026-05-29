@@ -29,6 +29,11 @@ public class BattleSystem : MonoBehaviour
     public GameObject AbilityButtonPrefab; // prefab for the buttons to be spawned in the battle scene
     public Transform abilityCuttonContainer;//where ability buttons go
 
+    // Spare button + scene settings (assign in Inspector)
+    public GameObject spareButton;
+    public int spareSceneBuildIndex = -1; // set >= 0 to use build index
+    public string spareSceneName = "";    // or set a scene name
+
     Unit playerUnit;// reference to the Unit script attached to the player prefab
     Unit enemyUnit;// reference to the Unit script attached to the enemy prefab
 
@@ -64,6 +69,9 @@ public class BattleSystem : MonoBehaviour
         PlayerTurn();
         ShowButtons();
 
+        // ensure spare button is hidden at start
+        if (spareButton != null)
+            spareButton.SetActive(false);
     }
 
     //wait for the player to choose an action
@@ -130,6 +138,15 @@ public class BattleSystem : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
         }
         bool isDead = enemyUnit.currentHP <= 0;
+
+        // Show spare button if enemy low but not dead
+        if (spareButton != null)
+        {
+            if (!isDead && enemyUnit.currentHP <= 25)
+                spareButton.SetActive(true);
+            else
+                spareButton.SetActive(false);
+        }
 
         yield return new WaitForSeconds(1f);
         //check if enemy is dead
@@ -309,6 +326,15 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        // Show spare button if enemy low but not dead
+        if (spareButton != null)
+        {
+            if (!isDead && enemyUnit.currentHP <= 25)
+                spareButton.SetActive(true);
+            else
+                spareButton.SetActive(false);
+        }
+
         //check if enemy is dead
         if (isDead)
         {
@@ -475,6 +501,25 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerHeal());
     }
 
+    public void OnSpareButton()
+    {
+        // Ensure action only on player's turn
+        if (turnState != TurnState.PLAYERTURN)
+            return;
+
+        // only allow if enemy is low but not dead
+        if (enemyUnit != null && enemyUnit.currentHP > 0 && enemyUnit.currentHP <= 25)
+        {
+            textMeshPro.SetText("You spared the enemy!");
+            // load configured scene
+            if (spareSceneBuildIndex >= 0)
+            {
+                SceneManager.LoadScene(15);
+            }
+           
+        }
+    }
+
     //ends the battle
     public void EndBattle()
     {
@@ -520,5 +565,4 @@ public class BattleSystem : MonoBehaviour
             child.gameObject.SetActive(false);
         }
     }
-
 }
