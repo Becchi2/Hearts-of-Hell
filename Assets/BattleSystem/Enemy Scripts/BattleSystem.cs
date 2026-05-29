@@ -514,7 +514,7 @@ public class BattleSystem : MonoBehaviour
             // load configured scene
             if (spareSceneBuildIndex >= 0)
             {
-                SceneManager.LoadScene(15);
+                SceneManager.LoadScene(16);
             }
            
         }

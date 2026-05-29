@@ -14,6 +14,7 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
     public Narrator narrator;
     public Actor actor;
     public GameObject transition;
+    public GameObject transition2;
     public GameObject character;
 
     CharacterData RefAttraction;// gets the AttractionPoints from CharacterData file and DialogResponse file
@@ -29,6 +30,7 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
 
     public IEnumerator StartTalking()
     {
+        transition2.SetActive(false);
         character.SetActive(false);
         transition.GetComponent<Animator>().Play("intro scene transition");
         narrator.Narrate(0);
@@ -52,6 +54,9 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
                 actor.Say(3);
                 yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
                 //start battle
+                transition2.SetActive(true);
+                transition2.GetComponent<Animator>().Play("battle screen transition");
+                yield return new WaitForSeconds(0.5f);
                 SceneManager.LoadScene(10);
             }
             else if (RefAttraction.Attraction == 5)
@@ -71,6 +76,9 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
                     actor.Say(7);
                     yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
                     //enter battle sequence
+                    transition2.SetActive(true);
+                    transition2.GetComponent<Animator>().Play("battle screen transition");
+                    yield return new WaitForSeconds(0.5f);
                     SceneManager.LoadScene(10);
                     
                 }
@@ -108,6 +116,9 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
                 actor.Say(3);
                 yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
                 //start battle
+                transition2.SetActive(true);
+                transition2.GetComponent<Animator>().Play("battle screen transition");
+                yield return new WaitForSeconds(0.5f);
                 SceneManager.LoadScene(10);
 
             }
@@ -128,6 +139,9 @@ public class SceneDirectorScriptAfternoon : MonoBehaviour
                     actor.Say(7);
                     yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
                     //enter battle sequence
+                    transition2.SetActive(true);
+                    transition2.GetComponent<Animator>().Play("battle screen transition");
+                    yield return new WaitForSeconds(0.5f);
                     SceneManager.LoadScene(10);
                 }
                 else if (RefAttraction.Attraction == 6)//say mehh

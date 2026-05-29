@@ -53,6 +53,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test Scene.unity
     guid: ab3a332233fd9d64daa692f182e81393
+  - enabled: 1
+    path: Assets/Scenes/SlitMouth spare scene.unity
+    guid: cee38a5aff6bda54aaa90ffdc7b8ee77
   - enabled: 0
     path: Assets/Scenes/SlitMouth Afternoon scene.unity
     guid: de159e0b553cbd1408e7a68b92712016

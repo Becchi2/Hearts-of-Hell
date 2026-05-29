@@ -13,6 +13,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
     public Narrator narrator;
     public Actor actor;
     public GameObject transition;
+    public GameObject transition2;
     public GameObject character;
     CharacterData RefAttraction;// gets the AttractionPoints from CharacterData file and DialogResponse file
     BattleSystem RefBattleSystem; // reference to the battle system script to get the win or lose state of a battle
@@ -28,6 +29,7 @@ public class SceneDirectorScriptMorning : MonoBehaviour
     public IEnumerator StartTalking()
     {
         character.SetActive(false);
+        transition2.SetActive(false);
         transition.GetComponent<Animator>().Play("intro scene transition");
         narrator.Narrate(0);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
@@ -69,6 +71,9 @@ public class SceneDirectorScriptMorning : MonoBehaviour
             narrator.Narrate(7);
             yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
             //start nbattle scene
+            transition2.SetActive(true);
+            transition2.GetComponent<Animator>().Play("battle screen transition");
+            yield return new WaitForSeconds(0.5f);
             SceneManager.LoadScene(10);
         }
         else if(RefAttraction.Attraction == 7)
@@ -103,6 +108,9 @@ public class SceneDirectorScriptMorning : MonoBehaviour
             narrator.Narrate(7);
             yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
             //start battle scene
+            transition2.SetActive(true);
+            transition2.GetComponent<Animator>().Play("battle screen transition");
+            yield return new WaitForSeconds(0.5f);
             SceneManager.LoadScene(10);
         }
 

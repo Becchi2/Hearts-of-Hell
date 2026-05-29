@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947c76105d7454747a8fc8874cd8bff8, type: 3}
+  m_Name: spare narration
+  m_EditorClassIdentifier: Assembly-CSharp::NarrationLines
+  lines:
+  - She walks away into the mist.
+  - The mist finally disappears as the sun rises, and with it, her.
+  - 'I stand there confused, wondering what the hell just happened. '
+  - "There\u2019s no time to think about that."
+  - I head back to the office.
+  line: 

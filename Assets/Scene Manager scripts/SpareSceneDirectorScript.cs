@@ -7,13 +7,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEngine.Audio.ProcessorInstance;
 
-public class SceneDirectorScriptNightPt2 : MonoBehaviour
+public class SpareSceneDirectorScriptMorning : MonoBehaviour
 {
     //public Actor Demon;
     public Narrator narrator;
     public Actor actor;
     public GameObject transition;
-    public GameObject transition2;
     CharacterData RefAttraction;// gets the AttractionPoints from CharacterData file and DialogResponse file
     BattleSystem RefBattleSystem; // reference to the battle system script to get the win or lose state of a battle
 
@@ -27,40 +26,19 @@ public class SceneDirectorScriptNightPt2 : MonoBehaviour
 
     public IEnumerator StartTalking()
     {
-        transition2.SetActive(false);
         transition.GetComponent<Animator>().Play("intro scene transition");
         narrator.Narrate(0);
         yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
         actor.Say(0);
         yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
-        
-        yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
-        if (RefAttraction.Attraction == 7)//say yes
-        {
-            actor.Say(1);
-            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
+        narrator.Narrate(1);
+        yield return new WaitUntil(() => !NarrationManager.Instance.IsNarrationActive());
             transition.GetComponent<Animator>().Play("outro transition");
             yield return new WaitForSeconds(0.5f);
-            //load good end scene
-            SceneManager.LoadScene(12);
+            //load office scene
+            SceneManager.LoadScene(4);
+
+
         }
-        else if(RefAttraction.Attraction == 6)//say no
-        {
-            actor.Say(2);
-            yield return new WaitUntil(() => !DialogManager.Instance1.IsDialogActive());
-            //start battle
-            transition2.SetActive(true);
-            transition2.GetComponent<Animator>().Play("battle screen transition");
-            yield return new WaitForSeconds(0.5f);
-            SceneManager.LoadScene(10);
-        }
-        
 
     }
-        
-        
-    
-
-
-
-}
